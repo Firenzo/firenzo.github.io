@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_content_blocks_single_media_items",
+  "info": {
+    "displayName": "Single media item",
+    "icon": "television"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

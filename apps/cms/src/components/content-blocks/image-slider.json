@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_blocks_image_sliders",
+  "info": {
+    "displayName": "Image slider",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "imageSliderItems": {
+      "type": "component",
+      "component": "content-blocks.image-slider-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

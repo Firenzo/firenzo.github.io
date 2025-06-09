@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nameInUrl": {
+      "type": "string",
+      "regex": "^[a-z]+(-[a-z]+)*$"
+    },
+    "introText": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "tags": {
+      "type": "customField",
+      "customField": "plugin::array-field.array",
+      "options": {
+        "options": "Front end, Visual design, UX / UI, Motion design"
+      }
+    },
+    "goToProjectButton": {
+      "type": "component",
+      "component": "common.button",
+      "repeatable": false
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content-blocks.single-media-item",
+        "content-blocks.rich-text",
+        "content-blocks.lottie-animation",
+        "content-blocks.image-slider",
+        "content-blocks.dual-media-items",
+        "content-blocks.button",
+        "content-blocks.scrollable-image"
+      ]
+    }
+  }
+}

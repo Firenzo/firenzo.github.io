@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_content_blocks_image_slider_items",
+  "info": {
+    "displayName": "Image slider item",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "additionalInfo": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

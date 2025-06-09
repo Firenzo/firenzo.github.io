@@ -1,0 +1,44 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".",
+    },
+    {
+      "name": "Astro [app]",
+      "path": "apps/astro",
+    },
+    {
+      "name": "CMS [app]",
+      "path": "apps/cms",
+    },
+    {
+      "name": "JSON file field [Strapi plugin]",
+      "path": "packages/json-file-field",
+    },
+    {
+      "name": "Array Field [Strapi plugin]",
+      "path": "packages/array-field",
+    },
+    {
+      "name": "Icon Field [Strapi plugin]",
+      "path": "packages/icon-field",
+    },
+    {
+      "name": "Icon Set [module]",
+      "path": "packages/iconset",
+    },
+    {
+      "name": "UI [module]",
+      "path": "packages/ui",
+    },
+    {
+      "name": "ESLint Config [module]",
+      "path": "packages/eslint-config",
+    },
+    {
+      "name": "TypeScript Config [module]",
+      "path": "packages/typescript-config",
+    },
+  ],
+}

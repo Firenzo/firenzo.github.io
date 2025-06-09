@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_common_link_tiles",
+  "info": {
+    "displayName": "Link Tile",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "displayText": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "regex": "\\b(?:mailto:[\\w.+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}|https?:\\/\\/[^\\s<>\"']+|www\\.[^\\s<>\"']+)\\b"
+    },
+    "icon": {
+      "type": "customField",
+      "customField": "plugin::icon-field.icon",
+      "options": {
+        "addColorSelector": false,
+        "addSizeSelector": false
+      }
+    },
+    "iconPosition": {
+      "type": "enumeration",
+      "default": "Left",
+      "enum": [
+        "Left",
+        "Right"
+      ]
+    }
+  },
+  "config": {}
+}

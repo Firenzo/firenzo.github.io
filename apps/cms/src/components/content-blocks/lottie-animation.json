@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_blocks_lottie_animations",
+  "info": {
+    "displayName": "Lottie animation",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "caption": {
+      "type": "string"
+    },
+    "lottieJSON": {
+      "type": "customField",
+      "customField": "plugin::json-file-field.json-file"
+    },
+    "background": {
+      "type": "enumeration",
+      "default": "Dark",
+      "enum": [
+        "Light",
+        "Dark"
+      ]
+    }
+  },
+  "config": {}
+}

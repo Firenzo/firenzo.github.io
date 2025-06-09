@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "design_skills",
+  "info": {
+    "singularName": "design-skill",
+    "pluralName": "design-skills",
+    "displayName": "Design Skill"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    },
+    "orderIndex": {
+      "type": "integer",
+      "unique": true
+    }
+  }
+}

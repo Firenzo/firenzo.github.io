@@ -1,0 +1,34 @@
+{
+  "name": "@repo/iconset",
+  "version": "1.0.0",
+  "description": "exports iconset for all apps and packages in this repo",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/getIcon.ts",
+      "types": "./dist/getIcon.d.ts"
+    },
+    "./icons.css": "./dist/icons.min.css",
+    "./components": {
+      "import": "./dist/components/index.ts",
+      "types": "./dist/components/index.d.ts"
+    }
+  },
+  "types": "./dist/getIcon.d.ts",
+  "scripts": {
+    "build": "node ./scripts/buildAll.js",
+    "dev": "node ./scripts/watch.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "^19.1.6",
+    "chokidar": "^4.0.3",
+    "fast-glob": "^3.3.3",
+    "react": "^18.3.1",
+    "typescript": "5.8.2"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_content_blocks_dual_media_items",
+  "info": {
+    "displayName": "Dual media items",
+    "icon": "television"
+  },
+  "options": {},
+  "attributes": {
+    "mediaItem": {
+      "type": "component",
+      "component": "content-blocks.single-media-item",
+      "repeatable": true,
+      "min": 1,
+      "max": 2
+    }
+  },
+  "config": {}
+}

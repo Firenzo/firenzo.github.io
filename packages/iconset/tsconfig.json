@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "es2022",
+    "moduleResolution": "bundler"
+  },
+  "include": ["dist/getIcon.ts", "src/components"],
+  "exclude": ["node_modules"]
+}
