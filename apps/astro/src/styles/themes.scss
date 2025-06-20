@@ -1,0 +1,24 @@
+@use "./colors.scss";
+
+//prettier-ignore
+:root {
+  --theme-primary-color: var(--color-purple);
+  --theme-primary-gradient: var(--gradient-purple-2);
+  --theme-on-primary: var(--color-white);
+
+  --theme-text-primary: var(--color-black);
+  --theme-text-lighter: var(--color-grey);
+  --theme-text-on-primary: var(--color-white);
+  --theme-text-on-gradient: var(--color-white);
+
+  --theme-link-color: var(--color-green);
+
+  --theme-interactive-element-background: var(--gradient-purple-1);
+  --theme-interactive-element-background-hover: var(--gradient-purple-1-lighter);
+  --theme-interactive-element-background-dark: var(--gradient-black-1);
+  --theme-interactive-element-background-dark-hover: var(--gradient-black-1-lighter);
+}
+
+.theme-dark {
+  --primary: var(--color-purple);
+}

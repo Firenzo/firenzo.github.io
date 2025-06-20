@@ -1,0 +1,13 @@
+@use "@repo/iconset/icons.scss";
+@use "./accessibility.scss";
+@use "./colors.scss";
+@use "./themes";
+@use "./container.scss";
+@use "./typography.scss";
+@use "./utils.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

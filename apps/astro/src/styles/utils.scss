@@ -1,0 +1,38 @@
+@use "sass:list";
+
+$spacings: (0, 1rem, 2rem, 3rem, 4rem);
+
+@for $i from 1 through list.length($spacings) {
+  $value: list.nth($spacings, $i);
+
+  .mt-#{$i - 1} {
+    margin-top: $value;
+  }
+  .mb-#{$i - 1} {
+    margin-bottom: $value;
+  }
+
+  .gap-#{$i - 1} {
+    gap: $value;
+  }
+}
+
+.block {
+  display: block;
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
