@@ -2,10 +2,9 @@ import React, { useRef, useEffect } from 'react';
 import { SingleSelect, SingleSelectOption, Box, Typography, Button } from '@strapi/design-system';
 import { iconSizes, iconColors, iconSet, getIcon } from '@repo/iconset';
 import { Icon } from '@repo/iconset/components';
-import '@repo/iconset/icons.css';
+import '@repo/iconset/icons.scss';
 
 export const IconSelector = ({ name, value, attribute, onChange }) => {
-  console.log(attribute);
   const colorSelectorEnabled = attribute.options.addColorSelector;
   const sizeSelectorEnabled = attribute.options.addSizeSelector;
 

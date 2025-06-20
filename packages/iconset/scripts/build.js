@@ -10,8 +10,9 @@ const DIST_DIR = path.resolve("dist");
 const DIST_ICONS_DIR = path.join(DIST_DIR, "icons");
 const DIST_COMPONENTS_DIR = path.join(DIST_DIR, "components");
 
-const OUTPUT_FILE = path.join(DIST_DIR, "icons.css");
-const MINIFIED_OUTPUT_FILE = path.join(DIST_DIR, "icons.min.css");
+const CSS_OUTPUT_FILE = path.join(DIST_DIR, "icons.css");
+const SCSS_OUTPUT_FILE = path.join(DIST_DIR, "icons.scss");
+const MINIFIED_CSS_OUTPUT_FILE = path.join(DIST_DIR, "icons.min.css");
 const OUTPUT_TS_FILE = path.join(DIST_DIR, "getIcon.ts");
 
 const getIconNames = async () => {
@@ -159,8 +160,9 @@ export async function build() {
     await copyIcons();
     await copyComponents();
     const css = createIconsCSS(iconNames);
-    fs.writeFileSync(OUTPUT_FILE, css, "utf-8");
-    fs.writeFileSync(MINIFIED_OUTPUT_FILE, minifyCSS(css), "utf-8");
+    fs.writeFileSync(CSS_OUTPUT_FILE, css, "utf-8");
+    fs.writeFileSync(SCSS_OUTPUT_FILE, css, "utf-8");
+    fs.writeFileSync(MINIFIED_CSS_OUTPUT_FILE, minifyCSS(css), "utf-8");
     const tsContent = createGetIconTS(iconNames);
     fs.writeFileSync(OUTPUT_TS_FILE, tsContent, "utf-8");
   } catch (err) {

@@ -1,12 +1,107 @@
 ---
-import "@repo/iconset/icons.css";
+import "../styles/main.scss";
+import ClientRouter from "astro/components/ClientRouter.astro";
+
+console.log(Astro.request);
+
+const requestUrl = new URL(Astro.request.url);
+
+const slideOutIn = {
+  old: {
+    name: "slideOut",
+    duration: "0.4s",
+    easing: "ease-in",
+    direction: "reverse",
+  },
+  new: {
+    name: "slideIn",
+    duration: "0.4s",
+    delay: "0.4s",
+    easing: "ease-in-out",
+  },
+};
+
+const pageTransition = {
+  forwards: slideOutIn,
+  backwards: slideOutIn,
+};
 ---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My Site</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://use.typekit.net/xnt8pgt.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <ClientRouter />
+    <title>{requestUrl.pathname}</title>
   </head>
+
   <body>
-    <slot />
+    <nav>
+      <ul>
+        <li><a href="/about-me">About me</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/creations">Creations</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+
+    <main transition:animate={pageTransition} class="content-grid">
+      <slot />
+    </main>
   </body>
 </html>
+
+<style is:global>
+  @keyframes slideOut {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const homepageLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>("a[href='/creations']"),
+    ).concat(
+      Array.from(document.querySelectorAll<HTMLAnchorElement>("a[href='/']")),
+    );
+
+    if (
+      window.location.pathname === "/" ||
+      window.location.pathname === "/creations"
+    ) {
+      homepageLinks.forEach((homepageLink) => {
+        homepageLink.setAttribute("tabindex", "-1");
+        homepageLink.style = "pointer-events:none;";
+      });
+    } else {
+      homepageLinks.forEach((homepageLink) => {
+        homepageLink.setAttribute("tabindex", "0");
+        homepageLink.style = "";
+      });
+    }
+  });
+</script>
