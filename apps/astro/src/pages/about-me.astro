@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="title mb-3">
+    <h1>About me</h1>
+    <span class="h2 block mb-1 lh-1">Firenzo Jorden</span>
+    <span class="large-text lh-1">Front end Developer / Visual Designer</span>
+  </div>
+
+  <article class="breakout two-column-layout">
+    <div class="image-wrapper">
+      <img
+        class="profile-pic"
+        src="https://firenzo.github.io/img/me2.c85201cd.jpg"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="content">
+      <p>
+        ef;iuwbfel bfwfkje bflhewjhb iuwbfel bfwfkjebflhew jhbiuwbfelbfwfkje
+        bflhe wjhbi uwbfelbfw fkjebflhew jhbiuw bfelb fwf kjebf
+        lhewjhbiuwbfelbfwfkjebflhewjhb
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+  @use "../styles/breakpoints.scss" as mq;
+
+  .two-column-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include mq.up("xl-tablet") {
+    .two-column-layout {
+      flex-direction: row;
+      gap: 3rem;
+
+      & > div {
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  .profile-pic {
+    width: 100%;
+    border-radius: 2000px;
+    border: 8px solid #fff;
+    box-shadow:
+      -3px -3px 6px hsla(0, 0%, 100%, 0.7),
+      3px 3px 6px rgba(0, 0, 0, 0.86);
+    display: block;
+    margin: auto;
+    margin-bottom: 35px;
+    max-width: 750px;
+  }
+</style>

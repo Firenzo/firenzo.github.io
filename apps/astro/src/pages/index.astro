@@ -1,15 +1,3 @@
 ---
-import { getIcon } from "@repo/iconset"
-import { Icon } from "@repo/iconset/components"
-import BaseLayout from "../layouts/BaseLayout.astro";
+return Astro.rewrite("/creations");
 ---
-
-<BaseLayout>
-  <h1>Astro</h1>
-  <p>react component</p>
-  <Icon icon={getIcon('bars')} size={136} color="black" />
-  <Icon icon={getIcon('chevron-left')} />
-  <Icon icon={getIcon('chevron-right')} />
-</BaseLayout>
-
-
