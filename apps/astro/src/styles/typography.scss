@@ -6,10 +6,15 @@ body {
   font-weight: 300;
 }
 
+// override user agent styling for button
+button {
+  font-family: "proxima-nova", sans-serif;
+}
+
 :root {
   --font-size-2xl: clamp(3rem, 12vw + 1rem, 4.5rem);
-  --font-size-xl: 2.75rem;
-  --font-size-large: 1.875rem;
+  --font-size-xl: clamp(2rem, 5vw + 1rem, 2.75rem);
+  --font-size-large: 1.7rem;
   --font-size-medium: 1.5rem;
   --font-size-base: 1.25rem;
   --font-size-small: 1rem;
@@ -36,20 +41,29 @@ h1,
 h2,
 .h2 {
   font-size: var(--font-size-xl);
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 h3,
 .h3 {
   font-size: var(--font-size-medium);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+// for each h3 that comes right after an h2
+@each $h2 in "h2", ".h2" {
+  @each $h3 in "h3", ".h3" {
+    #{$h2} + #{$h3} {
+      margin-top: 1rem;
+    }
+  }
 }
 
 p,
 span {
   font-size: var(--font-size-base);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
 }
 
 a {
@@ -82,6 +96,34 @@ ul {
       margin-right: 20px;
     }
   }
+}
+
+b,
+.bold {
+  font-weight: 900;
+}
+
+u,
+.underline {
+  text-decoration: underline;
+}
+
+i,
+.italic {
+  font-style: italic;
+}
+
+s,
+.strikethrough {
+  text-decoration-line: line-through;
+}
+
+code,
+.code {
+  background: #d4d4d4;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
 }
 
 .large-text {

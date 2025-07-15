@@ -1,11 +1,12 @@
 @use "sass:map";
 
 $breakpoints: (
-  "mobile": 480px,
+  "phone": 320px,
+  "big-phone": 480px,
   "tablet": 640px,
   "xl-tablet": 768px,
   "desktop": 1024px,
-  "bigscreen": 1200px,
+  "bigscreen": 1400px,
 );
 
 @mixin down($breakpoint) {
@@ -16,7 +17,7 @@ $breakpoints: (
   }
   // If the key doesn't exist in the map
   @else {
-    @warn "Value `#{$breakpoint}` not found. "
+    @warn "Breakpoint `#{$breakpoint}` not found. "
         + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }
@@ -29,7 +30,7 @@ $breakpoints: (
   }
   // If the key doesn't exist in the map
   @else {
-    @warn "Value `#{$breakpoint}` not found. "
+    @warn "Breakpoint `#{$breakpoint}` not found. "
         + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }

@@ -1,0 +1,65 @@
+---
+// @ts-nocheck
+import type { HTMLElementType } from "react";
+
+const { content } = Astro.props;
+
+const elementMap = {
+  paragraph: "p",
+  link: "a",
+  heading: ["h1", "h2", "h3", "h4", "h5", "h6"],
+};
+
+const getElement = (element) => {
+  if (element.type === "heading") {
+    return elementMap.heading[element.level - 1];
+  }
+  return elementMap[element.type];
+};
+
+const getAttributes = (element) => {
+  const attrs = {};
+  element.url && (attrs.href = element.url);
+  return attrs;
+};
+
+const renderText = (element) => {
+  const textDecorationTags = [];
+  element.bold && textDecorationTags.push("b");
+  element.italic && textDecorationTags.push("i");
+  element.underline && textDecorationTags.push("u");
+  element.strikethrough && textDecorationTags.push("s");
+  element.code && textDecorationTags.push("code");
+
+  const openingTags = textDecorationTags.reduce((acc, el) => {
+    return acc.concat(`<${el}>`);
+  }, "");
+
+  const closingTags = textDecorationTags.toReversed().reduce((acc, el) => {
+    return acc.concat(`</${el}>`);
+  }, "");
+
+  const htmlString = `${openingTags}${element.text}${closingTags}`;
+
+  return htmlString;
+};
+---
+
+<>
+  {
+    content.map((element) => {
+      if (element.type !== "text") {
+        const ElementType = getElement(element);
+        return (
+          <ElementType {...getAttributes(element)}>
+            <Astro.self content={element.children} />
+          </ElementType>
+        );
+      }
+
+      if (element.type === "text") {
+        return <Fragment set:html={renderText(element)} />;
+      }
+    })
+  }
+</>
