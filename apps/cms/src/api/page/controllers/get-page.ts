@@ -1,7 +1,3 @@
-/**
- * A set of functions called "actions" for `about-me`
- */
-
 export default {
   find: async (ctx, next) => {
     try {

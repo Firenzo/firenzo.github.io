@@ -1,24 +1,41 @@
-import { mapImageData, mapContentBlocks, getAllContentBlockComponentsNames } from '../../../helpers';
+import { Data } from '@strapi/strapi';
+import {
+  mapImageData,
+  mapContentBlocks,
+  getAllContentBlockComponentUIDs,
+  ContentBlockComponentUID,
+  ImageData,
+  ContentBlock,
+} from '../../../helpers';
 
-const componentInclusions = getAllContentBlockComponentsNames().reduce((acc, componentName) => {
-  acc[componentName] = { populate: '*' };
-  console.log(componentName);
-  return acc;
-}, {});
+export type Project = Data.ContentType<'api::project.project'>;
+type GoToProjectButton = Data.Component<'common.button'>;
+type Creation = Pick<Project, 'name' | 'nameInUrl' | 'introText' | 'tags'> & {
+  image: ImageData;
+  goToProjectButton: Pick<GoToProjectButton, 'displayText' | 'url' | 'icon' | 'iconPosition'>;
+  content: ContentBlock[];
+};
+
+export type CreationsPage = { creations: Creation[] };
+
+const componentsToPopulate: Record<ContentBlockComponentUID, { populate: '*' }> | {} =
+  getAllContentBlockComponentUIDs().reduce((acc, componentUid: ContentBlockComponentUID) => {
+    acc[componentUid] = { populate: '*' };
+    return acc;
+  }, {});
 
 export default () => ({
-  getCreationsPage: async () => {
-    console.log(componentInclusions);
-    const creations = (
+  getCreationsPage: async (): Promise<CreationsPage> => {
+    const creations: Project[] = (
       await strapi.service('api::project.project').find({
         populate: {
           image: true,
           goToProjectButton: true,
           content: {
             on: {
-              ...componentInclusions,
+              ...componentsToPopulate,
 
-              // override entries in componentInclusions for components with nested populations
+              // override entries in componentsToPopulate for components with nested populations
               'content-blocks.dual-media-items': {
                 populate: {
                   mediaItem: {
@@ -40,7 +57,7 @@ export default () => ({
       })
     )?.results;
 
-    const mappedCreations = creations.map((creation) => {
+    const mappedCreations = creations.map((creation: Project) => {
       return {
         name: creation.name,
         nameInUrl: creation.nameInUrl,
@@ -50,7 +67,7 @@ export default () => ({
         goToProjectButton: {
           displayText: creation.goToProjectButton.displayText,
           url: creation.goToProjectButton.url,
-          iconPosition: creation.goToProjectButton.iconPosition.toLowerCase(),
+          iconPosition: creation.goToProjectButton.iconPosition,
           icon: creation.goToProjectButton.icon,
         },
         content: mapContentBlocks(creation.content),

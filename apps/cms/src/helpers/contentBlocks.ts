@@ -1,31 +1,55 @@
-import { mapImageData } from './index';
+import { Data } from '@strapi/strapi';
+import { ImageData, mapImageData } from './index';
+import { Project } from '../api/page/services/creations-page';
 
-export const getAllContentBlockComponentsNames = () => {
-  const allComponents = Object.keys(strapi.components);
-  const contentBlockComponents = allComponents.filter((component) => {
+export type ContentBlockComponentUID = Extract<keyof typeof strapi.components, `content-blocks.${string}`>;
+export type DynamicContent = Project['content'];
+
+export const getAllContentBlockComponentUIDs = (): ContentBlockComponentUID[] => {
+  const allComponents = Object.keys(strapi.components) as ContentBlockComponentUID[];
+  const contentBlockComponents = allComponents.filter((component): component is ContentBlockComponentUID => {
     return component.startsWith('content-blocks.');
   });
+
   return contentBlockComponents;
 };
 
-export const mapButton = (buttonComponent) => ({
+type ButtonComponentRaw = Data.Component<'content-blocks.button'>;
+type ButtonComponent = Pick<ButtonComponentRaw['button'], 'displayText' | 'url' | 'iconPosition' | 'icon'>;
+
+export const mapButton = (buttonComponent: ButtonComponentRaw): ButtonComponent => ({
   displayText: buttonComponent.button.displayText,
   url: buttonComponent.button.url,
   iconPosition: buttonComponent.button.iconPosition,
   icon: buttonComponent.button.icon,
 });
 
-export const mapSingleMediaItem = (singleMediaItemComponent) => ({
+type SingleMediaItemComponentRaw = Data.Component<'content-blocks.single-media-item'>;
+type SingleMediaItemComponent = Pick<SingleMediaItemComponentRaw, 'showCaption'> & { image: ImageData };
+
+export const mapSingleMediaItem = (
+  singleMediaItemComponent: SingleMediaItemComponentRaw
+): SingleMediaItemComponent => ({
   showCaption: singleMediaItemComponent.showCaption,
   image: mapImageData(singleMediaItemComponent.image),
 });
 
-export const mapDualMediaItems = (dualMediaItemsComponent) => ({
-  mappedItems: dualMediaItemsComponent.mediaItem.map((mediaItem) => mapSingleMediaItem(mediaItem)),
+type DualMediaItemsComponentRaw = Data.Component<'content-blocks.dual-media-items'>;
+type DualMediaItemsComponent = { mappedItems: SingleMediaItemComponent[] };
+
+export const mapDualMediaItems = (dualMediaItemsComponent: DualMediaItemsComponentRaw): DualMediaItemsComponent => ({
+  mappedItems: dualMediaItemsComponent.mediaItem.map((mediaItem: SingleMediaItemComponentRaw) =>
+    mapSingleMediaItem(mediaItem)
+  ),
 });
 
-export const mapImageSlider = (imageSliderComponent) => ({
-  imageSliderItems: imageSliderComponent.imageSliderItems.map((imageSliderItem) => ({
+type ImageSliderComponentRaw = Data.Component<'content-blocks.image-slider'>;
+type ImageSliderItemRaw = ImageSliderComponentRaw['imageSliderItems'][number];
+type ImageSliderItem = Pick<ImageSliderItemRaw, 'title' | 'description' | 'additionalInfo'> & { image: ImageData };
+type ImageSliderComponent = { imageSliderItems: ImageSliderItem[] };
+
+export const mapImageSlider = (imageSliderComponent: ImageSliderComponentRaw): ImageSliderComponent => ({
+  imageSliderItems: imageSliderComponent.imageSliderItems.map((imageSliderItem: ImageSliderItemRaw) => ({
     title: imageSliderItem.title,
     description: imageSliderItem.description,
     image: mapImageData(imageSliderItem.image),
@@ -33,43 +57,74 @@ export const mapImageSlider = (imageSliderComponent) => ({
   })),
 });
 
-export const mapScrollableImage = (scrollableImageComponent) => ({
+type ScrollableImageComponentRaw = Data.Component<'content-blocks.scrollable-image'>;
+type ScrollableImageComponent = Pick<ScrollableImageComponentRaw, 'title' | 'description'> & { image: ImageData };
+
+export const mapScrollableImage = (
+  scrollableImageComponent: ScrollableImageComponentRaw
+): ScrollableImageComponent => ({
   title: scrollableImageComponent.title,
   description: scrollableImageComponent.description,
   image: mapImageData(scrollableImageComponent.image),
 });
 
-export const mapRichText = (richTextComponent) => ({
+type RichTextComponentRaw = Data.Component<'content-blocks.rich-text'>;
+type RichTextComponent = Pick<RichTextComponentRaw, 'content'>;
+
+export const mapRichText = (richTextComponent: RichTextComponentRaw): RichTextComponent => ({
   content: richTextComponent.content,
 });
 
-export const mapLottieAnimation = (lottieAnimationComponent) => ({
+type LottieAnimationComponentRaw = Data.Component<'content-blocks.lottie-animation'>;
+type LottieAnimationComponent = Pick<LottieAnimationComponentRaw, 'caption' | 'background' | 'lottieJSON'>;
+
+export const mapLottieAnimation = (
+  lottieAnimationComponent: LottieAnimationComponentRaw
+): LottieAnimationComponent => ({
   caption: lottieAnimationComponent.caption,
   background: lottieAnimationComponent.background,
   lottieJSON: lottieAnimationComponent.lottieJSON,
 });
 
-export const mapContentBlocks = (contentBlocks) => {
-  const mappedContentBlocks = contentBlocks.map((contentBlock) => {
-    const baseData = { __component: contentBlock.__component };
+type ContentBlockRaw =
+  | ({ __component: 'content-blocks.button' } & ButtonComponentRaw)
+  | ({ __component: 'content-blocks.single-media-item' } & SingleMediaItemComponentRaw)
+  | ({ __component: 'content-blocks.dual-media-items' } & DualMediaItemsComponentRaw)
+  | ({ __component: 'content-blocks.image-slider' } & ImageSliderComponentRaw)
+  | ({ __component: 'content-blocks.scrollable-image' } & ScrollableImageComponentRaw)
+  | ({ __component: 'content-blocks.rich-text' } & RichTextComponentRaw)
+  | ({ __component: 'content-blocks.lottie-animation' } & LottieAnimationComponentRaw);
 
+export type ContentBlock =
+  | ({ __component: 'content-blocks.button' } & ButtonComponent)
+  | ({ __component: 'content-blocks.single-media-item' } & SingleMediaItemComponent)
+  | ({ __component: 'content-blocks.dual-media-items' } & DualMediaItemsComponent)
+  | ({ __component: 'content-blocks.image-slider' } & ImageSliderComponent)
+  | ({ __component: 'content-blocks.scrollable-image' } & ScrollableImageComponent)
+  | ({ __component: 'content-blocks.rich-text' } & RichTextComponent)
+  | ({ __component: 'content-blocks.lottie-animation' } & LottieAnimationComponent);
+
+export const mapContentBlocks = (contentBlocks: DynamicContent): ContentBlock[] => {
+  const mappedContentBlocks = contentBlocks.map((contentBlock: ContentBlockRaw) => {
     switch (contentBlock.__component) {
       case 'content-blocks.button':
-        return { ...baseData, ...mapButton(contentBlock) };
+        return { __component: contentBlock.__component, ...mapButton(contentBlock) };
       case 'content-blocks.single-media-item':
-        return { ...baseData, ...mapSingleMediaItem(contentBlock) };
+        return { __component: contentBlock.__component, ...mapSingleMediaItem(contentBlock) };
       case 'content-blocks.dual-media-items':
-        return { ...baseData, ...mapDualMediaItems(contentBlock) };
+        return { __component: contentBlock.__component, ...mapDualMediaItems(contentBlock) };
       case 'content-blocks.image-slider':
-        return { ...baseData, ...mapImageSlider(contentBlock) };
+        return { __component: contentBlock.__component, ...mapImageSlider(contentBlock) };
       case 'content-blocks.scrollable-image':
-        return { ...baseData, ...mapScrollableImage(contentBlock) };
+        return { __component: contentBlock.__component, ...mapScrollableImage(contentBlock) };
       case 'content-blocks.rich-text':
-        return { ...baseData, ...mapRichText(contentBlock) };
+        return { __component: contentBlock.__component, ...mapRichText(contentBlock) };
       case 'content-blocks.lottie-animation':
-        return { ...baseData, ...mapLottieAnimation(contentBlock) };
-      default:
-        return contentBlock;
+        return { __component: contentBlock.__component, ...mapLottieAnimation(contentBlock) };
+      default: {
+        const _exhaustive: never = contentBlock;
+        return _exhaustive;
+      }
     }
   });
   return mappedContentBlocks;

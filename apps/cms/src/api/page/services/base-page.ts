@@ -1,17 +1,19 @@
-/**
- * page-slug service
- */
+import type { Data } from '@strapi/strapi';
+import type { Context } from 'koa';
+
+type Page = Data.ContentType<'api::page.page'>;
+export type BasePage = Pick<Page, 'pageTitle' | 'url' | 'translations'>;
 
 export default () => ({
-  getBasePage: async (ctx) => {
+  getBasePage: async (ctx: Context): Promise<BasePage> => {
     const pageUrl = `/${ctx.params.slug}`;
-    const page = await strapi.db.query('api::page.page').findOne({ where: { url: pageUrl } });
+
+    const page: Page | null = await strapi.db.query('api::page.page').findOne({ where: { url: pageUrl } });
 
     if (!page) {
       const statusCode = 404;
       ctx.status = statusCode;
       ctx.throw(404, `Page ${pageUrl} not found`);
-      return;
     }
     const { pageTitle, url, translations } = page;
 

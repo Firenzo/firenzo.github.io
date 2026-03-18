@@ -1,6 +1,6 @@
-export const formatDate = (date: string, locale: string = 'nl-NL') => {
+export const formatDate = (date: string | Date, locale: string = 'nl-NL'): string => {
   if (!date) {
-    return date;
+    return date.toString();
   }
   const dateObject = new Date(date);
 

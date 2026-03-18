@@ -1,16 +1,33 @@
-export const mapImageData = (image) => {
+import { Data } from '@strapi/strapi';
+import { Prettify } from '../../types/utils';
+
+const imageFormats = ['original', 'thumbnail', 'small', 'medium', 'large'] as const;
+
+type ImageFormat = (typeof imageFormats)[number];
+type ImageBase = Prettify<
+  Pick<Data.ContentType<'plugin::upload.file'>, 'url' | 'mime' | 'caption'> & {
+    altText: Data.ContentType<'plugin::upload.file'>['alternativeText'];
+  }
+>;
+
+export type ImageData = Prettify<
+  ImageBase & {
+    [K in Exclude<(typeof imageFormats)[number], 'original'>]?: Object;
+  }
+>;
+
+export const mapImageData = (image: Data.ContentType<'plugin::upload.file'>): ImageData => {
   const altText = image.alternativeText;
   const caption = image.caption;
-  const formats = ['original', 'thumbnail', 'small', 'medium', 'large'];
 
-  const availableFormats = formats.filter((imageFormat) => {
+  const availableFormats = imageFormats.filter((imageFormat: ImageFormat) => {
     if (imageFormat === 'original') {
       return true;
     }
-    return image?.formats?.[imageFormat];
+    return !!image?.formats?.[imageFormat];
   });
 
-  const mappedImages = availableFormats.reduce((acc: Record<string, Object>, imageFormat) => {
+  const mappedImageData = availableFormats.reduce((acc: {} | ImageData, imageFormat: ImageFormat) => {
     if (imageFormat === 'original') {
       acc = {
         url: image.url,
@@ -20,8 +37,8 @@ export const mapImageData = (image) => {
       };
 
       if (image.ext === '.svg') {
-        delete acc.width;
-        delete acc.height;
+        'width' in acc && delete acc.width;
+        'height' in acc && delete acc.height;
       }
       return acc;
     }
@@ -41,5 +58,5 @@ export const mapImageData = (image) => {
     return acc;
   }, {});
 
-  return { altText, caption, ...mappedImages };
+  return { altText, caption, ...mappedImageData };
 };
