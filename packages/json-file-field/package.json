@@ -30,8 +30,8 @@
     "verify": "strapi-plugin verify"
   },
   "dependencies": {
-    "@strapi/design-system": "^2.0.0-rc.24",
-    "@strapi/icons": "^2.0.0-rc.24",
+    "@strapi/design-system": "^2.2.0",
+    "@strapi/icons": "^2.2.0",
     "react-intl": "^7.1.11"
   },
   "devDependencies": {
