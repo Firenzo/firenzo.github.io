@@ -1,6 +1,14 @@
 {
   "workExperience": [
     {
+      "companyName": "Capgemini",
+      "city": "Utrecht",
+      "country": "The Netherlands",
+      "function": "Front end development",
+      "dateStart": "01-07-2021",
+      "dateEnd": "now"
+    },
+    {
       "companyName": "Prodos",
       "city": "Den-Dolder",
       "country": "The Netherlands",
@@ -65,10 +73,6 @@
         "image": "invision-studio.png"
       },
       {
-        "skillName": "Principle",
-        "image": "principle.png"
-      },
-      {
         "skillName": "Adobe<br>Photoshop",
         "image": "photoshop.png"
       },
@@ -103,28 +107,40 @@
         "image": "javascript.png"
       },
       {
-        "skillName": "Vue.js",
+        "skillName": "TypeScript",
+        "image": "typescript.png"
+      },
+      {
+        "skillName": "Nuxt",
+        "image": "nuxt.png"
+      },
+      {
+        "skillName": "Vue",
         "image": "vue.png"
       },
       {
+        "skillName": "NextJS",
+        "image": "nextjs.png"
+      },
+      {
         "skillName": "React",
-        "image": "react.png"
+        "image": "react-2.png"
       },
       {
         "skillName": "SASS",
         "image": "sass.png"
       },
       {
+        "skillName": "Strapi",
+        "image": "strapi.png"
+      },
+      {
         "skillName": "NodeJS",
-        "image": "node.png"
+        "image": "nodejs.png"
       },
       {
         "skillName": "Git",
         "image": "git.png"
-      },
-      {
-        "skillName": "Wordpress",
-        "image": "wordpress.png"
       }
     ]
   },
