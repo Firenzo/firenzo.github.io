@@ -1,0 +1,120 @@
+$offBlack: #1f1f1f;
+$block-gradient: linear-gradient(90deg, #9500F0 0%, #A74FDD 100%);
+
+section#creations{
+
+	div.projects{
+		ul{
+			list-style: none;
+
+			@media screen and (min-width: 1200px) {
+				display: flex;
+    			flex-wrap: wrap;
+    			justify-content: space-between;
+    		}
+
+			li{
+				margin-bottom:35px;
+
+				@media screen and (min-width: 1200px) {
+					flex-basis:48%;
+				}
+
+				@media screen and (min-width: 1900px) {
+					flex-basis:32%;
+				}
+
+
+				h1{
+    				font-family: "Inter", sans-serif;
+    				-webkit-font-smoothing: antialiased;
+    				-moz-osx-font-smoothing: grayscale;
+    				font-size:22px;
+    				margin-bottom:10px;
+    				color:$offBlack;
+
+    				@media screen and (min-width: 600px) {
+						font-size: 28px;
+					}
+
+					@media screen and (min-width: 1200px) {
+						height:70px;
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
+					}
+    			}
+
+    			.project-image{
+    				position:relative;
+    				max-width:100%;
+    				display:inline-block;
+    				border-radius:10px;
+    			 	box-shadow: inset -2px -2px 3px rgba(0,0,0,0.5), inset 4px 4px 3px rgba(255,255,255,0.5);
+    			 	width:100%;
+
+    			 	.content{
+    					position:absolute;
+    					z-index: -1;
+    					width:100%;
+    					height:100%;
+    					border-radius:10px;
+    				}
+
+    				&:after{
+    					content:'';
+    					display:block;
+    					padding-top:calc(100% / (816/500) );
+    					border-radius:10px;
+    				}
+
+    				img{
+    					width:100%;
+    					border-radius:10px;
+    					vertical-align: top;
+    					opacity:0;
+    					transition:opacity 0.8s ease 0.2s;
+
+						&[lazy=loaded]{
+							opacity:1;
+						}
+    				}
+    			}
+
+    			div.project-tags{
+    				margin-top:10px;
+    				display:flex;
+    				align-items: center;
+    				justify-content: flex-start;
+
+    				.tag-name{
+    					background:purple;
+    					height:36px;
+    					text-align: center;
+    					padding: 0 20px;
+    					margin-right: 10px;
+    					display:flex;
+    					justify-content: center;
+    					align-items:center;
+    					color:white;
+    					border-radius: 54px;
+    					background: $block-gradient;
+    					font-family: proxima-nova, sans-serif;
+						-webkit-font-smoothing: antialiased;
+	    				-moz-osx-font-smoothing: grayscale;
+	    				font-weight: 700;
+	    				font-size: 14px;
+	    				letter-spacing: 0.04em;
+	    				box-shadow: -2px -2px 8px rgba(214,181,234,0.25), 2px 2px 8px rgba(111,36,157,0.41), inset 3px 3px 3px rgba(255,255,255,0.25), inset 0 0 3px rgba(0,0,0,0.5);
+
+	    				@media screen and (min-width: 600px) {
+							padding: 5px 30px;
+							font-size: 16px;
+							letter-spacing: 0em;
+						}
+    				}
+    			}
+			}
+		}
+	}
+}

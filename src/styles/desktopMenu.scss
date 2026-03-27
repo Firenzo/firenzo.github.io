@@ -1,0 +1,113 @@
+$siccGradient: linear-gradient(90deg, #9500F0 0%, #A74FDD 100%);
+@import "./breakpoints.scss";
+
+.desktopMenu{
+		position:sticky;
+		top:0;
+		flex-basis:calc(100%/12*4);
+		height:100vh;
+		background:#f9f9f9;
+		//max-width: 300px;
+		box-shadow: 0 0 7px rgba(80,80,80,0.2);
+
+		@include min-1300{
+			//max-width: 400px;
+		}
+
+		@include min-1500 {
+			flex-basis: calc(100%/12*3);
+		}
+
+		@include min-1900{
+			max-width: 475px;
+		}
+
+		&:hover ul a{
+        		opacity:1;
+        }
+
+		ul {
+        	list-style: none;
+        	margin-top:110px;
+
+	        li {
+	            display:flex;
+	            align-items: center;
+	            justify-content: center;
+	            margin-bottom:30px;
+
+	            &:hover{
+	                background:rgba(255,255,255,0.5);
+
+	        	}
+
+	            a{
+	                font-family: "Inter", sans-serif;
+	                text-align: left;
+	                font-weight: bold;
+	                font-size:20px;
+	                -webkit-font-smoothing: antialiased;
+	                -moz-osx-font-smoothing: grayscale;
+	                color:#9208ED;
+	                text-decoration: none;
+
+
+	                padding-top: 5vh;
+	                padding-bottom:5vh;
+	                //padding-left:70px;
+	                width:75%;
+	                opacity: 0.6;
+                	transition:opacity 0.4s ease;
+
+	                display: flex;
+	                align-items:center;
+	                justify-content: center;
+
+	                box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.5);
+	                border-radius:22px;
+	                
+
+	                @media screen and (hover: none) and (pointer: coarse){
+	                	opacity:1;
+	                }
+
+	                svg{
+	                    margin-right:30px;
+	                    height:25px !important;
+	                    width:25px !important;
+	                }
+
+	                @media screen and (min-width: 1300px){
+						//padding-left: 100px;
+						font-size:25px;
+
+						svg{
+							height:27px !important;
+							width:27px !important;
+						}
+					}
+
+
+	                &.router-link-active {
+	                	color: white;
+						background:$siccGradient;
+						box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3), inset 2px 2px 5px rgba(255,255,255,0.5);
+    					border-radius: 22px;
+
+						svg{
+							color:white !important;
+						}
+	                }
+	            }
+
+	            a.router-link-exact-active{
+	                svg{
+	                    color:#42b983;
+	                }
+	            }
+	        }
+	    }
+
+
+
+	}

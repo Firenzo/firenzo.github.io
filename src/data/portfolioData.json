@@ -1,0 +1,1339 @@
+{
+  "workExperience": [
+    {
+      "companyName": "Prodos",
+      "city": "Den-Dolder",
+      "country": "The Netherlands",
+      "function": "Visual Design / Development (graduation project)",
+      "dateStart": "01-09-2019",
+      "dateEnd": "31-01-2020"
+    },
+    {
+      "companyName": "Amsterdam Museum",
+      "city": "Amsterdam",
+      "country": "The Netherlands",
+      "function": "Interaction Design (internship)",
+      "dateStart": "18-04-2017",
+      "dateEnd": "20-12-2017"
+    },
+    {
+      "companyName": "72Media",
+      "city": "Amsterdam",
+      "country": "The Netherlands",
+      "function": "Interaction Design (internship)",
+      "dateStart": "18-05-2016",
+      "dateEnd": "21-10-2016"
+    },
+    {
+      "companyName": "Goeiezaak.com",
+      "city": "Haarlem",
+      "country": "The Netherlands",
+      "function": "Visual Design / Development (internship)",
+      "dateStart": "19-10-2015",
+      "dateEnd": "18-04-2016"
+    },
+    {
+      "companyName": "SEOshop",
+      "city": "Amsterdam",
+      "country": "The Netherlands",
+      "function": "Visual Design / Development (internship)",
+      "dateStart": "28-04-2014",
+      "dateEnd": "13-07-2014"
+    },
+    {
+      "companyName": "Hogeschool van Amsterdam (HvA)",
+      "city": "Amsterdam",
+      "country": "The Netherlands",
+      "function": "Communication and Multimedia Design",
+      "dateStart": "— Graduated in 2020",
+      "dateEnd": ""
+    }
+  ],
+
+  "skills": {
+    "design": [
+      {
+        "skillName": "Sketch",
+        "image": "sketch.png"
+      },
+      {
+        "skillName": "Figma",
+        "image": "figma.png"
+      },
+      {
+        "skillName": "Invision<br>studio",
+        "image": "invision-studio.png"
+      },
+      {
+        "skillName": "Principle",
+        "image": "principle.png"
+      },
+      {
+        "skillName": "Adobe<br>Photoshop",
+        "image": "photoshop.png"
+      },
+      {
+        "skillName": "Adobe<br>Illustrator",
+        "image": "illustrator.png"
+      },
+      {
+        "skillName": "Adobe<br>Indesign",
+        "image": "indesign.png"
+      },
+      {
+        "skillName": "Adobe<br>Premiere",
+        "image": "premiere.png"
+      },
+      {
+        "skillName": "Adobe<br>After Effects",
+        "image": "after-effects.png"
+      }
+    ],
+    "frontEnd": [
+      {
+        "skillName": "HTML 5",
+        "image": "html5.png"
+      },
+      {
+        "skillName": "CSS 3",
+        "image": "css3.png"
+      },
+      {
+        "skillName": "Javascript<br>(ES6)",
+        "image": "javascript.png"
+      },
+      {
+        "skillName": "Vue.js",
+        "image": "vue.png"
+      },
+      {
+        "skillName": "React",
+        "image": "react.png"
+      },
+      {
+        "skillName": "SASS",
+        "image": "sass.png"
+      },
+      {
+        "skillName": "NodeJS",
+        "image": "node.png"
+      },
+      {
+        "skillName": "Git",
+        "image": "git.png"
+      },
+      {
+        "skillName": "Wordpress",
+        "image": "wordpress.png"
+      }
+    ]
+  },
+
+  "projects": [
+    {
+      "projectName": "Barber Iwan Website v2",
+      "projectContent": "barber-iwan-v2",
+      "projectPageTitle": "Barber Iwan Website v2",
+      "tags": ["Visual Design", "Front End"],
+      "image": "barber-iwan-v2.jpg",
+      "imageAlt": "barber iwan version 2",
+      "pageLayout": "<p>After a few years, my cousin asked me to add additional functionality to the website. On his old website, he didn’t have enough content, which is why I had previously decided to create a one-pager. However, for the new website, multiple pages were required. He wanted to be able to showcase photos on the website (a kind of portfolio) and also have a page where visitors could view the pricing. Based on these new requirements, I advised rebuilding the website from scratch.</p>",
+      "route": "barber-iwan-v2",
+
+      "hasLink": true,
+      "buttonText": "Go to website",
+      "projectLink": "https://barberiwan.nl/",
+
+      "content": {
+        "design": {
+          "h2": "The Design",
+          "p1": "The design of the new website needed to remain dark, just like the previous version. A new logo was also provided. Based on this, I created a completely new design for the website. I chose to use a stock photo as the hero image and blended it into a black background. As the primary color, I used a yellow-gold tone, as it conveys warmth, creativity, and luxury — qualities that align well with Barber Iwan.",
+          "p2": "I also selected the typography for the website. For the headings, I chose the font Oswald because it has a strong visual impact and, as a condensed font, it does not take up much horizontal space when longer headings are used. This also helps reinforce the visual hierarchy of the website. For the body text, I chose the font Rubik because it reads comfortably on screens."
+        },
+        "development": {
+          "h2": "Development",
+          "p1": "For the development of the website, I chose to use a frontend framework in combination with a headless CMS. Since I already had experience with Vue, I decided to build the website using Nuxt. For the CMS, I selected Strapi because it runs on Node.js and offers a pleasant developer experience. Additionally, Strapi provides the flexibility to extend the CMS and customize it by writing JavaScript or TypeScript code.",
+          "img1": {
+            "path": "barber-iwan-v2/",
+            "image": "nuxt-strapi.jpg",
+            "aspectRatio": "750/345",
+            "classList": "rounded-corners shadow"
+          }
+        },
+        "sliders": [
+          {
+            "sliderId": "BarberIwanV2Design",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": false,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Homepage design",
+                "imageFolder": "barber-iwan-v2/",
+                "image": "homepage.png",
+                "aspectRatio": "1000/680"
+              },
+              {
+                "slideId": 2,
+                "title": "Pricing page design",
+                "imageFolder": "barber-iwan-v2/",
+                "image": "pricing-page.png",
+                "aspectRatio": "1000/680"
+              },
+              {
+                "slideId": 3,
+                "title": "Contact page design",
+                "imageFolder": "barber-iwan-v2/",
+                "image": "contact-page.png",
+                "aspectRatio": "1000/680"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "projectName": "Relentless Grace Radio Website",
+      "projectContent": "relentless-grace-radio",
+      "projectPageTitle": "Relentless Grace Radio Website",
+      "tags": ["Visual Design", "Front End"],
+      "image": "relentlessgraceradio-2.jpg",
+      "imageAlt": "relentless grace radio",
+      "pageLayout": "<p>Relentless Grace Radio is a radio station that streams Christian music 24/7. The owner has asked me to design her radio website. Due to Relentless Grace Radio not really having a corporate identity, I decided to give color to the website by using lots of images. Since the owner is regularly going to change the content on the website, I decided to build this website in Wordpress.</p><p>After deploying the first version of the website, I found out that the owner used the website in certain ways I did not expect, so it was time to make some improvements. In the meantime I had learned how to use React.js, so I recreated the entire website within this framework, while also adding features and improving the visual design.</p>",
+      "route": "relentless-grace-radio",
+
+      "hasLink": true,
+      "buttonText": "Go to website",
+      "projectLink": "https://relentlessgraceradio.com/",
+
+      "content": {
+        "bootcamp": {
+          "h2": "First designs",
+          "p1": "After talking to the owner, I immediately started designing the interface, because the website should only have one page and this page wouldn't be very complex.",
+          "h3a": "Header Design",
+          "p2": "I started out by designing the top section of the page.",
+          "h3b": "Body Design",
+          "p3": "After the header I designed the rest of the page."
+        },
+
+        "makingWebsite": {
+          "h2": "Making the website",
+          "p1": "Since the design of this website was not very complex, I made the website in pure HTML and CSS. For a few micro interactions I used Jquery and Javascript.",
+          "p2": "After everything worked, I installed WordPress and used the theme “HTML5 Blank” to then put in my own code. After that it was time to put the website online.",
+          "img1": {
+            "path": "relentless-grace-radio/",
+            "image": "html5blank.jpg",
+            "aspectRatio": "750/221",
+            "classList": "rgr-html5blank rounded-corners shadow"
+          }
+        },
+
+        "improvements": {
+          "h2": "Improving the website",
+          "p1": "When the website was in use, I noticed that the owner used the website in certain ways I did not expect. For example, multiple blog posts were not needed. In addition, multiple fonts were used in the blog post to make text bold or italicized. The font I used for the website not very readable in that way.",
+          "p2": "Aside from the two points mentioned above, I also saw room for other improvements. In the meantime, I also learned how to work with React.js, so I decided to jump back in to recreate the entire website in React.js, while also adding more features and improving on the visual design.",
+          "img1": {
+            "path": "relentless-grace-radio/",
+            "image": "reactwp.jpg",
+            "aspectRatio": "750/345",
+            "classList": "rgr-react-wordpress rounded-corners shadow"
+          },
+          "h3a": "Wordpress’ REST API",
+          "p3": "The first challenge I encountered was that I could not dynamically load the data from Wordpress into the React application. After a few Google searches, I decided it was best to use Wordpress’ REST API feature.",
+          "p4": "Since the website is not very large, I decided to create my own small API by adding a custom endpoint within the REST API, rather than using Wordpress’ standard API.",
+          "img2": {
+            "path": "relentless-grace-radio/",
+            "image": "rest-api-code.jpg",
+            "aspectRatio": "750/270",
+            "classList": "rgr-rest-api-code rounded-corners shadow",
+            "imageDescription": "Code to add a custom endpoint in Wordpress’ REST API"
+          },
+
+          "h3b": "Font change",
+          "p5": "As mentioned earlier, the text was not very readable, because the bold and italic text did not come out properly. So it was time to change the typeface. I have carefully looked at a number of typefaces and paid extra attention to the differences in weight. In the end I decided to replace the old typeface (Proxima Nova) with Rubik.",
+
+          "img3": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "text1.png",
+            "aspectRatio": "495/1000",
+            "classList": "rgr-text1 rounded-corners",
+            "imageDescription": "Proxima Nova"
+          },
+
+          "img4": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "text2.png",
+            "aspectRatio": "495/1000",
+            "classList": "rgr-text2 rounded-corners",
+            "imageDescription": "Rubik"
+          },
+
+          "h3c": "Top 5 Interaction",
+          "p6": "The top 5 section was pretty pointless at first. I can imagine that a user wants to know what these songs sound like. That's why I decided to add Spotify links to the songs. However, not all songs are on Spotify, so in addition I also decided to place YouTube links. The owner can adjust all of this in Wordpress.",
+
+          "img5": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "top5-1.png",
+            "aspectRatio": "495/1000",
+            "classList": "top5-1 rounded-corners",
+            "imageDescription": "Without interaction"
+          },
+
+          "img6": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "top5-2.png",
+            "aspectRatio": "495/1000",
+            "classList": "top5-2 rounded-corners",
+            "imageDescription": "With interaction"
+          },
+
+          "h3d": "Schedule Improvement",
+          "p7": "There was nothing wrong with the schedule in itself, but I saw room for improvement here. Previously, it was not immediately clear what kind of music would be played the day a user visits the website. I addressed this by making the current day larger. In addition, this day is also centered on the screen when the user visits the website.",
+
+          "img7": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "schedule1.png",
+            "aspectRatio": "495/1000",
+            "classList": "schedule1 rounded-corners",
+            "imageDescription": "Basic schedule"
+          },
+
+          "img8": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "schedule2.png",
+            "aspectRatio": "495/1000",
+            "classList": "schedule2 rounded-corners",
+            "imageDescription": "Improved schedule"
+          },
+
+          "h3e": "Logo",
+          "p8": "To give Relentless Grace Radio a bit more identity and to make the header a bit more interesting, I decided to design a logo. I didn't want to spend too much time on this, so I searched for a font that would suit the website. Since Relentless Grace Radio plays modern music, I also wanted to do something modern with the logo. I decided to go with a handwritten font named “Reey Regular”. Since the end of the letter “R” was very long, I had to make some adjustments in Adobe Illustrator.",
+
+          "img9": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "logo1.png",
+            "aspectRatio": "495/1000",
+            "classList": "logo1 rounded-corners",
+            "imageDescription": "Basic text"
+          },
+
+          "img10": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "logo2.png",
+            "aspectRatio": "495/1000",
+            "classList": "logo2 rounded-corners",
+            "imageDescription": "Logo"
+          },
+
+          "h3f": "About text on mobile",
+          "p9": "Relentless Grace Radio's about text was very long. Because there was already a lot of text at the top, on a mobile it felt like the user had to scroll through a whole piece of text. To solve this, I first took a critical look at the text. I noticed that the most important thing did not immediately come up in the first paragraph, so I decided to rewrite the text. Then I made sure that only the first paragraph is shown to the user. In case the user then wants to read more, they can press the “Read more” button.",
+
+          "img11": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "about-text-mobile-1.png",
+            "aspectRatio": "495/1000",
+            "classList": "about-text-mobile-1 rounded-corners",
+            "imageDescription": "Long text"
+          },
+
+          "img12": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "about-text-mobile-2.png",
+            "aspectRatio": "495/1000",
+            "classList": "about-text-mobile-2 rounded-corners",
+            "imageDescription": "Button to show more"
+          },
+
+          "h3g": "About text on desktop",
+          "p10": "On desktop there was another problem with the about text. The text was across the entire width of the page. This was not very legible, so I had to make it smaller. However, this left an empty space on the right side of the page. To solve this I placed an image to fill in the empty space.",
+
+          "img13": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "about-text-desktop-1.png",
+            "aspectRatio": "1020/644",
+            "classList": "about-text-desktop-1 rounded-corners",
+            "imageDescription": "Text accross the entire width"
+          },
+
+          "img14": {
+            "path": "relentless-grace-radio/improvements/",
+            "image": "about-text-desktop-2.png",
+            "aspectRatio": "1020/644",
+            "classList": "about-text-desktop-2 rounded-corners",
+            "imageDescription": "Smaller textbox"
+          }
+        },
+
+        "extras": {
+          "h2": "Intro animation",
+          "p1": "Not too long ago I read about Gsap and Lottie to easily add animations to a website, So I wanted to put this on the website as an extra thing. Since the logo was handwritten, it seemed appropriate to do an animation in which the logo is written out. In addition I applied a simple intro animation to the text under the logo with Gsap."
+        },
+
+        "sliders": [
+          {
+            "sliderId": "RgrHeaderDesigns",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": false,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Header Design 1",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "header-design1.png",
+                "aspectRatio": "1020/644"
+              },
+              {
+                "slideId": 2,
+                "title": "Header Design 2",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "header-design2.png",
+                "aspectRatio": "1020/644"
+              },
+              {
+                "slideId": 3,
+                "title": "Header Design 3",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "header-design3.png",
+                "aspectRatio": "1020/644"
+              },
+              {
+                "slideId": 4,
+                "title": "Final Design",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "header-design4.png",
+                "aspectRatio": "1020/644"
+              }
+            ]
+          },
+
+          {
+            "sliderId": "RgrBodyDesigns",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": false,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 0.7, 0.75, 0.7, 0.75, 0.75],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Body Design 1",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "body-design1.jpg",
+                "aspectRatio": "750/1294"
+              },
+              {
+                "slideId": 2,
+                "title": "Body Design 2",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "body-design2.jpg",
+                "aspectRatio": "750/1294"
+              },
+              {
+                "slideId": 3,
+                "title": "Final Design",
+                "imageFolder": "relentless-grace-radio/first-designs/",
+                "image": "body-design3.jpg",
+                "aspectRatio": "750/1298"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "projectName": "Multifeed <br /> (Graduation Project)",
+      "projectContent": "multifeed",
+      "projectPageTitle": "Multifeed",
+      "tags": ["Visual Design", "UX / UI"],
+      "image": "multifeed.jpg",
+      "imageAlt": "multifeed",
+      "pageLayout": "<h2>Design Challenge:</h2><p class='design-challenge'>How can an interactive application reduce the complexity of feed management to such an extent that employees of Dutch micro enterprises can offer and manage products themselves on various marketplaces, without having the technical knowledge?</p><p>Marketplaces like Amazon, Ebay and the dutch company Bol.com have become very popular over the years. Consumers like to buy their products through these platforms, because of several advantages like competitive pricing and fast delivery. Trading companies that follow this trend know that it’s very beneficial to sell their products through these platforms in addition to their own webshop. For smaller companies this is either too expensive or it takes too much time and effort. </p><p>Since there was not yet an application that was suitable for smaller companies, I started the (graduation) project in collaboration with Prodos. Through interviews and online research I found out what is really important for smaller companies. Below you can read about all the important steps I took while designing the application Multifeed.</p>",
+      "route": "multifeed",
+      "contentComponent": "Multifeed",
+      "hasLink": true,
+      "buttonText": "Go to prototype",
+      "projectLink": "https://firenzo.github.io/multifeed-v0.3/#!/screens",
+      "content": {
+        "bootcamp": {
+          "h2": "Bootcamp",
+          "p1": "While talking with Prodos about this topic, I learned that there are different ways in which a customer can offer their products on marketplaces and what the disadvantages are for micro entrepreneurs.",
+          "h3": "The different methods:"
+        },
+
+        "research": {
+          "h2": "Research",
+          "p1": "To find out whether these claims were correct, I decided to do some field research. First I interviewed several candidates from the target group. In addition I ran a little test in which I let the micro entrepreneurs work with a product feed management tool to see what problems they would encounter. ",
+          "h3a": "Interviews",
+          "p2": "In order to get a better idea of who exactly the micro entrepreneur is, I conducted a number of interviews with various micro entrepreneurs. Several things I have discovered during the interviews is shown schematically in the persona below.",
+          "h3b": "User Requirements:",
+          "ul1": [
+            "It should be possible to place products on different marketplaces.",
+            "It should be possible to manage thousands of products.",
+            "It should be possible to view and manage incoming orders.",
+            "The application must work on desktop / laptop.",
+            "Learning the application shouldn't take too much time and effort.",
+            "The application must be able to generate time or money."
+          ],
+          "h3c": "User Tests",
+          "p3": "For these tests I set up a dummy webshop with a number of products in it. The micro entrepreneurs were then given the task of linking this webshop with the Product feed management tool. After linking the webshop, the micro entrepreneurs were given the task of forwarding the products to a marketplace. To visually show how a micro entrepreneur gets started with a product feed management tool, I created the Customer Journey below.",
+          "h3d": "Usability Requirements:",
+          "ul2": [
+            "The application should use understandable language.",
+            "It must be clear what must be done at a particular step.",
+            "The application must let the user know where they are in the process.",
+            "The application must have a simple interface.",
+            "The application must provide ongoing support and guidance."
+          ]
+        },
+
+        "ideation": {
+          "h2": "Ideation",
+          "p1": "I held a brainstorming session together with two experts from Prodos. Here we let go of the usability requirements so we wouldn't limit ourselves in gaining ideas.",
+          "p2": "We eventually came up with a number of different solutions. These were not completely clear yet, so we started discussing them with each other. Then we found out that some of our individually conceived ideas could be pieced together into a better solution. This ultimately resulted in 3 concepts.",
+          "h3a": "Harris Profile",
+          "p3": "In the end I opted for the third concept: Doing a redesign on a product feed management tool. I made this decision by weighing all conceived concepts against one another with the help of a Harris profile.",
+          "img1": {
+            "path": "multifeed/ideas/",
+            "image": "harrisProfile.jpg",
+            "classList": "multifeed-harris-profile rounded-corners shadow",
+            "aspectRatio": "851/850"
+          }
+        },
+
+        "productCreation": {
+          "h2": "Product Development",
+          "h3a": "Sketches",
+          "p1": "When making the sketches, I mainly looked at the different design challenges at hand. I listed these challenges as questions that start with “how can the user…”. I then answered each question by looking for a functional design pattern or by sketching something myself.",
+          "h3b": "Hi-Fi Wireframes",
+          "p2": "By answering the questions above, I explored different ways of interaction and then selected the best one for redesigning the product feed management tools. I then made Hi-Fi wire frames with this. ",
+          "h3c": "Determining the visual style",
+          "p3": "First, I wanted to put together a color palette for the application. For this I have tried several things. In the end I was satisfied with the last design.",
+          "p4": "While designing the first screen, I already thought about a name and a logo for the application. The name would be “Multifeed”, which means “Multiple Product Feeds”",
+          "img1": {
+            "path": "multifeed/visual/",
+            "image": "logo.svg",
+            "classList": "multifeed-logo",
+            "aspectRatio": "270/42"
+          },
+          "p5": "To fill in empty spaces within the interface I designed the illustration below.",
+          "img2": {
+            "path": "multifeed/visual/",
+            "image": "illustration.jpg",
+            "classList": "multifeed-illustration shadow rounded-corners",
+            "aspectRatio": "750/453",
+            "imageDescription": "Illustration"
+          },
+          "h3d": "More Interface Designs",
+          "p6": "In the end I designed more screens based on the dashboard design."
+        },
+
+        "finalProduct": {
+          "h2": "Final Product",
+          "p1": "In the end I made multiple clickable prototypes and tested them with Dutch micro entrepreneurs. I have used the results of the user tests to continuously improve the prototype. ",
+          "img1": {
+            "path": "multifeed/",
+            "image": "paper-prototype-test.jpg",
+            "classList": "multifeed-paper-prototype-test shadow rounded-corners",
+            "aspectRatio": "750/423",
+            "imageDescription": "Paper Prototype Testing"
+          },
+          "p2": "After testing the last prototype, the Micro entrepreneurs were very enthusiastic about the ease of the application. Here and there there were still some points for improvement, but in general the users understand what is expected of them and each candidate is sure that they can offer products from their webshop on different marketplaces without the help of an internet marketing agency. ",
+          "p3": "",
+          "video1": {
+            "thumbnail": "multifeed.png",
+            "file": "multifeed.mp4",
+            "link": "https://youtu.be/6Pgq5tT5neg",
+            "externalPlatform": "Youtube",
+            "classList": "multifeed-promo-video"
+          }
+        },
+
+        "sliders": [
+          {
+            "sliderId": "multifeedResearchSlider",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": true,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Method 1",
+                "subtitle": "The micro entrepreneur themself uses a product feed management tool. ",
+                "footer": "<h3>Disadvantages</h3><ul><li>Technical knowledge is required.</li><li>It takes a lot of valuable time to learn how to use the application.</li><li>If the micro entrepreneur has no experience with such a tool, it entails certain risks such as incorrect information on the marketplace or continuing to pay for the tool without getting the desired results.</li></ul>",
+                "imageFolder": "multifeed/methods/",
+                "image": "zelf-proberen.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 2,
+                "title": "Method 2",
+                "subtitle": "The micro entrepreneur pays an internet marketing agency to get their products on the desired marketplaces.",
+                "footer": "<h3>Disadvantages</h3><ul><li>For a micro entrepreneur this is very expensive!</li></ul>",
+                "imageFolder": "multifeed/methods/",
+                "image": "uitbesteden.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 3,
+                "title": "Method 3",
+                "subtitle": "The micro entrepreneur puts every product on the marketplace manually.",
+                "footer": "<h3>Disadvantages</h3><ul><li>It takes a lot more time to set up. While time is very important to micro entrepreneurs.</li><li>When information about a product needs to be changed, the entrepreneur has to do this separately for each channel.</li></ul>",
+                "imageFolder": "multifeed/methods/",
+                "image": "handmatig.jpg",
+                "aspectRatio": "16/9"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedPersona",
+            "type": "longImage",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "contentData": [
+              {
+                "title": "Persona",
+                "subtitle": "Dutch micro entrepeneurs",
+                "footer": "<h3>Nadelen van deze methode</h3><ul><li>nadeel 1</li><li>nadeel 2</li></ul>",
+                "imageFolder": "multifeed/",
+                "image": "persona-multifeed.jpg",
+                "height": "735",
+                "desiredHeight": [500, 500, 600, 700],
+                "width": "1040",
+                "aspectRatio": "1040/735"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedCustomerJourney",
+            "type": "longImage",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "contentData": [
+              {
+                "title": "Customer Journey",
+                "subtitle": "Dutch micro entrepeneur tries to use a product feed management tool",
+                "footer": "<h3>Nadelen van deze methode</h3><ul><li>nadeel 1</li><li>nadeel 2</li></ul>",
+                "imageFolder": "multifeed/",
+                "image": "customerJourney.jpg",
+                "height": "850",
+                "desiredHeight": [500, 700, 700, 850],
+                "width": "2404",
+                "aspectRatio": "16/9"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedConcepts",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": true,
+            "scaleFactor": [1.0, 0.65, 0.5, 0.65, 0.65, 0.8],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Concept 1",
+                "subtitle": "Excel Sheet Generator.",
+                "footer": "<p>This is a web application where the user only indicates on which marketplace they want to sell their products and which category of products they are. The application then generates an Excel sheet that the user can download. The user can then put all of their product data in here. When the user has done this, they can log in to the marketplace to upload this data. </p>",
+                "imageFolder": "multifeed/ideas/",
+                "image": "idea1.jpg",
+                "aspectRatio": "773/1000"
+              },
+              {
+                "slideId": 2,
+                "title": "Concept 2",
+                "subtitle": "Webshop Plugin.",
+                "footer": "<p>The user installs a plugin for their webshop. From this plugin, a link with the webshop is automatically made. The user can then choose which marketplace they want to forward their products to. By setting a number of rules, the user can specify exactly which products they want to send to the marketplace. Finally, the user can still control which products they are about to send to the marketplace. If this is not the desired result, the user can still go back to change the settings. </p>",
+                "imageFolder": "multifeed/ideas/",
+                "image": "idea2.jpg",
+                "aspectRatio": "773/1000"
+              },
+              {
+                "slideId": 3,
+                "title": "Concept 3",
+                "subtitle": "Redesign of a product feed management tool.",
+                "footer": "<p>A product feed management tool that focuses on the micro entrepreneur who wants to decide for themselves which products to send to which marketplace and also wants to manage this themselves. Rather than asking difficult questions without helping the user, this tool will provide full support and guidance within the interface. </p>",
+                "imageFolder": "multifeed/ideas/",
+                "image": "idea3.jpg",
+                "aspectRatio": "773/1000"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedSketches",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.0, 1.0],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Dashboard",
+                "subtitle": "How can the application provide useful information to the user on the homescreen?",
+                "imageFolder": "multifeed/sketches/",
+                "image": "dashboard.jpg",
+                "aspectRatio": "750/533"
+              },
+              {
+                "slideId": 2,
+                "title": "Instruction Video",
+                "subtitle": "How can you tell a user where to generate his API key?",
+                "imageFolder": "multifeed/sketches/",
+                "image": "wizard-video.jpg",
+                "aspectRatio": "750/530"
+              },
+              {
+                "slideId": 3,
+                "title": "Multiple steps",
+                "subtitle": "How can you tell a user where to generate his API key?",
+                "imageFolder": "multifeed/sketches/",
+                "image": "wizard-steps.jpg",
+                "aspectRatio": "750/536"
+              },
+              {
+                "slideId": 4,
+                "title": "Linking data by clicking on the fields",
+                "subtitle": "How can you make it easy for a user to link fields from the webshop to those from the marketplace?",
+                "imageFolder": "multifeed/sketches/",
+                "image": "wizard-data-link-1.jpg",
+                "aspectRatio": "750/530"
+              },
+              {
+                "slideId": 5,
+                "title": "Linking data by dragging the fields",
+                "subtitle": "How can you make it easy for a user to link fields from the webshop to those from the marketplace?",
+                "imageFolder": "multifeed/sketches/",
+                "image": "wizard-data-link-2.jpg",
+                "aspectRatio": "750/533"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedHiFiWireframes",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Dashboard",
+                "subtitle": "",
+                "imageFolder": "multifeed/hifi/",
+                "image": "dashboard.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 2,
+                "title": "Marketplace Connections",
+                "subtitle": "",
+                "imageFolder": "multifeed/hifi/",
+                "image": "marketplace-connections.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 3,
+                "title": "Wizard",
+                "subtitle": "Select a webshop to connect to Multifeed.",
+                "imageFolder": "multifeed/hifi/",
+                "image": "choose-webshop.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 4,
+                "title": "Wizard",
+                "subtitle": "Link fields from the webshop with Multifeed.",
+                "imageFolder": "multifeed/hifi/",
+                "image": "link-fields-from-webshop.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 5,
+                "title": "Wizard",
+                "subtitle": "Select a marketplace to sell products from the webshop on.",
+                "imageFolder": "multifeed/hifi/",
+                "image": "choose-marketplace.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 6,
+                "title": "Wizard",
+                "subtitle": "Link the categories from the webshop with categories on the marketplace.",
+                "imageFolder": "multifeed/hifi/",
+                "image": "link-categories.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 7,
+                "title": "Wizard",
+                "subtitle": "Make a connection with the marketplaces API. On the left side of this screen are instructions the user can follow.",
+                "imageFolder": "multifeed/hifi/",
+                "image": "api-connection.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 8,
+                "title": "Wizard",
+                "subtitle": "Link category-specific fields with marketplace",
+                "imageFolder": "multifeed/hifi/",
+                "image": "link-fields-from-categories.jpg",
+                "aspectRatio": "16/9"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedVisualDesign",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": false,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "1st Design",
+                "imageFolder": "multifeed/visual/",
+                "image": "visual-design-1.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 2,
+                "title": "2nd Design",
+                "imageFolder": "multifeed/visual/",
+                "image": "visual-design-2.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 3,
+                "title": "3rd Design",
+                "imageFolder": "multifeed/visual/",
+                "image": "visual-design-3.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 4,
+                "title": "4th Design",
+                "imageFolder": "multifeed/visual/",
+                "image": "visual-design-4.jpg",
+                "aspectRatio": "16/9"
+              }
+            ]
+          },
+          {
+            "sliderId": "multifeedMoreVisualDesign",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": true,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Login Screen",
+                "subtitle": "",
+                "imageFolder": "multifeed/visual/",
+                "image": "login.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 2,
+                "title": "Webshop screen",
+                "subtitle": "Empty state.",
+                "imageFolder": "multifeed/visual/",
+                "image": "link-webshop-empty-state.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 3,
+                "title": "Webshop screen",
+                "subtitle": "With webshop connected.",
+                "imageFolder": "multifeed/visual/",
+                "image": "link-webshop.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 4,
+                "title": "Link Fields",
+                "subtitle": "Link fields from the webshop with Multifeed.",
+                "imageFolder": "multifeed/visual/",
+                "image": "link-fields.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 5,
+                "title": "Wizard",
+                "subtitle": "Select a marketplace to sell products from the webshop on.",
+                "imageFolder": "multifeed/visual/",
+                "image": "choose-marketplace.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 6,
+                "title": "Wizard",
+                "subtitle": "Make a connection with the marketplaces API. On the left side of this screen are instructions the user can follow.",
+                "imageFolder": "multifeed/visual/",
+                "image": "marketplace-api.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 7,
+                "title": "Rules",
+                "subtitle": "Empty state.",
+                "imageFolder": "multifeed/visual/",
+                "image": "rules-empty-state.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 8,
+                "title": "Adding a rule",
+                "subtitle": "",
+                "imageFolder": "multifeed/visual/",
+                "image": "adding-rule.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 9,
+                "title": "Simple rule",
+                "subtitle": "",
+                "imageFolder": "multifeed/visual/",
+                "image": "simple-rule.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 10,
+                "title": "Advanced rule",
+                "subtitle": "",
+                "imageFolder": "multifeed/visual/",
+                "image": "advanced-rule.jpg",
+                "aspectRatio": "16/9"
+              },
+              {
+                "slideId": 11,
+                "title": "List of products",
+                "subtitle": "This list shows the products that are about to be send to the marketplace",
+                "imageFolder": "multifeed/visual/",
+                "image": "list-of-products.jpg",
+                "aspectRatio": "16/9"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "projectName": "Home Monitoring Dashboard Design",
+      "projectPageTitle": "Home Monitoring Dashboard Design",
+      "projectContent": "HomeMonitoringDashboard",
+      "tags": ["Visual Design", "Motion Design", "UX / UI"],
+      "image": "home-monitoring-dashboard-design.png",
+      "imageAlt": "home monitoring dashboard design",
+      "pageLayout": "<p>When I start making a prototype, I normally do this in online tools such as Invision. The problem with these tools is that it’s not possible to show transition animations, because the prototype is made out of a couple images with hotspots on them. When that hotspot gets clicked on, the tool will just redirect the user to another image.</p><p>I’ve always wanted to make my prototypes more interactive. I usually work in Sketch when I’m designing user interfaces, and one day I read that it was possible to implement Sketch files in a program named Principle. I really wanted to try it out, so I came up with a little project for myself. I decided to design a home monitoring dashboard prototype in which I put lots of transitions. With this I wanted to see if Principle was a suitable application for me.</p>",
+      "route": "home-monitoring-dashboard-design",
+
+      "hasLink": false,
+      "buttonText": "Read more on Gitbook",
+      "projectLink": "https://srp-principle.gitbook.io/project/",
+
+      "content": {
+        "bootcamp": {
+          "h2": "Designing the screens",
+          "h3a": "Moodboard",
+          "p1": "I started to gain inspiration by putting together a number of examples of dashboards using a moodboard. In this moodboard I also put some inspiration for animations. To see the moodboard click on the link below:",
+          "h3b": "Design",
+          "p2": "By looking at different dashboards, I noticed that a dashboard is divided into different surfaces. These surfaces are on top of the background. This allows the surfaces to be separated from each other with some whitespace.",
+          "p3": "I also see that it is possible to change a number of settings in the areas of the dashboard. However, these are basic settings such as switching certain lights on and off. If, for example, the user wants to to add more lamps, they can go to the settings of the relevant area.",
+          "h3c": "The information",
+          "p4": "Aside from the settings, I have also looked at the information displayed on the dashboard itself. It was a lot, so I took out a few that I wanted to show on my home monitoring dashboard. These are:",
+          "ul1": [
+            "Time and Date.",
+            "Weather + Location.",
+            "Lamps on/off state.",
+            "Temperature of the house.",
+            "The users latest received emails.",
+            "Music.",
+            "The user's next appointment.",
+            "Home security camera feed."
+          ],
+
+          "h3d": "Wireframes",
+          "p5": "The information shown in the wireframes below may differ from the information that will appear in the final prototype."
+        },
+
+        "animations": {
+          "h2": "The animations",
+          "video1": {
+            "thumbnail": "home-monitoring-dashboard.jpg",
+            "file": "homescreen.mp4",
+            "link": "https://youtu.be/znM9Pm6xR5w",
+            "externalPlatform": "Youtube",
+            "classList": "home-monitoring-dashboard-video"
+          }
+        },
+
+        "finalThoughts": {
+          "h2": "Final thoughts",
+          "p1": "Using Principle for UI animations was not difficult to learn. The interface is easy and logical to use. In addition, the program is also quite light, which is very nice when you work with animations. I have not seen any stuttering images whatsoever. Importing Sketch files is also very smooth, but there are a few things to keep in mind when importing a Sketch file, in which I encountered some frustrations.",
+          "p2": "When importing a sketch file, only the visible layers are included in Principle. And because Principle looks at the property differences of each layer between screen A and screen B, this means that all layers must actually be present in screen A and screen B. So if you transition between two completely different screens, your design will look very messy. Below such an example.",
+          "img1": {
+            "path": "home-monitoring-dashboard/",
+            "image": "messy-screen-a.jpg",
+            "classList": "hmd-messy-screen-a rounded-corners shadow",
+            "aspectRatio": "1020/765",
+            "imageDescription": "View in Principle for Screen A"
+          },
+
+          "img2": {
+            "path": "home-monitoring-dashboard/",
+            "image": "messy-screen-b.jpg",
+            "classList": "hmd-messy-screen-b rounded-corners shadow",
+            "aspectRatio": "1020/765",
+            "imageDescription": "View in Principle for Screen B"
+          },
+
+          "p3": "The layers of screens A and B must also have the same folder structure. And doing all of that properly takes time and effort. I had a lot of trouble with that in the beginning, but in the end it became easier. After importing it is just a matter of giving all unnecessary layers an opacity of 0 and changing the position for a nice animation when the layer appears.",
+          "p4": "Another frustration in Principle is that you cannot change certain things after importing a Sketch file. For example, I found out that I made a typo, but I had already started animating. To get rid of this typo I had to edit the Sketch file and import it again. Because of this I had to do the animations all over again. The reason that you can no longer change texts, colors, etc. is because Principle creates a bitmap image of every layer, with the exception of vectors. It can be useful to work with vectors as much as possible, but to save a simple rectangle or text as a vector file and then import it into Principle also takes a lot of time.",
+          "h3a": "Will I keep using Principle?",
+          "p5": "Maybe.",
+          "p6": "Principle is a nice application, but not quite what I was looking for. I thought importing Sketch files would be a great feature. Ok well... it's a great feature, but the things that come with it such as the correct setup of all layers etc., I don't really like that and it also takes a lot of time and effort. It is also very annoying if you cannot make small changes to the design while you are animating.",
+          "p7": "Therefore I prefer creating animations to be implemented in a design application such as Sketch. I know that Invision Studio works almost like Sketch and you can add animations in this application too. In addition, Framer is also a very powerful application, where almost everything is possible, because you can run your designs partly on code. These are two applications that are very interesting to try out. Since I already have some affinity with writing code, I think it would be more fun to try out Framer. After trying this application, I can make a better comparison and pick one."
+        },
+
+        "sliders": [
+          {
+            "sliderId": "homeMonitoringDashboardWireframes",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": false,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Home screen",
+                "imageFolder": "home-monitoring-dashboard/wireframes/",
+                "image": "home-screen.jpg",
+                "aspectRatio": "1040/769"
+              },
+              {
+                "slideId": 2,
+                "title": "Light screen",
+                "imageFolder": "home-monitoring-dashboard/wireframes/",
+                "image": "light-screen.jpg",
+                "aspectRatio": "1040/770"
+              },
+              {
+                "slideId": 3,
+                "title": "Mail screen",
+                "imageFolder": "home-monitoring-dashboard/wireframes/",
+                "image": "mail-screen.jpg",
+                "aspectRatio": "1040/765"
+              },
+              {
+                "slideId": 4,
+                "title": "Music screen",
+                "imageFolder": "home-monitoring-dashboard/wireframes/",
+                "image": "music-screen.jpg",
+                "aspectRatio": "1040/761"
+              }
+            ]
+          },
+          {
+            "sliderId": "homeMonitoringDashboardVisuals",
+            "type": "slider",
+            "hasHeader": true,
+            "hasSubHeader": false,
+            "hasFooter": false,
+            "scaleFactor": [1.0, 1.0, 1.0, 1.1, 1.3, 1.3],
+            "contentData": [
+              {
+                "slideId": 1,
+                "title": "Home screen",
+                "imageFolder": "home-monitoring-dashboard/visuals/",
+                "image": "home-screen.png",
+                "aspectRatio": "1020/721"
+              },
+              {
+                "slideId": 2,
+                "title": "Light screen",
+                "imageFolder": "home-monitoring-dashboard/visuals/",
+                "image": "light-screen.png",
+                "aspectRatio": "1020/721"
+              },
+              {
+                "slideId": 3,
+                "title": "Mail screen",
+                "imageFolder": "home-monitoring-dashboard/visuals/",
+                "image": "mail-screen.png",
+                "aspectRatio": "1020/721"
+              },
+              {
+                "slideId": 4,
+                "title": "Music screen",
+                "imageFolder": "home-monitoring-dashboard/visuals/",
+                "image": "music-screen.png",
+                "aspectRatio": "1020/721"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "projectName": "BeatID",
+      "projectPageTitle": "BeatID",
+      "tags": ["Visual Design", "UX / UI"],
+      "image": "beatid.jpg",
+      "imageAlt": "BeatID",
+      "pageLayout": "<p>A concept for an app made for music producers. The idea behind this app is for music producers to quickly capture the musical idea they have inside their head either by recording the melody with their voice or if they don’t like doing that in public they can digitally enter the melody just like they do in their DAWs (music production software). On top of that they can also add drums to make the musical idea more complete. When the idea is done, they can save it and send it to their desktop / laptop where they usually finish making a song.</p>",
+      "route": "beatid",
+
+      "hasLink": true,
+      "buttonText": "Go to prototype",
+      "projectLink": "https://firenzo.github.io/beatid-prototype/#!/screens",
+
+      "hasVideo": false,
+
+      "hasImages": false
+    },
+
+    {
+      "projectName": "Logo Redesign For Kindercentrum Colors",
+      "projectPageTitle": "Logo Design For Kindercentrum Colors",
+      "projectContent": "colors-logo",
+      "tags": ["Visual Design"],
+      "image": "kindercentrum-colors-logo.jpg",
+      "imageAlt": "kindercentrum colors logo",
+      "pageLayout": "<p>Daycare Kindercentrum Colorful had decided to change their name to “Kindercentrum Colors”. For this they wanted to have a new logo with this name. I decided to take up this challenge and design a logo that fits the current style. </p>",
+      "route": "kindercentrum-colors-logo",
+
+      "hasLink": false,
+
+      "content": {
+        "oldLogo": {
+          "h2": "The old logo",
+          "p1": "In the image above you can see what the old logo looked like. What I really liked about this logo was that many colors were used to enhance the name “Colorful”, so I wanted to include this in the new logo as well. ",
+          "img1": {
+            "path": "colorful/logo-design/",
+            "image": "old-logo.png",
+            "classList": "colorful-old-logo",
+            "imageDescription": "Old Logo",
+            "aspectRatio": "1020/357"
+          }
+        },
+        "designProcess": {
+          "h2": "The design process",
+          "h3a": "Back to basics",
+          "p1": "I started out by using a simple sans-serif font while also using the same colors as in the old logo.",
+          "img1": {
+            "path": "colorful/logo-design/",
+            "image": "stage1.svg",
+            "classList": "colors-logo-stage1",
+            "imageDescription": "Old Logo",
+            "aspectRatio": "1020/200"
+          },
+          "h3b": "Exploring other typefaces",
+          "p2": "I soon realized that a font like this wouldn't work. It lacked character, so I decided to try two other fonts. The first one was a rounded font. The idea behind this was that it looked more child-friendly because there are no sharp corners. The curves also make it look more playful. The second one was a slab serif font. This idea came up after I saw an image with toy blocks with letters on it.",
+          "img2": {
+            "path": "colorful/logo-design/",
+            "image": "stage2-rounded.svg",
+            "classList": "colors-logo-stage2-rounded",
+            "imageDescription": "Logo with rounded font",
+            "aspectRatio": "1020/187"
+          },
+          "img3": {
+            "path": "colorful/logo-design/",
+            "image": "stage2-slab-serif.svg",
+            "classList": "colors-logo-stage2-slab-serif",
+            "imageDescription": "Logo with slab serif font",
+            "aspectRatio": "1020/199"
+          },
+          "img4": {
+            "path": "colorful/logo-design/",
+            "image": "slab-serif-toy-blocks.jpg",
+            "classList": "slab-serif-toy-blocks rounded-corners shadow",
+            "imageDescription": "Toy blocks with slab serif letters",
+            "aspectRatio": "750/474"
+          },
+          "h3c": "Coloring",
+          "p3": "I soon noticed that the use of color was out of balance, because green and pink were used for two letters while blue and orange were only used for one letter. To fix this, I introduced two new colors that go well with the current colors. As a result, each letter had its own color. In addition, I also slightly rotated each letter to make the logo look more playful. I also designed a variant where there is a gradient on the logo.",
+          "img5": {
+            "path": "colorful/logo-design/",
+            "image": "static-color-rounded.svg",
+            "classList": "static-color-rounded",
+            "imageDescription": "Logo design with different colors and rounded font",
+            "aspectRatio": "1020/185"
+          },
+          "img6": {
+            "path": "colorful/logo-design/",
+            "image": "static-color-slab-serif.svg",
+            "classList": "static-color-slab-serif",
+            "imageDescription": "Logo design with different colors and slab serif font",
+            "aspectRatio": "1020/213"
+          },
+          "img7": {
+            "path": "colorful/logo-design/",
+            "image": "gradient-rounded.svg",
+            "classList": "gradient-rounded",
+            "imageDescription": "Logo design with gradient and rounded font",
+            "aspectRatio": "1020/185"
+          },
+          "img8": {
+            "path": "colorful/logo-design/",
+            "image": "gradient-slab-serif.svg",
+            "classList": "gradient-slab-serif",
+            "imageDescription": "Logo design with gradient and slab serif font",
+            "aspectRatio": "1020/213"
+          },
+          "h3d": "Finishing touches",
+          "p4": "I was happy with the direction the logo design was going, but I also noticed that the logo design was similar to the old logo. I did not think this was necessarily bad, because the new logo could then easily be used in the current visual style of the daycare center. Therefore I decided to keep the same style as the old logo. As a result, I ended up with four different designs that I presented to the customer.",
+          "img9": {
+            "path": "colorful/logo-design/",
+            "image": "final-static-color-rounded.svg",
+            "classList": "final-static-color-rounded",
+            "imageDescription": "Final logo design with different colors and rounded font",
+            "aspectRatio": "1020/328"
+          },
+          "img10": {
+            "path": "colorful/logo-design/",
+            "image": "final-gradient-rounded.svg",
+            "classList": "final-gradient-rounded",
+            "imageDescription": "Final logo design with gradient and rounded font",
+            "aspectRatio": "1020/387"
+          },
+          "img11": {
+            "path": "colorful/logo-design/",
+            "image": "final-static-color-slab-serif.svg",
+            "classList": "final-static-color-slab-serif",
+            "imageDescription": "Final logo design with different colors and slab serif font",
+            "aspectRatio": "1020/328"
+          },
+          "img12": {
+            "path": "colorful/logo-design/",
+            "image": "final-gradient-slab-serif.svg",
+            "classList": "final-gradient-slab-serif",
+            "imageDescription": "Final logo design with gradient and slab serif font",
+            "aspectRatio": "1020/387"
+          },
+          "h3e": "The customers choice",
+          "p5": "When presenting the logos to the customer, I also explained why I decided to keep the same style as the old logo. The customer agreed with this. She was also very enthusiastic about the logo's. She quickly made a choice and decided to go with the logo in the image below. ",
+          "img13": {
+            "path": "colorful/logo-design/",
+            "image": "customers-choice.jpg",
+            "classList": "customers-choice rounded-corners shadow",
+            "imageDescription": "The customer's choice",
+            "aspectRatio": "1020/600"
+          }
+        }
+      }
+    },
+
+    {
+      "projectName": "Ricen Logo Design",
+      "projectPageTitle": "Ricen Logo Design",
+      "tags": ["Visual Design"],
+      "image": "ricen.jpg",
+      "imageAlt": "ricen",
+      "pageLayout": "<p>A friend of mine asked me to make a logo for his startup Ricen. The goal was for this logo to be embroidered on several t-shirts. What you see in this logo is a rice bowl with a lotus inside.</p>",
+      "route": "ricen-logo",
+
+      "hasLink": false
+    },
+
+    {
+      "projectName": "5 Years Kindercentrum Colorful Flyer",
+      "projectContent": "five-years-kindercentrum-colorful-flyer",
+      "projectPageTitle": "5 Years Kindercentrum Colorful Flyer",
+      "tags": ["Visual Design"],
+      "image": "colorful3.jpg",
+      "imageAlt": "5 jaar kindercentrum colorful",
+      "pageLayout": "<p>Kindercentrum Colorful was very happy with the last flyer I designed for them, that they decided to let me design another flyer for their 5th anniversary. The result is below.</p>",
+      "route": "colorful-flyer-3",
+
+      "hasLink": false,
+
+      "content": {
+        "flyer": {
+          "h2": "Flyer design",
+          "img1": {
+            "path": "colorful/",
+            "image": "5jaar.jpg",
+            "classList": "flyer-design-5-years-colorful rounded-corners shadow",
+            "aspectRatio": "1000/1419"
+          }
+        }
+      }
+    },
+
+    {
+      "projectName": "Barber Iwan Website",
+      "projectPageTitle": "Barber Iwan Website",
+      "tags": ["Visual Design", "Front End"],
+      "image": "barber-iwan.jpg",
+      "imageAlt": "barber iwan",
+      "pageLayout": "<p>My cousin has been a barber for several years now and decided that he wanted his own website. And since I do my hair there quite often, he has asked me to make that website for him. On his website he wanted some pictures to show others what he is capable of, just like this portfolio website. Aside from that he wanted people to make online reservations, so he didn’t have to call every time.</p><p>This website has been updated. Check out version 2 by clicking the button below!</p>",
+      "route": "barber-iwan",
+
+      "hasLink": true,
+      "buttonText": "Check out version 2",
+      "projectLinkIsInternal": true,
+      "projectLink": "barber-iwan-v2",
+
+      "hasVideo": false,
+
+      "hasImages": false
+    },
+
+    {
+      "projectName": "Kindercentrum Colorful Flyer",
+      "projectPageTitle": "Kindercentrum Colorful Flyer",
+      "projectContent": "Kindercentrum-colorful-flyer",
+      "tags": ["Visual Design"],
+      "image": "colorful2.jpg",
+      "imageAlt": "kindercentrum colorful flyer",
+      "pageLayout": "<p>Kindercentrum Colorful reached out to me to make them a flyer for their daycare. They were very happy with this flyer and decided to reach out to me again. With this flyer I applied everything what I had learned during my visual design internship at Goeiezaak.com. I’m really happy with the final result!</p>",
+      "route": "colorful-flyer-2",
+
+      "hasLink": false,
+
+      "hasVideo": false,
+
+      "hasImages": true,
+      "content": {
+        "flyer": {
+          "h2": "Flyer design",
+          "img1": {
+            "path": "colorful/",
+            "image": "flyer2-front.jpg",
+            "classList": "flyer2-front rounded-corners shadow",
+            "aspectRatio": "564/800"
+          },
+
+          "img2": {
+            "path": "colorful/",
+            "image": "flyer2-back.jpg",
+            "classList": "flyer2-front rounded-corners shadow",
+            "aspectRatio": "564/800"
+          }
+        }
+      }
+    }
+  ]
+}

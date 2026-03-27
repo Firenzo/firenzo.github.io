@@ -1,0 +1,125 @@
+@import "../../styles/breakpoints.scss";
+
+section#project{
+	width:100%;
+	margin-left:0;
+	margin-right:0;
+
+	@include min-1024{
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	@include min-1900{
+		width:calc(100% - 475px);
+		//margin:auto;
+	}
+
+	.additional-content{
+		margin-bottom: 50px;
+
+		a.button{
+			max-width: 100%;
+			margin-top:50px;
+			padding: 30px 0px;
+			background: linear-gradient(90deg, #9500F0 0%, #A74FDD 100%);
+			box-shadow: -5px -5px 8px rgb(214 181 234 / 25%), 5px 5px 8px rgb(111 36 157 / 41%), inset 3px 3px 3px rgb(255 255 255 / 25%), inset 0 0 3px rgb(0 0 0 / 50%);
+
+			&:hover{
+				background: linear-gradient(90deg, #A13FDD 0%, #BB77E6 100%);
+			}
+		}
+
+		div.image-container{
+			margin-bottom:50px;
+
+			div.image{
+				position:relative;
+				//overflow:hidden;
+				animation: loading-content-image 0.8s infinite alternate-reverse linear;
+
+				img{
+					position:absolute;
+					top:0;
+					left:0;
+					opacity:0;
+					transition: opacity 0.4s ease;
+					//box-shadow:0 0 8px rgba(0,0,0,0.3);
+					&[lazy=loaded]{
+						opacity: 1;
+					}
+				}
+
+				&.loaded{
+					animation:none;
+				}
+			}
+
+			&.shadow{
+				div.image{
+					img[lazy=loaded]{
+						box-shadow:0 0 8px rgba(0,0,0,0.3);
+					}
+				}
+			}
+
+			&.rounded-corners,
+			&.rounded-corners div.image,
+			&.rounded-corners div.image img {
+				border-radius: 10px;
+			}
+		}
+
+		video{
+			width:100%;
+		}
+
+	}
+
+	
+
+	section.text-container{
+		padding:0px 0px;
+		flex-basis:auto;
+		max-width:750px;
+
+		ul{
+			list-style:none;
+			margin-bottom:50px;
+
+			li {
+				color:#1f1f1f;
+				font-family: "Proxima Nova", sans-serif;
+				font-size:20px;
+				line-height:1.5em;
+				font-weight:100;
+				&:not(:last-of-type){
+					margin-bottom: 1.3em;
+				}
+
+				&:before{
+					content:"\25CF";
+					color:#6F62E6;
+					font-weight:bold;
+					display:inline-block;
+					width:1em;
+					margin-right:20px;
+				}
+			}
+		}
+
+		@include min-1500{
+			width:80%;
+		}
+	}
+}
+
+@keyframes loading-content-image {
+	0% {
+		background: rgba(80,80,80,0.15);
+	}
+
+	100%{
+		background: rgba(80,80,80,0.04);
+	}
+}

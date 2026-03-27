@@ -1,0 +1,80 @@
+$block-gradient: linear-gradient(90deg, #9500F0 0%, #A74FDD 100%);
+$block-gradient-hover: linear-gradient(90deg, #A13FDD 0%, #BB77E6 100%);
+$off-black: #1f1f1f;
+
+section#contact {
+
+	h1{
+		margin-bottom:10px;
+		color:$off-black;
+	}
+
+	a.email-block{
+		margin-top:20px;
+	}
+
+	a.email-block, a.linkedin-block {
+		height:133px;
+		width:100%;
+		background: $block-gradient;
+		box-shadow: -5px -5px 8px rgba(214,181,234,0.25), 5px 5px 8px rgba(111,36,157,0.41), inset 3px 3px 3px rgba(255,255,255,0.25), inset 0 0 3px rgba(0,0,0,0.5);
+		border-radius: 17px;
+		margin-bottom:30px;
+		display:flex;
+		text-decoration: none;
+		align-items:center;
+		justify-content: center;
+		color:white;
+		max-width:375px;
+
+		&:hover {
+			background: $block-gradient-hover;
+		}
+
+		.button-content{
+			display:flex;
+			flex:1;
+			align-items: center;
+
+			.offset-icon{
+				order:1;
+				width:10%;
+				height:30px;
+			}
+
+			div.icon.linkedin{
+				width:27%;
+			}
+
+			div.icon{
+				order:2;
+				width:15%;
+			}
+
+			span {
+				order:3;
+				font-family: proxima-nova, sans-serif;
+				-webkit-font-smoothing: antialiased;
+	    		-moz-osx-font-smoothing: grayscale;
+	    		font-weight: 700;
+	    		font-size: 17px;
+
+	    		@media screen and (min-width: 380px) {
+					font-size: 20px;
+				}
+
+				@media screen and (min-width: 420px) {
+					font-size: 22px;
+				}
+			}
+
+			
+		}
+	}
+
+	svg{
+		color:white;
+		width:38px !important;
+		height:38px !important;
+	}
+}

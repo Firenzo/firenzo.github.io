@@ -1,0 +1,12 @@
+// Viewport Widths: // 
+@mixin min-375 {@media screen and (min-width: 375px){@content;}}
+@mixin min-600 {@media screen and (min-width: 600px){@content;}}
+@mixin min-768 {@media screen and (min-width: 768px){@content;}}
+@mixin min-834 {@media screen and (min-width: 834px){@content;}} // from here on max-width: 750px applies to containers
+@mixin min-1024 {@media screen and (min-width: 1024px){@content;}}
+@mixin min-1100 {@media screen and (min-width: 1100px){@content;}}
+@mixin min-1251 {@media screen and (min-width: 1251px){@content;}} // from here on max-width: 750px applies to containers
+@mixin min-1300 {@media screen and (min-width: 1300px){@content;}}
+@mixin min-1500 {@media screen and (min-width: 1500px){@content;}}
+@mixin min-1900 {@media screen and (min-width: 1900px){@content;}}
+@mixin min-2176 {@media screen and (min-width: 2176px){@content;}}
