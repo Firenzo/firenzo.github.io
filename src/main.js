@@ -24,6 +24,7 @@ import ColorsLogo from "./components/projects/ColorsLogo.vue";
 import FiveYearsKindercentrumColorfulFlyer from "./components/projects/FiveYearsKindercentrumColorfulFlyer.vue";
 import KindercentrumColorfulFlyer from "./components/projects/KindercentrumColorfulFlyer.vue";
 import BarberIwanV2 from "./components/projects/BarberIwanV2.vue";
+import AnimationWorkshop from "./components/projects/AnimationWorkshop.vue";
 
 Vue.use(VLazyImagePlugin);
 Vue.use(VueLazyLoad);
@@ -35,13 +36,14 @@ Vue.component("DesktopMenu", DesktopMenu);
 Vue.component("ImageSlider", ImageSlider);
 Vue.component("LinkPreview", LinkPreview);
 
+Vue.component("AnimationWorkshop", AnimationWorkshop);
 Vue.component("BarberIwanV2", BarberIwanV2);
 Vue.component("RelentlessGraceRadio", RelentlessGraceRadio);
 Vue.component("Multifeed", Multifeed);
 Vue.component("HomeMonitoringDashboard", HomeMonitoringDashboard);
 Vue.component(
   "FiveYearsKindercentrumColorfulFlyer",
-  FiveYearsKindercentrumColorfulFlyer
+  FiveYearsKindercentrumColorfulFlyer,
 );
 Vue.component("KindercentrumColorfulFlyer", KindercentrumColorfulFlyer);
 Vue.component("ColorsLogo", ColorsLogo);
