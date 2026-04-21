@@ -191,7 +191,7 @@
       "pageLayout": "<p>After a few years, my cousin asked me to add additional functionality to the website. On his old website, he didn’t have enough content, which is why I had previously decided to create a one-pager. However, for the new website, multiple pages were required. He wanted to be able to showcase photos on the website (a kind of portfolio) and also have a page where visitors could view the pricing. Based on these new requirements, I advised rebuilding the website from scratch.</p>",
       "route": "barber-iwan-v2",
 
-      "hasLink": true,
+      "hasLink": false,
       "buttonText": "Go to website",
       "projectLink": "https://barberiwan.nl/",
 
