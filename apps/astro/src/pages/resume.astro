@@ -1,7 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { resumePageSchema } from "../schemas/pageSchemas";
+
+const { pageTitle } = resumePageSchema.parse(Astro.locals.pageData);
 ---
 
 <BaseLayout>
-  <h1>Resume</h1>
+  <h1>{pageTitle}</h1>
 </BaseLayout>

@@ -1,7 +1,34 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LinkCard from "../components/LinkCard.astro";
+import { contactPageSchema } from "../schemas/pageSchemas";
+
+const { pageTitle, contactItems } = contactPageSchema.parse(
+  Astro.locals.pageData,
+);
 ---
 
 <BaseLayout>
-  <h1>Contact</h1>
+  <h1 class="breakout">{pageTitle}</h1>
+  <div class="contact-items breakout">
+    {
+      contactItems.map((contactItem, index: number) => {
+        return (
+          <LinkCard
+            href={contactItem.url}
+            text={contactItem.displayText}
+            icon={contactItem.icon.name}
+            classes={index === contactItems.length - 1 ? "" : "mb-1"}
+          />
+        );
+      })
+    }
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
