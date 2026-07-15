@@ -29,7 +29,9 @@ export default {
       }
       ctx.body = { ...basePageData, ...pageSpecificData };
     } catch (err) {
-      ctx.body = err;
+      // ctx.body = err;
+      console.error('Error in page.find:', err);
+      ctx.body = { error: err.message, stack: err.stack };
     }
   },
 };

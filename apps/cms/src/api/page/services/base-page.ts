@@ -1,8 +1,5 @@
-import type { Data } from '@strapi/strapi';
 import type { Context } from 'koa';
-
-type Page = Data.ContentType<'api::page.page'>;
-export type BasePage = Pick<Page, 'pageTitle' | 'url' | 'translations'>;
+import { Page, BasePage } from '../../../../types';
 
 export default () => ({
   getBasePage: async (ctx: Context): Promise<BasePage> => {

@@ -1,6 +1,6 @@
 import { mapImageData, formatDate } from '../../../helpers';
 import { Data } from '@strapi/strapi';
-import { ImageData } from '../../../helpers';
+import { ImageData } from '../../../../types';
 
 type DesignSkillRaw = Data.ContentType<'api::design-skill.design-skill'>;
 type FrontEndSkillRaw = Data.ContentType<'api::front-end-skill.front-end-skill'>;

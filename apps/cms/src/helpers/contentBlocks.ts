@@ -1,5 +1,6 @@
 import { Data } from '@strapi/strapi';
-import { ImageData, mapImageData } from './index';
+import { mapImageData } from './index';
+import { ImageData } from '../../types';
 import { Project } from '../api/page/services/creations-page';
 
 export type ContentBlockComponentUID = Extract<keyof typeof strapi.components, `content-blocks.${string}`>;

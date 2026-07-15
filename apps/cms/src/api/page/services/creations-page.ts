@@ -4,9 +4,9 @@ import {
   mapContentBlocks,
   getAllContentBlockComponentUIDs,
   ContentBlockComponentUID,
-  ImageData,
   ContentBlock,
 } from '../../../helpers';
+import { ImageData } from '../../../../types';
 
 export type Project = Data.ContentType<'api::project.project'>;
 type GoToProjectButton = Data.Component<'common.button'>;

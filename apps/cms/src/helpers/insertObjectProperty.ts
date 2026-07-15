@@ -1,4 +1,9 @@
-export const insertObjectProperty = (originalObject, keyToInsertAfter, newKey, newValue) => {
+export const insertObjectProperty = (
+  originalObject: Record<string, any>,
+  keyToInsertAfter: string,
+  newKey: string,
+  newValue: any
+) => {
   const updatedObject = {};
   for (const [key, value] of Object.entries(originalObject)) {
     updatedObject[key] = value;

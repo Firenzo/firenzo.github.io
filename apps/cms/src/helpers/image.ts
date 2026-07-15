@@ -1,20 +1,6 @@
 import { Data } from '@strapi/strapi';
-import { Prettify } from '../../types/utils';
-
-const imageFormats = ['original', 'thumbnail', 'small', 'medium', 'large'] as const;
-
-type ImageFormat = (typeof imageFormats)[number];
-type ImageBase = Prettify<
-  Pick<Data.ContentType<'plugin::upload.file'>, 'url' | 'mime' | 'caption'> & {
-    altText: Data.ContentType<'plugin::upload.file'>['alternativeText'];
-  }
->;
-
-export type ImageData = Prettify<
-  ImageBase & {
-    [K in Exclude<(typeof imageFormats)[number], 'original'>]?: Object;
-  }
->;
+import { imageFormats } from '../constants/image';
+import type { ImageFormat, ImageData } from '../../types';
 
 export const mapImageData = (image: Data.ContentType<'plugin::upload.file'>): ImageData => {
   const altText = image.alternativeText;
