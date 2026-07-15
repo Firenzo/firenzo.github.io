@@ -4,6 +4,6 @@ interface ImportMetaEnv {
 
 declare namespace App {
   interface Locals {
-    pageData?: unknown;
+    pageData: import("./src/schemas/pageSchemas").PageData;
   }
 }

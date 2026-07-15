@@ -2,11 +2,13 @@
   "extends": "astro/tsconfigs/strict",
   "include": [
     ".astro/types.d.ts",
-    "**/*"
+    "**/*",
+    "../cms/",
+    "../cms/**/*.ts",
+    "../cms/**/*.js",
+    "../cms/src/**/*.json"
   ],
-  "exclude": [
-    "dist"
-  ],
+  "exclude": ["dist"],
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react"
