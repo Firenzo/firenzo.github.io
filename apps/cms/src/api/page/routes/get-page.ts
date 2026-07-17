@@ -2,7 +2,7 @@ export default {
   routes: [
     {
       method: 'GET',
-      path: '/page/:slug',
+      path: '/page/:slug/:project?',
       handler: 'get-page.find',
       config: {
         policies: [],

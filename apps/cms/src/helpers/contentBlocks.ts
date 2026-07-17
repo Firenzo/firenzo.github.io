@@ -1,10 +1,10 @@
 import { Data } from '@strapi/strapi';
 import { mapImageData } from './index';
 import { ImageData } from '../../types';
-import { Project } from '../api/page/services/creations-page';
+import { ProjectRaw } from '../api/page/services/project-page';
 
 export type ContentBlockComponentUID = Extract<keyof typeof strapi.components, `content-blocks.${string}`>;
-export type DynamicContent = Project['content'];
+export type DynamicContent = ProjectRaw['content'];
 
 export const getAllContentBlockComponentUIDs = (): ContentBlockComponentUID[] => {
   const allComponents = Object.keys(strapi.components) as ContentBlockComponentUID[];

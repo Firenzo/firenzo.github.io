@@ -1,32 +1,13 @@
 import { Data } from '@strapi/strapi';
-import {
-  mapImageData,
-  mapContentBlocks,
-  getAllContentBlockComponentUIDs,
-  ContentBlockComponentUID,
-  ContentBlock,
-} from '../../../helpers';
+import { getAllContentBlockComponentUIDs, ContentBlockComponentUID, ContentBlock } from '../../../helpers';
 import { ImageData } from '../../../../types';
+import { mapProject, componentsToPopulate, type ProjectRaw, type Project } from './project-page';
 
-export type Project = Data.ContentType<'api::project.project'>;
-type GoToProjectButton = Data.Component<'common.button'>;
-type Creation = Pick<Project, 'name' | 'nameInUrl' | 'introText' | 'tags'> & {
-  image: ImageData;
-  goToProjectButton: Pick<GoToProjectButton, 'displayText' | 'url' | 'icon' | 'iconPosition'>;
-  content: ContentBlock[];
-};
-
-export type CreationsPage = { creations: Creation[] };
-
-const componentsToPopulate: Record<ContentBlockComponentUID, { populate: '*' }> | {} =
-  getAllContentBlockComponentUIDs().reduce((acc, componentUid: ContentBlockComponentUID) => {
-    acc[componentUid] = { populate: '*' };
-    return acc;
-  }, {});
+export type CreationsPage = { creations: Project[] };
 
 export default () => ({
   getCreationsPage: async (): Promise<CreationsPage> => {
-    const creations: Project[] = (
+    const creations: ProjectRaw[] = (
       await strapi.service('api::project.project').find({
         populate: {
           image: true,
@@ -57,22 +38,7 @@ export default () => ({
       })
     )?.results;
 
-    const mappedCreations = creations.map((creation: Project) => {
-      return {
-        name: creation.name,
-        nameInUrl: creation.nameInUrl,
-        introText: creation.introText,
-        tags: creation.tags,
-        image: mapImageData(creation.image),
-        goToProjectButton: {
-          displayText: creation.goToProjectButton.displayText,
-          url: creation.goToProjectButton.url,
-          iconPosition: creation.goToProjectButton.iconPosition,
-          icon: creation.goToProjectButton.icon,
-        },
-        content: mapContentBlocks(creation.content),
-      };
-    });
+    const mappedCreations = creations.map((creation: ProjectRaw) => mapProject(creation));
 
     return { creations: mappedCreations };
   },

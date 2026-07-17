@@ -17,6 +17,12 @@ export default {
           break;
         }
         case '/creations': {
+          if (ctx.params.project) {
+            const projectData = await strapi.service('api::page.project-page').getProjectPage(ctx.params.project);
+            pageSpecificData = { ...projectData };
+            break;
+          }
+
           const creationsData = await strapi.service('api::page.creations-page').getCreationsPage();
           pageSpecificData = { ...creationsData };
           break;
@@ -29,7 +35,6 @@ export default {
       }
       ctx.body = { ...basePageData, ...pageSpecificData };
     } catch (err) {
-      // ctx.body = err;
       console.error('Error in page.find:', err);
       ctx.body = { error: err.message, stack: err.stack };
     }
