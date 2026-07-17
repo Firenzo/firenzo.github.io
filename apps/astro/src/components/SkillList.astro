@@ -1,0 +1,63 @@
+---
+import { STRAPI_URL } from "../helpers/url";
+import type { ResumePage } from "../schemas/pageSchemas";
+
+type SkillListProps = {
+  skillList: ResumePage["designSkills"] | ResumePage["frontEndSkills"];
+  title: string;
+};
+
+const { skillList, title } = Astro.props as SkillListProps;
+---
+
+<div class="skill-container">
+  <h3 class="large-text">
+    {title}
+  </h3>
+  <ul class="skill-list mt-4">
+    {
+      skillList.map((skill) => (
+        <li class="skill-item">
+          <img
+            class="skill-image"
+            src={STRAPI_URL + skill.logo.url}
+            loading="lazy"
+            alt={skill.logo.altText}
+          />
+          <span class="mt-1 lh-1">{skill.name}</span>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 120px;
+
+      img {
+        height: 95px;
+      }
+
+      span {
+        // width: min-content;
+        text-align: center;
+        text-wrap: balance;
+        font-size: var(--font-size-small);
+        font-weight: 900;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+</style>

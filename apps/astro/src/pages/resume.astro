@@ -1,10 +1,34 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { resumePageSchema } from "../schemas/pageSchemas";
+import { getTranslation } from "../helpers/translations";
+import SkillList from "../components/SkillList.astro";
+import Timeline from "../components/Timeline.astro";
 
-const { pageTitle } = resumePageSchema.parse(Astro.locals.pageData);
+const { pageTitle, designSkills, frontEndSkills } = resumePageSchema.parse(
+  Astro.locals.pageData,
+);
+
+console.log(getTranslation("skills.title"));
 ---
 
 <BaseLayout>
-  <h1>{pageTitle}</h1>
+  <div class="breakout title mb-3">
+    <h1>{pageTitle}</h1>
+    <h2 class="h2 block mb-1 lh-1">{getTranslation("skills.title")}</h2>
+    <div class="skills-container-wrapper mt-2 mb-4">
+      <SkillList
+        skillList={designSkills}
+        title={getTranslation("skills.design-software.title")}
+      />
+      <SkillList
+        skillList={frontEndSkills}
+        title={getTranslation("skills.front-end-development.title")}
+      />
+    </div>
+    <div class="experience-container">
+      <h2>{getTranslation("experience.title")}</h2>
+      <Timeline />
+    </div>
+  </div>
 </BaseLayout>
