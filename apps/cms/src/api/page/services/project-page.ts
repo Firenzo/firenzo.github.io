@@ -25,14 +25,14 @@ export const componentsToPopulate: Record<ContentBlockComponentUID, { populate: 
 export const mapProject = (project: ProjectRaw): Project => ({
   name: project.name,
   nameInUrl: project.nameInUrl,
-  introText: project.introText,
+  introText: project?.introText,
   tags: project.tags,
-  image: mapImageData(project.image),
+  image: project.image ? mapImageData(project.image) : null,
   goToProjectButton: {
-    displayText: project.goToProjectButton.displayText,
-    url: project.goToProjectButton.url,
-    iconPosition: project.goToProjectButton.iconPosition,
-    icon: project.goToProjectButton.icon,
+    displayText: project.goToProjectButton?.displayText,
+    url: project.goToProjectButton?.url,
+    iconPosition: project.goToProjectButton?.iconPosition,
+    icon: project.goToProjectButton?.icon,
   },
   content: mapContentBlocks(project.content),
 });

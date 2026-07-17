@@ -15,8 +15,8 @@ export const richTextSchema = z
 
 export const buttonWithIconSchema = z.object({
   __component: z.string(),
-  displayText: nullishOptionalStringSchema,
-  url: z.string(),
-  iconPosition: z.literal(["Left", "Right"]),
-  icon: iconSchema,
+  displayText: nullishOptionalStringSchema.optional(),
+  url: z.string().optional(),
+  iconPosition: z.literal(["Left", "Right"]).optional(),
+  icon: iconSchema.optional(),
 });

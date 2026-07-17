@@ -57,13 +57,13 @@ export const buttonComponentSchema = z.object({
 });
 
 export const contentBlockSchema = z.union([
-  singleMediaItemComponentSchema,
-  dualMediaItemsComponentSchema,
-  imageSliderComponentSchema,
-  scrollableImageComponentSchema,
-  richTextComponentSchema,
-  lottieAnimationComponentSchema,
-  buttonComponentSchema,
+  singleMediaItemComponentSchema.optional(),
+  dualMediaItemsComponentSchema.optional(),
+  imageSliderComponentSchema.optional(),
+  scrollableImageComponentSchema.optional(),
+  richTextComponentSchema.optional(),
+  lottieAnimationComponentSchema.optional(),
+  buttonComponentSchema.optional(),
 ]);
 
 
