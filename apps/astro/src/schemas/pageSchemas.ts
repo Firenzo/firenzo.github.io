@@ -32,6 +32,10 @@ export const creationsContentSchema = z.object({
   creations: z.array(projectSchema),
 });
 
+export const projectContentSchema = z.object({
+  project: projectSchema,
+});
+
 export const contactContentSchema = z.object({
   contactItems: z.array(buttonWithIconSchema),
 });
@@ -49,6 +53,11 @@ export const resumePageSchema = z.object({
 export const creationsPageSchema = z.object({
   ...basePageSchema.shape,
   ...creationsContentSchema.shape,
+});
+
+export const projectPageSchema = z.object({
+  ...basePageSchema.shape,
+  ...projectContentSchema.shape,
 });
 
 export const contactPageSchema = z.object({
@@ -73,6 +82,9 @@ export type ResumePage = z.infer<typeof resumePageSchema>;
 
 export type CreationsContent = z.infer<typeof creationsContentSchema>;
 export type CreationsPage = z.infer<typeof creationsPageSchema>;
+
+export type ProjectContent = z.infer<typeof projectContentSchema>;
+export type ProjectPage = z.infer<typeof projectPageSchema>;
 
 export type ContactContent = z.infer<typeof contactContentSchema>;
 export type ContactPage = z.infer<typeof contactPageSchema>;

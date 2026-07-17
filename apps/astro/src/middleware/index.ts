@@ -10,7 +10,11 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
   const availablePages = ["/about-me", "/resume", "/creations", "/contact"];
   const currentPath =
     context.url.pathname === "/" ? "/creations" : context.url.pathname;
-  if (availablePages.includes(currentPath)) {
+
+  if (
+    availablePages.includes(currentPath) ||
+    currentPath.match(/^\/creations\/.+/)
+  ) {
     const pageBaseUrl = "http://localhost:1337/api/page";
     try {
       const response = await fetch(`${pageBaseUrl}${currentPath}`);

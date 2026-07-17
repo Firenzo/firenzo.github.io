@@ -1,11 +1,14 @@
 export default {
   find: async (ctx, next) => {
     try {
-      const basePageData = await strapi.service('api::page.base-page').getBasePage(ctx);
-      const pageUrl = `/${ctx.params.slug}`;
+      const basePageData = ctx.params.project
+        ? await strapi.service('api::page.base-page').getProjectBasePage(ctx)
+        : await strapi.service('api::page.base-page').getBasePage(ctx);
+
+      const siteSection = `/${ctx.params.slug}`;
 
       let pageSpecificData = {};
-      switch (pageUrl) {
+      switch (siteSection) {
         case '/about-me': {
           const aboutMeData = await strapi.service('api::page.about-me-page').getAboutMePage();
           pageSpecificData = { ...aboutMeData };
