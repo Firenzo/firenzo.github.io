@@ -1,18 +1,20 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getIcon } from "@repo/iconset";
 import { Icon } from "@repo/iconset/components";
 
-import { creationsPageSchema } from "../schemas/pageSchemas";
+import { creationsPageSchema } from "../../schemas/pageSchemas";
 const { pageTitle } = creationsPageSchema.parse(Astro.locals.pageData);
 ---
 
 <BaseLayout>
   <h1>{pageTitle}</h1>
   <h2>Firenzo Jorden</h2>
-  <span class="large-text"
-    >Front end developer <a href="/creations">Dit is een link</a> en dit is weer tekst</span
-  >
+  <span class="large-text">
+    Front end developer <a href="/creations/kindercentrum-colorful-flyer">
+      Dit is een link</a
+    > en dit is weer tekst
+  </span>
   <p class="caption">Dit is een caption</p>
   <p class="big-caption">Dit is een big-caption</p>
 

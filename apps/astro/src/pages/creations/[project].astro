@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return [{ params: { project: "kindercentrum-colorful-flyer" } }];
+}
+const { project } = Astro.params;
+// const { pageTitle } = creationsPageSchema.parse(Astro.locals.pageData);
+---
+
+<BaseLayout>
+  <h1>This is a product page for {project}</h1>
+</BaseLayout>
