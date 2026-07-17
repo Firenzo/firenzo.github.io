@@ -2,8 +2,6 @@
 import "../styles/main.scss";
 import ClientRouter from "astro/components/ClientRouter.astro";
 
-console.log(Astro.request);
-
 const requestUrl = new URL(Astro.request.url);
 
 const slideOutIn = {
@@ -82,26 +80,66 @@ const pageTransition = {
 </style>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const homepageLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>("a[href='/creations']"),
-    ).concat(
-      Array.from(document.querySelectorAll<HTMLAnchorElement>("a[href='/']")),
-    );
+  const sameContentRoutes = ["/", "/creations"];
 
-    if (
-      window.location.pathname === "/" ||
-      window.location.pathname === "/creations"
-    ) {
-      homepageLinks.forEach((homepageLink) => {
-        homepageLink.setAttribute("tabindex", "-1");
-        homepageLink.style = "pointer-events:none;";
-      });
-    } else {
-      homepageLinks.forEach((homepageLink) => {
-        homepageLink.setAttribute("tabindex", "0");
-        homepageLink.style = "";
-      });
-    }
+  function isSameContentRoute(from: string, to: string) {
+    return (
+      (sameContentRoutes.includes(from) && sameContentRoutes.includes(to)) ||
+      from === to
+    );
+  }
+
+  document.addEventListener(
+    "click",
+    (e) => {
+      const anchor = e?.target?.closest("a");
+      if (!anchor) return;
+
+      const href = anchor.getAttribute("href");
+      if (!href) return;
+
+      const current = window.location.pathname;
+      const target = new URL(href, window.location.origin).pathname;
+
+      if (isSameContentRoute(current, target)) {
+        console.log("isSameContent");
+        e.preventDefault(); // stop Astro router
+        // e.stopImmediatePropagation();
+
+        if (current !== target) {
+          window.history.pushState({ state: target }, "", target); // just update URL
+        }
+      }
+    },
+    { capture: true },
+  );
+
+  window.addEventListener(
+    "popstate",
+    (e) => {
+      // const previous = e.state?.previousPath || document.referrer;
+      const current = window.location.pathname;
+      console.log("popstate");
+
+      // We don't reliably get "from", so we track it manually:
+      const from = window.__lastPathname || current;
+      const to = current;
+      console.log(`from ${from} to ${to}`);
+
+      if (isSameContentRoute(from, to)) {
+        e.stopImmediatePropagation(); // 🔥 block Astro router
+        e.preventDefault();
+      }
+
+      window.__lastPathname = current;
+    },
+    { capture: true },
+  );
+
+  // initialize tracker
+  window.__lastPathname = window.location.pathname;
+
+  document.addEventListener("astro:page-load", () => {
+    console.log("page load");
   });
 </script>

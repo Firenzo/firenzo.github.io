@@ -1,0 +1,106 @@
+---
+import { Icon, type IconClassName } from "@repo/iconset/components";
+
+type BaseProps = {
+  text: string;
+  icon?: IconClassName;
+  classes?: string;
+};
+
+type LinkVariant = {
+  href: string;
+  openInNewTab?: boolean;
+  onClick?: never;
+};
+
+type ButtonVariant = {
+  onClick: () => void;
+  href?: never;
+  openInNewTab?: never;
+};
+
+export type LinkCardProps = BaseProps & (LinkVariant | ButtonVariant);
+
+const { href, icon, text, onClick, classes, openInNewTab } =
+  Astro.props as LinkCardProps;
+const DynamicElement = href ? "a" : "button";
+---
+
+<DynamicElement
+  class={`link-card ${classes}`}
+  href={DynamicElement === "a" ? href : undefined}
+  onclick={DynamicElement === "button" ? onClick : undefined}
+  target={openInNewTab ? "_blank" : undefined}
+  rel={openInNewTab ? "noopener noreferrer" : undefined}
+>
+  {icon && <Icon icon={icon} color="white" size={40} />}
+  <span class="mb-0">{text}</span>
+</DynamicElement>
+
+<style scoped lang="scss" define:vars="linkCardMaxWidth">
+  @use "../styles/breakpoints.scss" as mq;
+
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--theme-interactive-element-background);
+    box-shadow:
+      rgba(214, 181, 234, 0.25) -5px -5px 8px,
+      rgba(111, 36, 157, 0.41) 5px 5px 8px,
+      rgba(255, 255, 255, 0.25) 3px 3px 3px inset,
+      rgba(0, 0, 0, 0.5) 0px 0px 3px inset;
+    font-size: var(--font-size-large);
+    padding: 2rem 0rem;
+    color: white;
+    border-radius: 17px;
+    border: none;
+    gap: 1rem;
+    font-weight: 900;
+    min-width: 300px;
+
+    @include mq.up("big-phone") {
+      flex-direction: row;
+      text-align: left;
+      padding: 3rem;
+    }
+
+    @include mq.up("tablet") {
+    }
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--theme-interactive-element-background-hover);
+    }
+
+    i {
+      flex-shrink: 0;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      word-break: break-all;
+
+      @include mq.up("big-phone") {
+        word-break: normal;
+        text-align: left;
+      }
+    }
+  }
+</style>
+
+<!-- override icon styling, since the icon is its own component -->
+<style is:global lang="scss">
+  @use "../styles/breakpoints.scss" as mq;
+  .link-card i {
+    min-width: 40px;
+
+    @include mq.up("big-phone") {
+      flex-shrink: 0;
+      //   min-width: auto;
+    }
+  }
+</style>
