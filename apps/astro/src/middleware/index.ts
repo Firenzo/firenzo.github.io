@@ -1,5 +1,6 @@
 import type { MiddlewareHandler } from "astro";
 import type { PageData } from "../schemas/pageSchemas";
+import { setTranslations } from "../helpers/translations";
 
 export const onRequest: MiddlewareHandler = async (context, next) => {
   /**
@@ -21,6 +22,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
       const pageData = await response.json();
       if (context.locals) {
         context.locals.pageData = pageData as PageData;
+        setTranslations(pageData.translations);
       }
     } catch (err) {
       if (err instanceof Error) {
