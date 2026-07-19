@@ -1,0 +1,68 @@
+---
+import type { IconClassName } from "@repo/iconset";
+import { Icon } from "@repo/iconset/components";
+
+type GoToProjectButtonProps = {
+  text: string;
+  url: string;
+  color: "primary" | "black";
+};
+
+const { text, url, color = "black" } = Astro.props as GoToProjectButtonProps;
+---
+
+<a
+  href={url}
+  target="_blank"
+  class:list={[
+    "go-to-project-button",
+    { "primary-color": color === "primary" },
+  ]}
+>
+  {text}
+  <Icon icon="ic-chevron-right" color="white" />
+</a>
+
+<style lang="scss">
+  .go-to-project-button {
+    box-shadow:
+      rgb(255, 255, 255) -3px -3px 4px,
+      rgb(0, 0, 0) 3px 3px 5px,
+      rgba(255, 255, 255, 0.25) 3px 3px 3px inset,
+      rgba(0, 0, 0, 0.5) 0px 0px 3px inset;
+    color: var(--color-white);
+    text-align: center;
+    font-family: proxima-nova, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-size: 16px;
+    display: flex;
+    max-width: 90%;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgb(57, 57, 57), rgb(0, 0, 0));
+    padding: 20px 0px;
+    text-decoration: none;
+    border-radius: 12px;
+    margin: auto auto 20px;
+
+    &.primary-color {
+      box-shadow:
+        rgba(214, 181, 234, 0.25) -5px -5px 8px,
+        rgba(111, 36, 157, 0.41) 5px 5px 8px,
+        rgba(255, 255, 255, 0.25) 3px 3px 3px inset,
+        rgba(0, 0, 0, 0.5) 0px 0px 3px inset;
+      padding: 30px 0px;
+      background: linear-gradient(90deg, rgb(149, 0, 240), rgb(167, 79, 221));
+
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          rgb(161, 63, 221),
+          rgb(187, 119, 230)
+        );
+      }
+    }
+  }
+</style>

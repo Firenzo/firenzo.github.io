@@ -1,4 +1,7 @@
 ---
+import GoToProjectButton from "../../components/GoToProjectButton.astro";
+import RichText from "../../components/RichText.astro";
+import { STRAPI_URL } from "../../helpers/url";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projectPageSchema } from "../../schemas/pageSchemas";
 
@@ -8,11 +11,97 @@ export function getStaticPaths() {
     { params: { project: "test-project" } },
   ];
 }
-const { project } = Astro.params;
-const { pageTitle } = projectPageSchema.parse(Astro.locals.pageData);
+const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
 ---
 
 <BaseLayout>
-  <h1>This is a product page for {project}</h1>
-  <p>{pageTitle}</p>
+  <article class="full-width content-grid">
+    <h1 class="breakout">{pageTitle}</h1>
+    <div class="project-intro content-grid mb-2">
+      <div class="image-and-link content-grid">
+        <div class="sticky-wrapper content-grid">
+          <img
+            class="mb-1"
+            src={STRAPI_URL + project.image?.url}
+            alt={project.image?.altText}
+          />
+          <GoToProjectButton
+            text={project.goToProjectButton.displayText}
+            url={project.goToProjectButton.url}
+          />
+        </div>
+      </div>
+      <div class="intro-text breakout">
+        <RichText content={project.introText} />
+        <RichText content={project.introText} />
+        <RichText content={project.introText} />
+      </div>
+    </div>
+    <div class="content">
+      <RichText content={project.introText} />
+      <RichText content={project.introText} />
+      <RichText content={project.introText} />
+      <RichText content={project.introText} />
+      <RichText content={project.introText} />
+    </div>
+  </article>
 </BaseLayout>
+
+<style lang="scss">
+  @use "../../styles/breakpoints.scss" as mq;
+
+  .project-intro {
+    grid-column: full-width;
+
+    @include mq.up("desktop") {
+      grid-column: breakout;
+      display: flex;
+      gap: 2rem;
+      border-bottom: 2px solid #fafafa;
+      padding-bottom: 50px !important;
+    }
+
+    .image-and-link {
+      grid-column: full-width;
+
+      @include mq.up("desktop") {
+        display: block;
+        flex-basis: 50%;
+      }
+
+      .sticky-wrapper {
+        grid-column: full-width;
+
+        @include mq.up("desktop") {
+          position: sticky;
+          top: 100px;
+        }
+
+        > img {
+          display: block;
+          grid-column: full-width;
+          width: 100%;
+
+          @include mq.up("desktop") {
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+
+    .intro-text {
+      @include mq.up("desktop") {
+        flex-basis: 50%;
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  .sticky-wrapper {
+    .go-to-project-button {
+      grid-column: full-width;
+      width: 100%;
+    }
+  }
+</style>

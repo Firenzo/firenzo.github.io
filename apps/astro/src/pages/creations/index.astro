@@ -12,7 +12,7 @@ const { pageTitle, creations } = creationsPageSchema.parse(
 ---
 
 <BaseLayout>
-  <div class="contact-items breakout">
+  <div class="breakout">
     <h1>{pageTitle}</h1>
     <ul class="project-list">
       {
@@ -98,7 +98,7 @@ const { pageTitle, creations } = creationsPageSchema.parse(
       column-gap: 2%;
     }
 
-    @include mq.up("desktop") {
+    @include mq.up("bigscreen") {
       --columns: 3;
     }
   }
