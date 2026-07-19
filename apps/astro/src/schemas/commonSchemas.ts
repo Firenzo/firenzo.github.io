@@ -19,4 +19,7 @@ export const buttonWithIconSchema = z.object({
   url: z.string().optional(),
   iconPosition: z.literal(["Left", "Right"]).optional(),
   icon: iconSchema.optional(),
+  backgroundColor: z.literal(["Primary", "White", "Black"]),
 });
+
+export type ButtonWithIcon = z.infer<typeof buttonWithIconSchema>;

@@ -8,7 +8,7 @@ import {
 } from "./commonSchemas";
 
 export const singleMediaItemComponentSchema = z.object({
-  __component: z.string(),
+  __component: z.literal("content-blocks.single-media-item"),
   showCaption: z.boolean(),
   image: pictureSchema,
 });

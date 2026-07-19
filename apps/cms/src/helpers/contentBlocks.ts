@@ -16,13 +16,17 @@ export const getAllContentBlockComponentUIDs = (): ContentBlockComponentUID[] =>
 };
 
 type ButtonComponentRaw = Data.Component<'content-blocks.button'>;
-type ButtonComponent = Pick<ButtonComponentRaw['button'], 'displayText' | 'url' | 'iconPosition' | 'icon'>;
+type ButtonComponent = Pick<
+  ButtonComponentRaw['button'],
+  'displayText' | 'url' | 'iconPosition' | 'icon' | 'backgroundColor'
+>;
 
 export const mapButton = (buttonComponent: ButtonComponentRaw): ButtonComponent => ({
   displayText: buttonComponent.button.displayText,
   url: buttonComponent.button.url,
   iconPosition: buttonComponent.button.iconPosition,
   icon: buttonComponent.button.icon,
+  backgroundColor: buttonComponent.button.backgroundColor,
 });
 
 type SingleMediaItemComponentRaw = Data.Component<'content-blocks.single-media-item'>;

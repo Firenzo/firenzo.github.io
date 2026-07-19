@@ -7,6 +7,7 @@ export interface CommonButton extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<['Primary', 'White', 'Black']> & Schema.Attribute.DefaultTo<'White'>;
     displayText: Schema.Attribute.String & Schema.Attribute.Required;
     icon: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<

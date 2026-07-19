@@ -12,7 +12,7 @@ export type ProjectRaw = Data.ContentType<'api::project.project'>;
 export type GoToProjectButton = Data.Component<'common.button'>;
 export type Project = Pick<ProjectRaw, 'name' | 'nameInUrl' | 'introText' | 'tags'> & {
   image: ImageData;
-  goToProjectButton: Pick<GoToProjectButton, 'displayText' | 'url' | 'icon' | 'iconPosition'>;
+  goToProjectButton: Pick<GoToProjectButton, 'displayText' | 'url' | 'icon' | 'iconPosition' | 'backgroundColor'>;
   content: ContentBlock[];
 };
 
@@ -33,6 +33,7 @@ export const mapProject = (project: ProjectRaw): Project => ({
     url: project.goToProjectButton?.url,
     iconPosition: project.goToProjectButton?.iconPosition,
     icon: project.goToProjectButton?.icon,
+    backgroundColor: project.goToProjectButton.backgroundColor,
   },
   content: mapContentBlocks(project.content),
 });

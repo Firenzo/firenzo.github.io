@@ -11,6 +11,12 @@ $spacings: (0, 1rem, 2rem, 3rem, 4rem);
   .mb-#{$i - 1} {
     margin-bottom: $value;
   }
+  .ml-#{$i - 1} {
+    margin-left: $value;
+  }
+  .mr-#{$i - 1} {
+    margin-right: $value;
+  }
 
   .gap-#{$i - 1} {
     gap: $value;
@@ -23,6 +29,12 @@ $spacings: (0, 1rem, 2rem, 3rem, 4rem);
 
 .mt-0\.5 {
   margin-top: 0.5rem;
+}
+.ml-0\.5 {
+  margin-left: 0.5rem;
+}
+.mr-0\.5 {
+  margin-right: 0.5rem;
 }
 
 .gap-0\.5 {

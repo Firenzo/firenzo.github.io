@@ -1,0 +1,31 @@
+---
+import type { ContentBlock } from "../../schemas/contentblockSchema";
+import GoToProjectButton from "../GoToProjectButton.astro";
+import RichText from "../RichText.astro";
+import Button from "./Button.astro";
+
+type ContentBlockProps = { contentBlock: ContentBlock };
+
+const { contentBlock } = Astro.props as ContentBlockProps;
+
+let Component;
+
+switch (contentBlock?.__component) {
+  case "content-blocks.rich-text":
+    Component = RichText;
+    break;
+  case "content-blocks.button":
+    Component = Button;
+    break;
+  default:
+    Component = null;
+}
+---
+
+{
+  Component ? (
+    <Component {...contentBlock} />
+  ) : (
+    <div>This is a {contentBlock?.__component} block</div>
+  )
+}

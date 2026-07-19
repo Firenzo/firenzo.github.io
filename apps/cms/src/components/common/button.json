@@ -30,6 +30,15 @@
         "Left",
         "Right"
       ]
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "default": "White",
+      "enum": [
+        "Primary",
+        "White",
+        "Black"
+      ]
     }
   },
   "config": {}

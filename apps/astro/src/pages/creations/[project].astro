@@ -1,4 +1,5 @@
 ---
+import ContentBlock from "../../components/ContentBlocks/ContentBlock.astro";
 import GoToProjectButton from "../../components/GoToProjectButton.astro";
 import RichText from "../../components/RichText.astro";
 import { STRAPI_URL } from "../../helpers/url";
@@ -38,6 +39,12 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
       </div>
     </div>
     <div class="content">
+      {
+        project.content.map((contentBlock) => (
+          <ContentBlock contentBlock={contentBlock} />
+        ))
+      }
+
       <RichText content={project.introText} />
       <RichText content={project.introText} />
       <RichText content={project.introText} />
@@ -45,63 +52,63 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
       <RichText content={project.introText} />
     </div>
   </article>
-</BaseLayout>
 
-<style lang="scss">
-  @use "../../styles/breakpoints.scss" as mq;
+  <style lang="scss">
+    @use "../../styles/breakpoints.scss" as mq;
 
-  .project-intro {
-    grid-column: full-width;
-
-    @include mq.up("desktop") {
-      grid-column: breakout;
-      display: flex;
-      gap: 2rem;
-      border-bottom: 2px solid #fafafa;
-      padding-bottom: 50px !important;
-    }
-
-    .image-and-link {
+    .project-intro {
       grid-column: full-width;
 
       @include mq.up("desktop") {
-        display: block;
-        flex-basis: 50%;
+        grid-column: breakout;
+        display: flex;
+        gap: 2rem;
+        border-bottom: 2px solid #fafafa;
+        padding-bottom: 50px !important;
       }
 
-      .sticky-wrapper {
+      .image-and-link {
         grid-column: full-width;
 
         @include mq.up("desktop") {
-          position: sticky;
-          top: 100px;
+          display: block;
+          flex-basis: 50%;
         }
 
-        > img {
-          display: block;
+        .sticky-wrapper {
           grid-column: full-width;
-          width: 100%;
 
           @include mq.up("desktop") {
-            border-radius: 10px;
+            position: sticky;
+            top: 100px;
+          }
+
+          > img {
+            display: block;
+            grid-column: full-width;
+            width: 100%;
+
+            @include mq.up("desktop") {
+              border-radius: 10px;
+            }
           }
         }
       }
-    }
 
-    .intro-text {
-      @include mq.up("desktop") {
-        flex-basis: 50%;
+      .intro-text {
+        @include mq.up("desktop") {
+          flex-basis: 50%;
+        }
       }
     }
-  }
-</style>
+  </style>
 
-<style is:global lang="scss">
-  .sticky-wrapper {
-    .go-to-project-button {
-      grid-column: full-width;
-      width: 100%;
+  <style is:global lang="scss">
+    .sticky-wrapper {
+      .go-to-project-button {
+        grid-column: full-width;
+        width: 100%;
+      }
     }
-  }
-</style>
+  </style>
+</BaseLayout>
