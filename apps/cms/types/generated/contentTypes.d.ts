@@ -448,10 +448,10 @@ export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
     endDate: Schema.Attribute.Date;
-    function: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::experience.experience'> & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
     startDate: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;

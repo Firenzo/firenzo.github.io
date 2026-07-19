@@ -4,39 +4,44 @@ import { getIcon } from "@repo/iconset";
 import { Icon } from "@repo/iconset/components";
 
 import { creationsPageSchema } from "../../schemas/pageSchemas";
-const { pageTitle } = creationsPageSchema.parse(Astro.locals.pageData);
+import ProjectLinkCard from "../../components/ProjectLinkCard.astro";
+import Pill from "../../components/Pill.astro";
+const { pageTitle, creations } = creationsPageSchema.parse(
+  Astro.locals.pageData,
+);
 ---
 
 <BaseLayout>
-  <h1>{pageTitle}</h1>
-  <h2>Firenzo Jorden</h2>
-  <span class="large-text">
-    Front end developer <a href="/creations/kindercentrum-colorful-flyer">
-      Dit is een link</a
-    > en dit is weer tekst
-  </span>
-  <p class="caption">Dit is een caption</p>
-  <p class="big-caption">Dit is een big-caption</p>
+  <div class="contact-items breakout">
+    <h1>{pageTitle}</h1>
+    <ul class="project-list">
+      {
+        Array.from({ length: 12 }, () => ({ ...creations[0] })).map(
+          (creation) => (
+            <li class="project-item">
+              <h2 class="project-item-title">{creation.name}</h2>
+              <ProjectLinkCard creation={creation} />
+              <ul class="tag-list">
+                {creation.tags.map((tag) => (
+                  <li class="tag-item">
+                    <Pill content={tag} />
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ),
+        )
+      }
+    </ul>
+    <h2>Firenzo Jorden</h2>
+    <span class="large-text">
+      Front end developer <a href="/creations/kindercentrum-colorful-flyer">
+        Dit is een link</a
+      > en dit is weer tekst
+    </span>
+    <p class="caption">Dit is een caption</p>
+    <p class="big-caption">Dit is een big-caption</p>
 
-  <p>
-    The layers of screens A and B must also have the same folder structure. And
-    doing all of that properly takes time and effort. I had a lot of trouble
-    with that in the beginning, but in the end it became easier. After importing
-    it is just a matter of giving all unnecessary layers an opacity of 0 and
-    changing the position for a nice animation when the layer appears.
-  </p>
-
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-    <li>item 4</li>
-  </ul>
-  <Icon icon={getIcon("bars")} size={136} color="black" />
-  <Icon icon={getIcon("chevron-left")} />
-  <Icon icon={getIcon("chevron-right")} />
-
-  <div class="content-grid full-width">
     <p>
       The layers of screens A and B must also have the same folder structure.
       And doing all of that properly takes time and effort. I had a lot of
@@ -45,11 +50,69 @@ const { pageTitle } = creationsPageSchema.parse(Astro.locals.pageData);
       of 0 and changing the position for a nice animation when the layer
       appears.
     </p>
+
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+    </ul>
+    <Icon icon={getIcon("bars")} size={136} color="black" />
+    <Icon icon={getIcon("chevron-left")} />
+    <Icon icon={getIcon("chevron-right")} />
+
+    <div class="content-grid full-width">
+      <p>
+        The layers of screens A and B must also have the same folder structure.
+        And doing all of that properly takes time and effort. I had a lot of
+        trouble with that in the beginning, but in the end it became easier.
+        After importing it is just a matter of giving all unnecessary layers an
+        opacity of 0 and changing the position for a nice animation when the
+        layer appears.
+      </p>
+    </div>
   </div>
 </BaseLayout>
 
-<style>
+<style lang="scss">
+  @use "../../styles/breakpoints.scss" as mq;
+
   .content-grid p {
     background: gold;
+  }
+
+  .project-item::before,
+  .tag-item::before {
+    display: none;
+  }
+
+  .project-item-title {
+    font-size: var(--font-size-large);
+  }
+
+  .project-list {
+    @include mq.up("xl-tablet") {
+      --columns: 2;
+      display: grid;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      column-gap: 2%;
+    }
+
+    @include mq.up("desktop") {
+      --columns: 3;
+    }
+  }
+
+  .project-item {
+    min-width: 0;
+  }
+
+  .tag-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.25rem;
+    row-garp: 1rem;
+    justify-content: flex-start;
   }
 </style>

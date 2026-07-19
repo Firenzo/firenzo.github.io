@@ -1,0 +1,57 @@
+---
+import type { ResumeContent } from "../../schemas/pageSchemas";
+import type { TimelineItemEntry } from "./TimelineItem.astro";
+import TimelineItem from "./TimelineItem.astro";
+
+export type TimelineProps = {
+  data: ResumeContent["experiences"];
+  startCountFrom?: number;
+};
+
+const { data } = Astro.props as TimelineProps;
+---
+
+<div class="timeline-wrapper">
+  <div class="timeline"></div>
+  <ul class="timeline-items">
+    {data.map((timelineItem) => <TimelineItem {...timelineItem} />)}
+  </ul>
+</div>
+
+<style lang="scss">
+  @use "../../styles/breakpoints.scss" as mq;
+
+  .timeline-wrapper {
+    --line-width: 8px;
+    --line-content-gap: 3rem;
+
+    display: flex;
+    gap: var(--line-content-gap);
+    translate: calc(var(--line-content-gap) / 2);
+    width: calc(100% - var(--line-content-gap));
+
+    .timeline {
+      background: #f6f6f6;
+      box-shadow:
+        inset -3px -3px 1px hsla(0, 0%, 85.9%, 0.29),
+        inset 2px 2px 2px rgba(0, 0, 0, 0.26);
+
+      border-radius: 10px;
+      width: var(--line-width);
+      flex-shrink: 0;
+
+      @include mq.up("desktop") {
+        position: absolute;
+        left: calc(100% / 2 - var(--line-width) / 2);
+        height: 100%;
+      }
+    }
+
+    .timeline-items {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

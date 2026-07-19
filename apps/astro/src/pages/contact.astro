@@ -17,7 +17,7 @@ const { pageTitle, contactItems } = contactPageSchema.parse(
           <LinkCard
             href={contactItem.url}
             text={contactItem.displayText}
-            icon={contactItem.icon.name}
+            icon={contactItem.icon?.name}
             classes={index === contactItems.length - 1 ? "" : "mb-1"}
           />
         );

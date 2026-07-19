@@ -1,10 +1,10 @@
 import { z } from "astro/zod";
-import { nullishOptionalStringSchema } from "./commonSchemas";
+import { nullishOptionalStringSchema, richTextSchema } from "./commonSchemas";
 
 export const experienceSchema = z.object({
-  function: nullishOptionalStringSchema,
+  role: nullishOptionalStringSchema,
   company: nullishOptionalStringSchema,
-  description: nullishOptionalStringSchema,
+  description: richTextSchema,
   city: nullishOptionalStringSchema,
   country: nullishOptionalStringSchema,
   additionalText: nullishOptionalStringSchema,

@@ -9,6 +9,7 @@
       "import": "./dist/getIcon.ts",
       "types": "./dist/getIcon.d.ts"
     },
+    "./icons/*": "./dist/icons/*",
     "./icons.css": "./dist/icons.min.css",
     "./icons.scss": "./dist/icons.scss",
     "./components": {

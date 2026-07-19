@@ -10,7 +10,7 @@ export type DesignSkill = Pick<DesignSkillRaw, 'name' | 'show' | 'logo'> & { log
 export type FrontendSkill = Pick<FrontEndSkillRaw, 'name' | 'show' | 'logo'> & { logo: ImageData };
 export type Experience = Pick<
   ExperienceRaw,
-  'function' | 'company' | 'description' | 'city' | 'country' | 'additionalText'
+  'role' | 'company' | 'description' | 'city' | 'country' | 'additionalText'
 > & { startDate: string; endDate: string };
 
 export type ResumePage = {
@@ -49,7 +49,7 @@ export default () => ({
     const mappedFrontEndSkills = mapSkills(frontEndSkills);
     const mappedExperiences = experiences.map((experience: ExperienceRaw) => {
       return {
-        function: experience.function,
+        role: experience.role,
         company: experience.company,
         description: experience.description,
         city: experience.city,
