@@ -19,6 +19,14 @@
     "showCaption": {
       "type": "boolean",
       "default": false
+    },
+    "reduceMaxWidth": {
+      "type": "boolean",
+      "default": false
+    },
+    "reduceMarginBottom": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

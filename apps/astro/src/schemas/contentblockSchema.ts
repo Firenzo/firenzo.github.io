@@ -10,6 +10,8 @@ import {
 export const singleMediaItemComponentSchema = z.object({
   __component: z.literal("content-blocks.single-media-item"),
   showCaption: z.boolean(),
+  reduceMaxWidth: z.boolean().nullable().optional(),
+  reduceMarginBottom: z.boolean().nullable().optional(),
   image: pictureSchema,
 });
 

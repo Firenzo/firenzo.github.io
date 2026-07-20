@@ -163,6 +163,8 @@ export interface ContentBlocksSingleMediaItem extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    reduceMarginBottom: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    reduceMaxWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     showCaption: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
