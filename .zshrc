@@ -42,3 +42,11 @@ cdAstro() {
   return 1
 }
 
+useLocal() {
+  update_env_variable STRAPI_URL http://127.0.0.1:1337
+}
+
+useIp() {
+  update_env_variable STRAPI_URL "http://$(ipconfig getifaddr en0):1337"
+}
+
