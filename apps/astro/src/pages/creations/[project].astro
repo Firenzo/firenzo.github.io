@@ -87,6 +87,7 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
             display: block;
             grid-column: full-width;
             width: 100%;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 
             @include mq.up("desktop") {
               border-radius: 10px;

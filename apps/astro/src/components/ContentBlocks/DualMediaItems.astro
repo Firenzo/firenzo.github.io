@@ -1,0 +1,42 @@
+---
+import { STRAPI_URL } from "../../helpers/url";
+import type {
+  DualMediaItemsComponent,
+  SingleMediaItemComponent,
+} from "../../schemas/contentblockSchema";
+import SingleMediaItem from "./SingleMediaItem.astro";
+
+const { mappedItems } = Astro.props as DualMediaItemsComponent;
+//image, showCaption, reduceMarginBottom, reduceMaxWidth
+---
+
+<div class="dual-media-items">
+  {
+    mappedItems.map((mediaItem) => (
+      <SingleMediaItem
+        image={mediaItem.image}
+        showCaption={mediaItem.showCaption}
+        reduceMarginBottom={false}
+        reduceMaxWidth={false}
+        captionAlign="center"
+        marginBottom={false}
+        bigCaption={true}
+      />
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use "../../styles/breakpoints.scss" as mq;
+
+  .dual-media-items {
+    display: flex;
+    margin-bottom: 3.125rem;
+    flex-direction: column;
+
+    @include mq.up("big-phone") {
+      gap: 1rem;
+      flex-direction: row;
+    }
+  }
+</style>

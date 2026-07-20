@@ -3,6 +3,9 @@ import type { ContentBlock } from "../../schemas/contentblockSchema";
 import GoToProjectButton from "../GoToProjectButton.astro";
 import RichText from "../RichText.astro";
 import Button from "./Button.astro";
+import SingleMediaItem from "./SingleMediaItem.astro";
+import DualMediaItems from "./DualMediaItems.astro";
+import LottieAnimation from "./LottieAnimation.astro";
 
 type ContentBlockProps = { contentBlock: ContentBlock };
 
@@ -11,11 +14,20 @@ const { contentBlock } = Astro.props as ContentBlockProps;
 let Component;
 
 switch (contentBlock?.__component) {
+  case "content-blocks.single-media-item":
+    Component = SingleMediaItem;
+    break;
+  case "content-blocks.dual-media-items":
+    Component = DualMediaItems;
+    break;
   case "content-blocks.rich-text":
     Component = RichText;
     break;
   case "content-blocks.button":
     Component = Button;
+    break;
+  case "content-blocks.lottie-animation":
+    Component = LottieAnimation;
     break;
   default:
     Component = null;

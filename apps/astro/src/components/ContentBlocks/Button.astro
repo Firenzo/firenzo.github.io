@@ -2,13 +2,16 @@
 import { Icon } from "@repo/iconset/components";
 import type { ButtonWithIcon } from "../../schemas/commonSchemas";
 
+type ButtonProps = ButtonWithIcon & { marginBottom: boolean };
+
 const {
   displayText,
   url,
   icon,
   iconPosition = "Right",
   backgroundColor = "Black",
-} = Astro.props as ButtonWithIcon;
+  marginBottom = true,
+} = Astro.props as ButtonProps;
 ---
 
 <a
@@ -18,6 +21,7 @@ const {
     "content-block-button",
     { primary: backgroundColor === "Primary" },
     { black: backgroundColor === "Black" },
+    { "margin-bottom": marginBottom },
   ]}
 >
   {
@@ -70,6 +74,10 @@ const {
     text-decoration: none;
     border-radius: 12px;
     margin: auto auto 20px;
+
+    &.margin-bottom {
+      margin-bottom: 3.125rem;
+    }
 
     &.primary {
       box-shadow:
