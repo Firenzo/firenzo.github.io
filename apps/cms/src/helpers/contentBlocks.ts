@@ -67,15 +67,16 @@ export const mapImageSlider = (imageSliderComponent: ImageSliderComponentRaw): I
   })),
 });
 
-type ScrollableImageComponentRaw = Data.Component<'content-blocks.scrollable-image'>;
-type ScrollableImageComponent = Pick<ScrollableImageComponentRaw, 'title' | 'description'> & { image: ImageData };
+type MediaPresenterComponentRaw = Data.Component<'content-blocks.media-presenter'>;
+type MediaPresenterComponent = Pick<MediaPresenterComponentRaw, 'title' | 'description' | 'scrollable'> & {
+  image: ImageData;
+};
 
-export const mapScrollableImage = (
-  scrollableImageComponent: ScrollableImageComponentRaw
-): ScrollableImageComponent => ({
-  title: scrollableImageComponent.title,
-  description: scrollableImageComponent.description,
-  image: mapImageData(scrollableImageComponent.image),
+export const mapMediaPresenter = (mediaPresenterComponent: MediaPresenterComponentRaw): MediaPresenterComponent => ({
+  title: mediaPresenterComponent.title,
+  description: mediaPresenterComponent.description,
+  image: mapImageData(mediaPresenterComponent.image),
+  scrollable: mediaPresenterComponent.scrollable,
 });
 
 type RichTextComponentRaw = Data.Component<'content-blocks.rich-text'>;
@@ -101,7 +102,7 @@ type ContentBlockRaw =
   | ({ __component: 'content-blocks.single-media-item' } & SingleMediaItemComponentRaw)
   | ({ __component: 'content-blocks.dual-media-items' } & DualMediaItemsComponentRaw)
   | ({ __component: 'content-blocks.image-slider' } & ImageSliderComponentRaw)
-  | ({ __component: 'content-blocks.scrollable-image' } & ScrollableImageComponentRaw)
+  | ({ __component: 'content-blocks.media-presenter' } & MediaPresenterComponentRaw)
   | ({ __component: 'content-blocks.rich-text' } & RichTextComponentRaw)
   | ({ __component: 'content-blocks.lottie-animation' } & LottieAnimationComponentRaw);
 
@@ -110,7 +111,7 @@ export type ContentBlock =
   | ({ __component: 'content-blocks.single-media-item' } & SingleMediaItemComponent)
   | ({ __component: 'content-blocks.dual-media-items' } & DualMediaItemsComponent)
   | ({ __component: 'content-blocks.image-slider' } & ImageSliderComponent)
-  | ({ __component: 'content-blocks.scrollable-image' } & ScrollableImageComponent)
+  | ({ __component: 'content-blocks.media-presenter' } & MediaPresenterComponent)
   | ({ __component: 'content-blocks.rich-text' } & RichTextComponent)
   | ({ __component: 'content-blocks.lottie-animation' } & LottieAnimationComponent);
 
@@ -125,8 +126,8 @@ export const mapContentBlocks = (contentBlocks: DynamicContent): ContentBlock[] 
         return { __component: contentBlock.__component, ...mapDualMediaItems(contentBlock) };
       case 'content-blocks.image-slider':
         return { __component: contentBlock.__component, ...mapImageSlider(contentBlock) };
-      case 'content-blocks.scrollable-image':
-        return { __component: contentBlock.__component, ...mapScrollableImage(contentBlock) };
+      case 'content-blocks.media-presenter':
+        return { __component: contentBlock.__component, ...mapMediaPresenter(contentBlock) };
       case 'content-blocks.rich-text':
         return { __component: contentBlock.__component, ...mapRichText(contentBlock) };
       case 'content-blocks.lottie-animation':

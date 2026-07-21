@@ -131,6 +131,20 @@ export interface ContentBlocksLottieAnimation extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlocksMediaPresenter extends Struct.ComponentSchema {
+  collectionName: 'components_content_blocks_media_presenters';
+  info: {
+    displayName: 'Media Presenter';
+    icon: 'picture';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    scrollable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ContentBlocksRichText extends Struct.ComponentSchema {
   collectionName: 'components_content_blocks_rich_texts';
   info: {
@@ -139,19 +153,6 @@ export interface ContentBlocksRichText extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Blocks & Schema.Attribute.Required;
-  };
-}
-
-export interface ContentBlocksScrollableImage extends Struct.ComponentSchema {
-  collectionName: 'components_content_blocks_scrollable_images';
-  info: {
-    displayName: 'Scrollable Image';
-    icon: 'picture';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> & Schema.Attribute.Required;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -180,8 +181,8 @@ declare module '@strapi/strapi' {
       'content-blocks.image-slider': ContentBlocksImageSlider;
       'content-blocks.image-slider-item': ContentBlocksImageSliderItem;
       'content-blocks.lottie-animation': ContentBlocksLottieAnimation;
+      'content-blocks.media-presenter': ContentBlocksMediaPresenter;
       'content-blocks.rich-text': ContentBlocksRichText;
-      'content-blocks.scrollable-image': ContentBlocksScrollableImage;
       'content-blocks.single-media-item': ContentBlocksSingleMediaItem;
     }
   }

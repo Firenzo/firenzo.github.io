@@ -1,0 +1,118 @@
+---
+import { STRAPI_URL } from "../../helpers/url";
+import type { MediaPresenterComponent } from "../../schemas/contentblockSchema";
+
+const { title, description, image, scrollable } =
+  Astro.props as MediaPresenterComponent;
+
+const scaleFactor = 0.8;
+const imageWidth = image.width! * scaleFactor;
+const imageHeight = image.height! * scaleFactor;
+---
+
+<div class="image-presenter-block content-grid full-width">
+  <div class="image-presenter-block-header text-on-primary">
+    <h2 class="image-presenter-block-header-title">{title}</h2>
+    <p class="image-presenter-block-header-text">{description}</p>
+  </div>
+
+  {
+    scrollable ? (
+      <div class="scrollable-image full-width">
+        <div
+          class="image-container"
+          style={{ width: `${imageWidth}px`, height: `${imageHeight}px` }}
+        >
+          <img src={STRAPI_URL + image.url} alt={image.altText} />
+        </div>
+      </div>
+    ) : (
+      <div class="image-container">
+        <img src={STRAPI_URL + image.url} alt={image.altText} />
+      </div>
+    )
+  }
+</div>
+
+<style lang="scss">
+  .image-presenter-block {
+    margin-block: 3.125rem;
+    padding-block: 2.5rem;
+    width: 100%;
+    background: linear-gradient(218deg, #a421b5, #707eff);
+    box-shadow:
+      inset 0 -10px 0 hsla(0, 0%, 100%, 0.22),
+      inset 0 10px 0 hsla(0, 0%, 100%, 0.22);
+  }
+
+  .image-presenter-block-header-title {
+    font-size: var(--font-size-large);
+  }
+
+  .image-presenter-block-header-text {
+    font-size: var(--font-size-normal);
+  }
+
+  .image-container {
+    > img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .scrollable-image {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+
+    // scrollbar styling hack
+    background-color: rgba(136, 136, 136, 0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-color 0.4s ease;
+
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+
+    &::-webkit-scrollbar {
+      height: 15px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: inherit;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .image-container > img {
+      //TODO simplify grid so this can be calculated
+
+      margin-right: calc(50vw - (min(100%, var(--content-max-width)) / 2));
+
+      // margin-right: min(
+      //   max(0px, calc(var(--breakout-size) + var(--padding-inline))),
+      //   max(0px, calc(50vw - (min(100%, var(--content-max-width)) / 2)))
+      // );
+      // margin-right: calc(
+      //   (
+      //       100vw - min(
+      //           100% - (var(--padding-inline) * 2),
+      //           var(--content-max-width)
+      //         )
+      //     ) /
+      //     2
+      // );
+    }
+  }
+</style>

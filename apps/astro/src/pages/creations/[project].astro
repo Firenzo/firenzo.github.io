@@ -38,7 +38,7 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
         <RichText content={project.introText} />
       </div>
     </div>
-    <div class="content">
+    <div class="content content-grid full-width">
       {
         project.content.map((contentBlock) => (
           <ContentBlock contentBlock={contentBlock} />

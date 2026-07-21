@@ -560,7 +560,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
         'content-blocks.image-slider',
         'content-blocks.dual-media-items',
         'content-blocks.button',
-        'content-blocks.scrollable-image',
+        'content-blocks.media-presenter',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

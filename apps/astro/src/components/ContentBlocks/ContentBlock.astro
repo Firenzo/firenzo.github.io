@@ -1,11 +1,11 @@
 ---
 import type { ContentBlock } from "../../schemas/contentblockSchema";
-import GoToProjectButton from "../GoToProjectButton.astro";
 import RichText from "../RichText.astro";
 import Button from "./Button.astro";
 import SingleMediaItem from "./SingleMediaItem.astro";
 import DualMediaItems from "./DualMediaItems.astro";
 import LottieAnimation from "./LottieAnimation.astro";
+import MediaPresenter from "./MediaPresenter.astro";
 
 type ContentBlockProps = { contentBlock: ContentBlock };
 
@@ -19,6 +19,9 @@ switch (contentBlock?.__component) {
     break;
   case "content-blocks.dual-media-items":
     Component = DualMediaItems;
+    break;
+  case "content-blocks.media-presenter":
+    Component = MediaPresenter;
     break;
   case "content-blocks.rich-text":
     Component = RichText;

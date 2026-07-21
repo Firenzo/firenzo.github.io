@@ -34,11 +34,12 @@ export const imageSliderComponentSchema = z.object({
   ),
 });
 
-export const scrollableImageComponentSchema = z.object({
-  __component: z.literal("content-blocks.scrollable-image"),
+export const mediaPresenterComponentSchema = z.object({
+  __component: z.literal("content-blocks.media-presenter"),
   title: nullishOptionalStringSchema,
   description: nullishOptionalStringSchema,
   image: pictureSchema,
+  scrollable: z.boolean().nullish()
 });
 
 export const richTextComponentSchema = z.object({
@@ -62,7 +63,7 @@ export const contentBlockSchema = z.union([
   singleMediaItemComponentSchema.optional(),
   dualMediaItemsComponentSchema.optional(),
   imageSliderComponentSchema.optional(),
-  scrollableImageComponentSchema.optional(),
+  mediaPresenterComponentSchema.optional(),
   richTextComponentSchema.optional(),
   lottieAnimationComponentSchema.optional(),
   buttonComponentSchema.optional(),
@@ -72,7 +73,7 @@ export const contentBlockSchema = z.union([
 export type SingleMediaItemComponent = z.infer<typeof singleMediaItemComponentSchema>;
 export type DualMediaItemsComponent = z.infer<typeof dualMediaItemsComponentSchema>;
 export type ImageSliderComponent = z.infer<typeof imageSliderComponentSchema>;
-export type ScrollableImageComponent = z.infer<typeof scrollableImageComponentSchema>;
+export type MediaPresenterComponent = z.infer<typeof mediaPresenterComponentSchema>;
 export type RichTextComponent = z.infer<typeof richTextComponentSchema>;
 export type LottieAnimationComponent = z.infer<typeof lottieAnimationComponentSchema>;
 export type ButtonComponent = z.infer<typeof buttonComponentSchema>;

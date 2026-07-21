@@ -50,7 +50,7 @@
         "content-blocks.image-slider",
         "content-blocks.dual-media-items",
         "content-blocks.button",
-        "content-blocks.scrollable-image"
+        "content-blocks.media-presenter"
       ]
     }
   }
