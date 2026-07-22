@@ -6,6 +6,7 @@ import SingleMediaItem from "./SingleMediaItem.astro";
 import DualMediaItems from "./DualMediaItems.astro";
 import LottieAnimation from "./LottieAnimation.astro";
 import MediaPresenter from "./MediaPresenter.astro";
+import ImageSlider from "./ImageSlider.astro";
 
 type ContentBlockProps = { contentBlock: ContentBlock };
 
@@ -19,6 +20,9 @@ switch (contentBlock?.__component) {
     break;
   case "content-blocks.dual-media-items":
     Component = DualMediaItems;
+    break;
+  case "content-blocks.image-slider":
+    Component = ImageSlider;
     break;
   case "content-blocks.media-presenter":
     Component = MediaPresenter;

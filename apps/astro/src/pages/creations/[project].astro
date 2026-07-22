@@ -6,12 +6,12 @@ import { STRAPI_URL } from "../../helpers/url";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projectPageSchema } from "../../schemas/pageSchemas";
 
-export function getStaticPaths() {
-  return [
-    { params: { project: "kindercentrum-colorful-flyer" } },
-    { params: { project: "test-project" } },
-  ];
-}
+// export function getStaticPaths() {
+//   return [
+//     { params: { project: "kindercentrum-colorful-flyer" } },
+//     { params: { project: "test-project" } },
+//   ];
+// }
 const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
 ---
 
@@ -26,15 +26,17 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
             src={STRAPI_URL + project.image?.url}
             alt={project.image?.altText}
           />
-          <GoToProjectButton
-            text={project.goToProjectButton.displayText}
-            url={project.goToProjectButton.url}
-          />
+          {
+            project.goToProjectButton && (
+              <GoToProjectButton
+                text={project.goToProjectButton.displayText}
+                url={project.goToProjectButton.url}
+              />
+            )
+          }
         </div>
       </div>
       <div class="intro-text breakout">
-        <RichText content={project.introText} />
-        <RichText content={project.introText} />
         <RichText content={project.introText} />
       </div>
     </div>
@@ -44,12 +46,6 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
           <ContentBlock contentBlock={contentBlock} />
         ))
       }
-
-      <RichText content={project.introText} />
-      <RichText content={project.introText} />
-      <RichText content={project.introText} />
-      <RichText content={project.introText} />
-      <RichText content={project.introText} />
     </div>
   </article>
 

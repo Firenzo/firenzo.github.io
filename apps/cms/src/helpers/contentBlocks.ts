@@ -55,11 +55,14 @@ export const mapDualMediaItems = (dualMediaItemsComponent: DualMediaItemsCompone
 
 type ImageSliderComponentRaw = Data.Component<'content-blocks.image-slider'>;
 type ImageSliderItemRaw = ImageSliderComponentRaw['imageSliderItems'][number];
-type ImageSliderItem = Pick<ImageSliderItemRaw, 'title' | 'description' | 'additionalInfo'> & { image: ImageData };
+type ImageSliderItem = Pick<ImageSliderItemRaw, 'title' | 'description' | 'additionalInfo' | 'identifier'> & {
+  image: ImageData;
+};
 type ImageSliderComponent = { imageSliderItems: ImageSliderItem[] };
 
 export const mapImageSlider = (imageSliderComponent: ImageSliderComponentRaw): ImageSliderComponent => ({
   imageSliderItems: imageSliderComponent.imageSliderItems.map((imageSliderItem: ImageSliderItemRaw) => ({
+    id: imageSliderItem.identifier,
     title: imageSliderItem.title,
     description: imageSliderItem.description,
     image: mapImageData(imageSliderItem.image),

@@ -16,21 +16,19 @@ const { pageTitle, creations } = creationsPageSchema.parse(
     <h1>{pageTitle}</h1>
     <ul class="project-list">
       {
-        Array.from({ length: 12 }, () => ({ ...creations[0] })).map(
-          (creation) => (
-            <li class="project-item">
-              <h2 class="project-item-title">{creation.name}</h2>
-              <ProjectLinkCard creation={creation} />
-              <ul class="tag-list">
-                {creation.tags.map((tag) => (
-                  <li class="tag-item">
-                    <Pill content={tag} />
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ),
-        )
+        creations.map((creation) => (
+          <li class="project-item">
+            <h2 class="project-item-title">{creation.name}</h2>
+            <ProjectLinkCard creation={creation} />
+            <ul class="tag-list">
+              {creation.tags.map((tag) => (
+                <li class="tag-item">
+                  <Pill content={tag} />
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
       }
     </ul>
   </div>
@@ -49,7 +47,12 @@ const { pageTitle, creations } = creationsPageSchema.parse(
   }
 
   .project-item-title {
+    display: flex;
+    align-items: flex-end;
+    line-height: 1.2;
+    height: 2.4em;
     font-size: var(--font-size-large);
+    text-wrap: pretty;
   }
 
   .project-list {

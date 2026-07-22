@@ -26,6 +26,9 @@ importers:
       '@repo/iconset':
         specifier: workspace:*
         version: link:../../packages/iconset
+      '@splidejs/splide':
+        specifier: ^4.1.4
+        version: 4.1.4
       '@types/react':
         specifier: ^19.1.6
         version: 19.1.6
@@ -3424,6 +3427,9 @@ packages:
 
   '@so-ric/colorspace@1.1.6':
     resolution: {integrity: sha512-/KiKkpHNOBgkFJwu9sh48LkHSMYGyuTcSFK/qMBdnOAlrRJzRSXAOFB5qwzaVQuDl8wAvHVMkaASQDReTahxuw==}
+
+  '@splidejs/splide@4.1.4':
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -13808,6 +13814,8 @@ snapshots:
     dependencies:
       color: 5.0.3
       text-hex: 1.0.0
+
+  '@splidejs/splide@4.1.4': {}
 
   '@standard-schema/spec@1.1.0': {}
 

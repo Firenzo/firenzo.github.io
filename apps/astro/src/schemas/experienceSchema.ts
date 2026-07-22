@@ -9,5 +9,10 @@ export const experienceSchema = z.object({
   country: nullishOptionalStringSchema,
   additionalText: nullishOptionalStringSchema,
   startDate: nullishOptionalStringSchema,
-  endDate: nullishOptionalStringSchema,
+  endDate: z
+    .string()
+    .nullish()
+    .optional()
+    .transform((v) => v || "now")
+    .pipe(z.string()),
 });

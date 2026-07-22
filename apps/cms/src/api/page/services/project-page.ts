@@ -4,6 +4,7 @@ import {
   getAllContentBlockComponentUIDs,
   ContentBlockComponentUID,
   ContentBlock,
+  mapGoToProjectButton,
 } from '../../../helpers';
 import { Data } from '@strapi/strapi';
 import { ImageData } from '../../../../types';
@@ -28,13 +29,7 @@ export const mapProject = (project: ProjectRaw): Project => ({
   introText: project?.introText,
   tags: project.tags,
   image: project.image ? mapImageData(project.image) : null,
-  goToProjectButton: {
-    displayText: project.goToProjectButton?.displayText,
-    url: project.goToProjectButton?.url,
-    iconPosition: project.goToProjectButton?.iconPosition,
-    icon: project.goToProjectButton?.icon,
-    backgroundColor: project.goToProjectButton.backgroundColor,
-  },
+  goToProjectButton: mapGoToProjectButton(project.goToProjectButton),
   content: mapContentBlocks(project.content),
 });
 
@@ -42,7 +37,6 @@ export type ProjectPage = { project: Project };
 
 export default () => ({
   getProjectPage: async (projectSlug: string): Promise<ProjectPage> => {
-    console.log(projectSlug);
     const project: ProjectRaw = (
       await strapi.service('api::project.project').find({
         filters: { nameInUrl: { $eq: projectSlug } },

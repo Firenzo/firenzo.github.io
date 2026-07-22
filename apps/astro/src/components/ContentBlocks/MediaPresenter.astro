@@ -1,6 +1,7 @@
 ---
 import { STRAPI_URL } from "../../helpers/url";
 import type { MediaPresenterComponent } from "../../schemas/contentblockSchema";
+import FullWidthBox from "../FullWidthBox.astro";
 
 const { title, description, image, scrollable } =
   Astro.props as MediaPresenterComponent;
@@ -10,49 +11,32 @@ const imageWidth = image.width! * scaleFactor;
 const imageHeight = image.height! * scaleFactor;
 ---
 
-<div class="image-presenter-block content-grid full-width">
-  <div class="image-presenter-block-header text-on-primary">
-    <h2 class="image-presenter-block-header-title">{title}</h2>
-    <p class="image-presenter-block-header-text">{description}</p>
-  </div>
-
-  {
-    scrollable ? (
-      <div class="scrollable-image full-width">
-        <div
-          class="image-container"
-          style={{ width: `${imageWidth}px`, height: `${imageHeight}px` }}
-        >
+<FullWidthBox>
+  <slot>
+    <div class="image-presenter-block-header text-on-primary">
+      <h2 class="media-title">{title}</h2>
+      <p class="media-description">{description}</p>
+    </div>
+    {
+      scrollable ? (
+        <div class="scrollable-image full-width">
+          <div
+            class="image-container"
+            style={{ width: `${imageWidth}px`, height: `${imageHeight}px` }}
+          >
+            <img src={STRAPI_URL + image.url} alt={image.altText} />
+          </div>
+        </div>
+      ) : (
+        <div class="image-container">
           <img src={STRAPI_URL + image.url} alt={image.altText} />
         </div>
-      </div>
-    ) : (
-      <div class="image-container">
-        <img src={STRAPI_URL + image.url} alt={image.altText} />
-      </div>
-    )
-  }
-</div>
+      )
+    }
+  </slot>
+</FullWidthBox>
 
 <style lang="scss">
-  .image-presenter-block {
-    margin-block: 3.125rem;
-    padding-block: 2.5rem;
-    width: 100%;
-    background: linear-gradient(218deg, #a421b5, #707eff);
-    box-shadow:
-      inset 0 -10px 0 hsla(0, 0%, 100%, 0.22),
-      inset 0 10px 0 hsla(0, 0%, 100%, 0.22);
-  }
-
-  .image-presenter-block-header-title {
-    font-size: var(--font-size-large);
-  }
-
-  .image-presenter-block-header-text {
-    font-size: var(--font-size-normal);
-  }
-
   .image-container {
     > img {
       width: 100%;

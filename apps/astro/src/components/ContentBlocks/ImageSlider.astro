@@ -1,0 +1,145 @@
+---
+import { STRAPI_URL } from "../../helpers/url";
+import type { ImageSliderComponent } from "../../schemas/contentblockSchema";
+import FullWidthBox from "../FullWidthBox.astro";
+import RichText from "../RichText.astro";
+
+const { imageSliderItems } = Astro.props as ImageSliderComponent;
+---
+
+<FullWidthBox>
+  <div class="image-slider-wrapper full-width text-on-primary">
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {
+            imageSliderItems.map((imageSlide) => (
+              <li class="splide__slide" data-slide-id={imageSlide.id}>
+                <div class="slide-header text-on-primary">
+                  <h2 class="media-title">{imageSlide.title}</h2>
+                  <p class="media-description ">{imageSlide.description}</p>
+                </div>
+                <div class="image-container mb-1">
+                  <img
+                    src={STRAPI_URL + imageSlide.image.url}
+                    alt={imageSlide.image.altText}
+                  />
+                </div>
+                <div class="slide-footer text-on-primary">
+                  <RichText content={imageSlide.additionalInfo} />
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</FullWidthBox>
+
+<style lang="scss">
+  .image-slider-wrapper {
+    > * {
+      grid-column: full-width;
+    }
+  }
+
+  .splide__slide {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: calc(100%);
+    opacity: 0.6;
+
+    transition: opacity 0.4s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &.is-active.is-visible {
+      opacity: 1;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .image-container {
+    --image-scale-factor: 1.1;
+    --image-width: calc(100% * var(--image-scale-factor));
+    width: var(--image-width);
+    align-self: center;
+
+    > img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .slide-footer {
+    margin-top: auto;
+  }
+</style>
+
+<style lang="scss">
+  // add specific styling for certain slider images here
+  [data-slide-id="testing-unique-id"] .image-container {
+    --image-scale-factor: 1.1;
+  }
+</style>
+
+<script type="module">
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css";
+
+  const splideOptions = {
+    focus: "center",
+    perPage: 1,
+    trimSpace: false,
+    gap: "300px",
+    padding: "calc( (100% - 750px) / 2)",
+    arrows: true,
+    autoWidth: true,
+    pagination: false,
+
+    // breakpoints: {
+    //   1899: {
+    //     gap: "100px",
+    //     padding: "calc( (100% - 750px) / 2)",
+    //   },
+    //   1499: {
+    //     gap: "30px",
+    //     padding: "calc( (100% - 750px) / 2)",
+    //   },
+    //   1299: {
+    //     gap: "30px",
+    //     padding: "calc( (100% - 750px) / 2)",
+    //   },
+
+    //   1250: {
+    //     gap: "20px",
+    //     padding: "5%",
+    //   },
+
+    //   1023: {
+    //     gap: "20px",
+    //     padding: "calc( (100% - 750px) / 2)",
+    //   },
+
+    //   833: {
+    //     gap: "20px",
+    //     padding: "5%",
+    //   },
+    // },
+  };
+
+  const initSplide = () => {
+    new Splide(".splide", splideOptions).mount();
+  };
+
+  document.addEventListener("astro:page-load", initSplide);
+</script>

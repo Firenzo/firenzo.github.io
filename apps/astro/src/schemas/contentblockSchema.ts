@@ -26,6 +26,7 @@ export const imageSliderComponentSchema = z.object({
   __component: z.literal("content-blocks.image-slider"),
   imageSliderItems: z.array(
     z.object({
+      id: z.string().nullish().optional(),
       title: nullishOptionalStringSchema,
       description: nullishOptionalStringSchema,
       image: pictureSchema,

@@ -113,6 +113,7 @@ export interface ContentBlocksImageSliderItem extends Struct.ComponentSchema {
   attributes: {
     additionalInfo: Schema.Attribute.Blocks;
     description: Schema.Attribute.Text;
+    identifier: Schema.Attribute.String & Schema.Attribute.Unique;
     image: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };

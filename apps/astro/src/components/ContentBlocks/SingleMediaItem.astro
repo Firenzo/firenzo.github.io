@@ -17,6 +17,8 @@ const {
   marginBottom = true,
   bigCaption = false,
 } = Astro.props as SingleMediaItemProps;
+
+const applyShadow = !(image.url.endsWith("svg") || image.url.endsWith("png"));
 ---
 
 <div
@@ -28,7 +30,11 @@ const {
   ]}
 >
   <div class="image">
-    <img src={STRAPI_URL + image.url} alt={image.altText} />
+    <img
+      src={STRAPI_URL + image.url}
+      alt={image.altText}
+      class:list={[{ shadow: applyShadow }]}
+    />
   </div>
   {
     showCaption && image.caption && (
@@ -41,6 +47,7 @@ const {
 
 <style lang="scss">
   .single-media-item {
+    width: 100%;
     margin-inline: auto;
 
     &.margin-bottom {
@@ -52,15 +59,20 @@ const {
     }
 
     &.reduce-margin-bottom {
-      margin-bottom: 0;
+      margin-bottom: 2rem;
     }
 
     .image {
+      width: 100%;
+
       > img {
         width: 100%;
         display: block;
         border-radius: 10px;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+
+        &.shadow {
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
       }
     }
   }

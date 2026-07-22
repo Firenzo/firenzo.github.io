@@ -23,6 +23,10 @@
     },
     "additionalInfo": {
       "type": "blocks"
+    },
+    "identifier": {
+      "type": "string",
+      "unique": true
     }
   },
   "config": {}

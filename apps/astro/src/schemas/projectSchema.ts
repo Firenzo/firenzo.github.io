@@ -13,6 +13,8 @@ export const projectSchema = z.object({
   introText: richTextSchema,
   tags: z.array(z.string()),
   image: pictureSchema.nullable().optional(),
-  goToProjectButton: buttonWithIconSchema.omit({ __component: true }),
+  goToProjectButton: buttonWithIconSchema
+    .omit({ __component: true })
+    .nullable(),
   content: z.array(contentBlockSchema),
 });
