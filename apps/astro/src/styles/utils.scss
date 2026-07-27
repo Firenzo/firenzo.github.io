@@ -60,3 +60,7 @@ $spacings: (0, 1rem, 2rem, 3rem, 4rem);
 .row {
   flex-direction: row;
 }
+
+.shadow {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}

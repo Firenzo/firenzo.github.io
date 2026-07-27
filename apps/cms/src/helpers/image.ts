@@ -22,7 +22,7 @@ export const mapImageData = (image: Data.ContentType<'plugin::upload.file'>): Im
         mime: image.mime,
       };
 
-      if (image.ext === '.svg') {
+      if (image.ext === '.svg' || image.ext === '.mp4') {
         'width' in acc && delete acc.width;
         'height' in acc && delete acc.height;
       }

@@ -12,7 +12,7 @@ export const singleMediaItemComponentSchema = z.object({
   showCaption: z.boolean(),
   reduceMaxWidth: z.boolean().nullable().optional(),
   reduceMarginBottom: z.boolean().nullable().optional(),
-  image: pictureSchema,
+  media: pictureSchema,
 });
 
 export const dualMediaItemsComponentSchema = z.object({

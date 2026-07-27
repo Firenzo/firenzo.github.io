@@ -1,4 +1,5 @@
 ---
+import { applyShadow } from "../../helpers/applyShadow";
 import { STRAPI_URL } from "../../helpers/url";
 import type { SingleMediaItemComponent } from "../../schemas/contentblockSchema";
 
@@ -9,7 +10,7 @@ type SingleMediaItemProps = SingleMediaItemComponent & {
 };
 
 const {
-  image,
+  media,
   showCaption,
   reduceMarginBottom,
   reduceMaxWidth,
@@ -18,7 +19,8 @@ const {
   bigCaption = false,
 } = Astro.props as SingleMediaItemProps;
 
-const applyShadow = !(image.url.endsWith("svg") || image.url.endsWith("png"));
+const isVideo = media.mime === "video/mp4";
+const isImage = !isVideo;
 ---
 
 <div
@@ -29,17 +31,30 @@ const applyShadow = !(image.url.endsWith("svg") || image.url.endsWith("png"));
     { "margin-bottom": marginBottom },
   ]}
 >
-  <div class="image">
-    <img
-      src={STRAPI_URL + image.url}
-      alt={image.altText}
-      class:list={[{ shadow: applyShadow }]}
-    />
+  <div class="media">
+    {
+      isVideo && (
+        <video controls="controls">
+          <source src={STRAPI_URL + media.url} type={media.mime} /> Your browser
+          does not support the video tag
+        </video>
+      )
+    }
+
+    {
+      isImage && (
+        <img
+          src={STRAPI_URL + media.url}
+          alt={media.altText}
+          class:list={[{ shadow: applyShadow(media) }]}
+        />
+      )
+    }
   </div>
   {
-    showCaption && image.caption && (
+    showCaption && media.caption && (
       <p class:list={[bigCaption ? "big-caption" : "caption", captionAlign]}>
-        {image.caption}
+        {media.caption}
       </p>
     )
   }
@@ -62,17 +77,14 @@ const applyShadow = !(image.url.endsWith("svg") || image.url.endsWith("png"));
       margin-bottom: 2rem;
     }
 
-    .image {
+    .media {
       width: 100%;
 
-      > img {
+      > img,
+      video {
         width: 100%;
         display: block;
         border-radius: 10px;
-
-        &.shadow {
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-        }
       }
     }
   }

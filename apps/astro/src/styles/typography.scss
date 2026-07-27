@@ -43,13 +43,13 @@ h1,
 h2,
 .h2 {
   font-size: var(--font-size-xl);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 h3,
 .h3 {
   font-size: var(--font-size-medium);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 // for each h3 that comes right after an h2
@@ -64,8 +64,8 @@ h3,
 p,
 span {
   font-size: var(--font-size-base);
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.7rem;
 }
 
 a {
@@ -97,6 +97,13 @@ ul {
       width: 1em;
       margin-right: 20px;
     }
+  }
+
+  + h2,
+  + .h2,
+  + h3,
+  + .h3 {
+    margin-top: 2rem;
   }
 }
 

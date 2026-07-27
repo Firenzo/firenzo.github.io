@@ -14,6 +14,20 @@ const getElement = (element) => {
   if (element.type === "heading") {
     return elementMap.heading[element.level - 1];
   }
+
+  if (element.type === "list") {
+    const listElementMap = {
+      unordered: "ul",
+      ordered: "ol",
+    };
+
+    return listElementMap[element.format];
+  }
+
+  if (element.type === "list-item") {
+    return "li";
+  }
+
   return elementMap[element.type];
 };
 

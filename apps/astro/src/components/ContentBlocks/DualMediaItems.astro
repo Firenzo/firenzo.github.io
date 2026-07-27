@@ -14,7 +14,7 @@ const { mappedItems } = Astro.props as DualMediaItemsComponent;
   {
     mappedItems.map((mediaItem) => (
       <SingleMediaItem
-        image={mediaItem.image}
+        media={mediaItem.media}
         showCaption={mediaItem.showCaption}
         reduceMarginBottom={false}
         reduceMaxWidth={false}

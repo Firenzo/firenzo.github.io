@@ -3,13 +3,15 @@ import { STRAPI_URL } from "../../helpers/url";
 import type { ImageSliderComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 import RichText from "../RichText.astro";
+import { applyShadow } from "../../helpers/applyShadow";
 
 const { imageSliderItems } = Astro.props as ImageSliderComponent;
+const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 ---
 
 <FullWidthBox>
   <div class="image-slider-wrapper full-width text-on-primary">
-    <div class="splide">
+    <div class="splide splide-container" id={randomId}>
       <div class="splide__track">
         <ul class="splide__list">
           {
@@ -17,10 +19,12 @@ const { imageSliderItems } = Astro.props as ImageSliderComponent;
               <li class="splide__slide" data-slide-id={imageSlide.id}>
                 <div class="slide-header text-on-primary">
                   <h2 class="media-title">{imageSlide.title}</h2>
-                  <p class="media-description ">{imageSlide.description}</p>
+                  <p class="media-description">{imageSlide.description}</p>
                 </div>
+
                 <div class="image-container mb-1">
                   <img
+                    class:list={[{ shadow: applyShadow(imageSlide.image) }]}
                     src={STRAPI_URL + imageSlide.image.url}
                     alt={imageSlide.image.altText}
                   />
@@ -64,6 +68,18 @@ const { imageSliderItems } = Astro.props as ImageSliderComponent;
     &:before {
       display: none;
     }
+
+    &:not(.is-active) .slide-header {
+      opacity: 0;
+    }
+  }
+
+  .slide-header {
+    transition: opacity 0.4s ease;
+
+    .media-description {
+      line-height: 1.2;
+    }
   }
 
   .image-container {
@@ -76,12 +92,7 @@ const { imageSliderItems } = Astro.props as ImageSliderComponent;
       display: block;
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
     }
-  }
-
-  .slide-footer {
-    margin-top: auto;
   }
 </style>
 
@@ -138,7 +149,13 @@ const { imageSliderItems } = Astro.props as ImageSliderComponent;
   };
 
   const initSplide = () => {
-    new Splide(".splide", splideOptions).mount();
+    const components = document.querySelectorAll(".splide-container");
+    components.forEach((component) => {
+      if (component.classList.contains("initialized")) return;
+
+      component.classList.add("initialized");
+      new Splide(component, splideOptions).mount();
+    });
   };
 
   document.addEventListener("astro:page-load", initSplide);

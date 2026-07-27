@@ -33,7 +33,7 @@ type SingleMediaItemComponentRaw = Data.Component<'content-blocks.single-media-i
 type SingleMediaItemComponent = Pick<
   SingleMediaItemComponentRaw,
   'showCaption' | 'reduceMarginBottom' | 'reduceMaxWidth'
-> & { image: ImageData };
+> & { media: ImageData };
 
 export const mapSingleMediaItem = (
   singleMediaItemComponent: SingleMediaItemComponentRaw
@@ -41,7 +41,7 @@ export const mapSingleMediaItem = (
   showCaption: singleMediaItemComponent.showCaption,
   reduceMaxWidth: singleMediaItemComponent.reduceMaxWidth,
   reduceMarginBottom: singleMediaItemComponent.reduceMarginBottom,
-  image: mapImageData(singleMediaItemComponent.image),
+  media: mapImageData(singleMediaItemComponent.image),
 });
 
 type DualMediaItemsComponentRaw = Data.Component<'content-blocks.dual-media-items'>;
