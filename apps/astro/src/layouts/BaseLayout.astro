@@ -4,6 +4,7 @@ import "@splidejs/splide/css";
 import ClientRouter from "astro/components/ClientRouter.astro";
 
 const requestUrl = new URL(Astro.request.url);
+const increaseBreakoutWidth = requestUrl.pathname === "/creations";
 
 const slideOutIn = {
   old: {
@@ -50,7 +51,13 @@ const pageTransition = {
       </ul>
     </nav>
 
-    <main transition:animate={pageTransition} class="content-grid">
+    <main
+      transition:animate={pageTransition}
+      class:list={[
+        "content-grid",
+        { "increased-breakout-width": increaseBreakoutWidth },
+      ]}
+    >
       <slot />
     </main>
   </body>

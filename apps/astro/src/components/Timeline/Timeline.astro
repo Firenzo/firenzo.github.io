@@ -1,6 +1,5 @@
 ---
 import type { ResumeContent } from "../../schemas/pageSchemas";
-import type { TimelineItemEntry } from "./TimelineItem.astro";
 import TimelineItem from "./TimelineItem.astro";
 
 export type TimelineProps = {
@@ -13,7 +12,7 @@ const { data } = Astro.props as TimelineProps;
 
 <div class="timeline-wrapper">
   <div class="timeline"></div>
-  <ul class="timeline-items">
+  <ul class="timeline-items no-bullets">
     {data.map((timelineItem) => <TimelineItem {...timelineItem} />)}
   </ul>
 </div>

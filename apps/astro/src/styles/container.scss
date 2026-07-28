@@ -1,15 +1,25 @@
 @use "./breakpoints.scss" as mq;
 
-.content-grid,
-.full-width {
+main {
   --padding-inline: 5%;
   --content-width: 100% - (var(--padding-inline) * 2);
   --content-max-width: 77ch;
-  --breakout-max-width: 1400px;
+  --breakout-max-width: 1500px;
   --breakout-size: calc(
     (var(--breakout-max-width) - var(--content-max-width)) / 2
   );
 
+  &.increased-breakout-width {
+    --breakout-max-width: 2200px;
+  }
+
+  @include mq.up("tablet") {
+    --padding-inline: 2rem;
+  }
+}
+
+.content-grid,
+.full-width {
   display: grid;
   grid-template-columns:
     [full-width-start] minmax(var(--padding-inline), 1fr)
@@ -17,10 +27,6 @@
     [content-start] min(var(--content-width), var(--content-max-width))
     [content-end] minmax(0, var(--breakout-size)) [breakout-end]
     minmax(var(--padding-inline), 1fr) [full-width-end];
-
-  @include mq.up("tablet") {
-    --padding-inline: 2rem;
-  }
 }
 
 .content-grid > :not(.breakout, .full-width),

@@ -106,6 +106,12 @@ ul {
   + .h3 {
     margin-top: 2rem;
   }
+
+  &.no-bullets {
+    li {
+      display: block;
+    }
+  }
 }
 
 b,
