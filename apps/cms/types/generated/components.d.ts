@@ -100,6 +100,7 @@ export interface ContentBlocksImageSlider extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    headingLevel: Schema.Attribute.Enumeration<['h2', 'h3', 'h4', 'h5', 'h6']> & Schema.Attribute.DefaultTo<'h3'>;
     imageSliderItems: Schema.Attribute.Component<'content-blocks.image-slider-item', true>;
   };
 }
@@ -140,6 +141,7 @@ export interface ContentBlocksMediaPresenter extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    headingLevel: Schema.Attribute.Enumeration<['h2', 'h3', 'h4', 'h5', 'h6']> & Schema.Attribute.DefaultTo<'h3'>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     scrollable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;

@@ -1,20 +1,22 @@
 ---
 import { STRAPI_URL } from "../../helpers/url";
+import { headingSchema, type Headings } from "../../schemas/commonSchemas";
 import type { MediaPresenterComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 
-const { title, description, image, scrollable } =
+const { title, description, image, scrollable, headingLevel } =
   Astro.props as MediaPresenterComponent;
 
 const scaleFactor = 0.8;
 const imageWidth = image.width! * scaleFactor;
 const imageHeight = image.height! * scaleFactor;
+const HeadingElement = headingLevel;
 ---
 
 <FullWidthBox>
   <slot>
     <div class="image-presenter-block-header text-on-primary">
-      <h2 class="media-title">{title}</h2>
+      <HeadingElement class="media-title">{title}</HeadingElement>
       <p class="media-description">{description}</p>
     </div>
     {

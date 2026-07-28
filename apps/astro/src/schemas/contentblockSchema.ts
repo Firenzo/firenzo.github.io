@@ -3,6 +3,7 @@ import { z } from "astro/zod";
 import { pictureSchema } from "./imageSchema";
 import {
   buttonWithIconSchema,
+  headingSchema,
   nullishOptionalStringSchema,
   richTextSchema,
 } from "./commonSchemas";
@@ -33,6 +34,7 @@ export const imageSliderComponentSchema = z.object({
       additionalInfo: richTextSchema,
     }),
   ),
+  headingLevel: headingSchema
 });
 
 export const mediaPresenterComponentSchema = z.object({
@@ -40,7 +42,8 @@ export const mediaPresenterComponentSchema = z.object({
   title: nullishOptionalStringSchema,
   description: nullishOptionalStringSchema,
   image: pictureSchema,
-  scrollable: z.boolean().nullish()
+  scrollable: z.boolean().nullish(),
+  headingLevel: headingSchema
 });
 
 export const richTextComponentSchema = z.object({

@@ -25,6 +25,17 @@
     "scrollable": {
       "type": "boolean",
       "default": false
+    },
+    "headingLevel": {
+      "type": "enumeration",
+      "default": "h3",
+      "enum": [
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ]
     }
   },
   "config": {}

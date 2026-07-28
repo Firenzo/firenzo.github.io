@@ -82,6 +82,7 @@ ul {
   list-style: none;
 
   li {
+    display: flex;
     font-size: var(--font-size-base);
     line-height: 1.5em;
 

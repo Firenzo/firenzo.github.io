@@ -22,4 +22,13 @@ export const buttonWithIconSchema = z.object({
   backgroundColor: z.literal(["Primary", "White", "Black"]).optional(),
 });
 
+const DEFAULT_HEADING = "h3";
+const headings = ["h2", "h3", "h4", "h5", "h6"] as const;
+export const headingSchema = z
+  .literal(headings)
+  .nullish()
+  .overwrite((v) => (v && headings.includes(v) ? v : DEFAULT_HEADING))
+  .pipe(z.literal(headings));
+
 export type ButtonWithIcon = z.infer<typeof buttonWithIconSchema>;
+export type Headings = z.infer<typeof headingSchema>;

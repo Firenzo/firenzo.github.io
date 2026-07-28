@@ -1,8 +1,11 @@
 ---
 // @ts-nocheck
 import type { HTMLElementType } from "react";
+import { RichTextComponent } from "../schemas/contentblockSchema";
 
-const { content } = Astro.props;
+type RichTextProps = { content: RichTextComponent };
+
+const { content } = Astro.props as RichTextProps;
 
 const elementMap = {
   paragraph: "p",

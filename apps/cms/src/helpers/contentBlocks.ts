@@ -58,9 +58,13 @@ type ImageSliderItemRaw = ImageSliderComponentRaw['imageSliderItems'][number];
 type ImageSliderItem = Pick<ImageSliderItemRaw, 'title' | 'description' | 'additionalInfo' | 'identifier'> & {
   image: ImageData;
 };
-type ImageSliderComponent = { imageSliderItems: ImageSliderItem[] };
+type ImageSliderComponent = {
+  imageSliderItems: ImageSliderItem[];
+  headingLevel: ImageSliderComponentRaw['headingLevel'];
+};
 
 export const mapImageSlider = (imageSliderComponent: ImageSliderComponentRaw): ImageSliderComponent => ({
+  headingLevel: imageSliderComponent.headingLevel,
   imageSliderItems: imageSliderComponent.imageSliderItems.map((imageSliderItem: ImageSliderItemRaw) => ({
     id: imageSliderItem.identifier,
     title: imageSliderItem.title,
@@ -71,7 +75,10 @@ export const mapImageSlider = (imageSliderComponent: ImageSliderComponentRaw): I
 });
 
 type MediaPresenterComponentRaw = Data.Component<'content-blocks.media-presenter'>;
-type MediaPresenterComponent = Pick<MediaPresenterComponentRaw, 'title' | 'description' | 'scrollable'> & {
+type MediaPresenterComponent = Pick<
+  MediaPresenterComponentRaw,
+  'title' | 'description' | 'scrollable' | 'headingLevel'
+> & {
   image: ImageData;
 };
 
@@ -80,6 +87,7 @@ export const mapMediaPresenter = (mediaPresenterComponent: MediaPresenterCompone
   description: mediaPresenterComponent.description,
   image: mapImageData(mediaPresenterComponent.image),
   scrollable: mediaPresenterComponent.scrollable,
+  headingLevel: mediaPresenterComponent.headingLevel,
 });
 
 type RichTextComponentRaw = Data.Component<'content-blocks.rich-text'>;

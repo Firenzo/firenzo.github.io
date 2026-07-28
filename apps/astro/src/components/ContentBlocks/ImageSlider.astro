@@ -4,41 +4,64 @@ import type { ImageSliderComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 import RichText from "../RichText.astro";
 import { applyShadow } from "../../helpers/applyShadow";
+import { headingSchema, type Headings } from "../../schemas/commonSchemas";
 
-const { imageSliderItems } = Astro.props as ImageSliderComponent;
+const { imageSliderItems, headingLevel } = Astro.props as ImageSliderComponent;
+const HeadingElement = headingLevel;
 const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 ---
 
 <FullWidthBox>
-  <div class="image-slider-wrapper full-width text-on-primary">
+  <image-slider class="image-slider-wrapper full-width text-on-primary">
     <div class="splide splide-container" id={randomId}>
       <div class="splide__track">
         <ul class="splide__list">
           {
-            imageSliderItems.map((imageSlide) => (
-              <li class="splide__slide" data-slide-id={imageSlide.id}>
-                <div class="slide-header text-on-primary">
-                  <h2 class="media-title">{imageSlide.title}</h2>
-                  <p class="media-description">{imageSlide.description}</p>
-                </div>
+            imageSliderItems.map((imageSlide) => {
+              const hasAtLeastOneDescription = imageSliderItems.some(
+                (item) => item.description,
+              );
+              return (
+                <li class="splide__slide" data-slide-id={imageSlide.id}>
+                  <div
+                    class:list={[
+                      "slide-header",
+                      "text-on-primary",
+                      "selectable",
+                      { "fixed-height": hasAtLeastOneDescription },
+                    ]}
+                  >
+                    <HeadingElement
+                      class:list={[
+                        "media-title",
+                        { "extra-margin": !hasAtLeastOneDescription },
+                      ]}
+                    >
+                      {imageSlide.title}
+                    </HeadingElement>
+                    {imageSlide.description && (
+                      <p class="media-description">{imageSlide.description}</p>
+                    )}
+                  </div>
 
-                <div class="image-container mb-1">
-                  <img
-                    class:list={[{ shadow: applyShadow(imageSlide.image) }]}
-                    src={STRAPI_URL + imageSlide.image.url}
-                    alt={imageSlide.image.altText}
-                  />
-                </div>
-                <div class="slide-footer text-on-primary">
-                  <RichText content={imageSlide.additionalInfo} />
-                </div>
-              </li>
-            ))
+                  <div class="image-container mb-1">
+                    <img
+                      class:list={[{ shadow: applyShadow(imageSlide.image) }]}
+                      src={STRAPI_URL + imageSlide.image.url}
+                      alt={imageSlide.image.altText}
+                    />
+                  </div>
+                  <div class="slide-footer text-on-primary selectable">
+                    <RichText content={imageSlide.additionalInfo} />
+                  </div>
+                </li>
+              );
+            })
           }
         </ul>
       </div>
     </div>
-  </div>
+  </image-slider>
 </FullWidthBox>
 
 <style lang="scss">
@@ -69,17 +92,37 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
       display: none;
     }
 
-    &:not(.is-active) .slide-header {
+    &:not(.is-active) .slide-header,
+    &:not(.is-active) .slide-footer {
       opacity: 0;
     }
   }
 
   .slide-header {
     transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &.fixed-height {
+      height: 7em;
+    }
+
+    .media-title {
+      margin-bottom: 1rem;
+
+      &.extra-margin {
+        margin-bottom: 2rem;
+      }
+    }
 
     .media-description {
       line-height: 1.2;
     }
+  }
+
+  .slide-footer {
+    transition: opacity 0.4s ease;
   }
 
   .image-container {
@@ -94,6 +137,32 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
       border-radius: 10px;
     }
   }
+
+  .selectable,
+  .selectable * {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+</style>
+
+<style lang="scss" is:global>
+  .slide-footer {
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+      margin-bottom: 1rem;
+      font-size: var(--font-normal);
+    }
+
+    ul {
+      li:before {
+        color: var(--colors-white);
+      }
+    }
+  }
 </style>
 
 <style lang="scss">
@@ -105,7 +174,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 
 <script type="module">
   import Splide from "@splidejs/splide";
-  import "@splidejs/splide/css";
+  // import "@splidejs/splide/css";
 
   const splideOptions = {
     focus: "center",
@@ -116,6 +185,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     arrows: true,
     autoWidth: true,
     pagination: false,
+    noDrag: ".selectable *",
 
     // breakpoints: {
     //   1899: {
@@ -148,15 +218,24 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     // },
   };
 
-  const initSplide = () => {
-    const components = document.querySelectorAll(".splide-container");
-    components.forEach((component) => {
-      if (component.classList.contains("initialized")) return;
+  class ImageSlider extends HTMLElement {
+    splideInstance = null;
 
-      component.classList.add("initialized");
-      new Splide(component, splideOptions).mount();
-    });
-  };
+    connectedCallback() {
+      const sliderElement = this.querySelector(".splide");
 
-  document.addEventListener("astro:page-load", initSplide);
+      if (sliderElement instanceof HTMLElement) {
+        this.splideInstance = new Splide(sliderElement, splideOptions);
+        this.splideInstance.mount();
+      }
+    }
+
+    disconnectedCallback() {
+      if (this.splide) {
+        this.splideInstance.destroy();
+      }
+    }
+  }
+
+  customElements.define("image-slider", ImageSlider);
 </script>
