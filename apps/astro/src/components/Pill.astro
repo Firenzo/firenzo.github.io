@@ -14,7 +14,7 @@ const { content } = Astro.props as PillProps;
   .pill {
     height: 36px;
     text-align: center;
-    padding: 5px 27px;
+    padding: 5px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,16 +25,28 @@ const { content } = Astro.props as PillProps;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-xs);
     width: max-content;
-    letter-spacing: 0.04em;
     box-shadow:
       -2px -2px 8px rgba(214, 181, 234, 0.25),
       2px 2px 8px rgba(111, 36, 157, 0.41),
       inset 3px 3px 3px hsla(0, 0%, 100%, 0.25),
       inset 0 0 3px rgba(0, 0, 0, 0.5);
 
+    @include mq.up("big-phone") {
+      font-size: var(--font-size-small);
+      padding: 5px 22px;
+    }
+
+    @include mq.up("tablet") {
+      padding: 22px 27px;
+    }
+
     @include mq.up("xl-tablet") {
+      padding: 5px 22px;
+    }
+
+    @include mq.up("desktop") {
       padding: 22px 27px;
     }
   }

@@ -38,18 +38,16 @@ const { pageTitle, creations } = creationsPageSchema.parse(
     background: gold;
   }
 
-  .project-item::before,
-  .tag-item::before {
-    display: none;
-  }
-
   .project-item-title {
     display: flex;
     align-items: flex-end;
     line-height: 1.2;
-    height: 2.4em;
     font-size: var(--font-size-large);
     text-wrap: pretty;
+
+    @include mq.up("xl-tablet") {
+      height: 2.4em;
+    }
   }
 
   .project-list {
@@ -65,16 +63,32 @@ const { pageTitle, creations } = creationsPageSchema.parse(
     }
   }
 
+  .project-item::before,
+  .tag-item::before {
+    display: none;
+  }
+
   .project-item {
     min-width: 0;
+    margin-bottom: 2rem;
+  }
+
+  .tag-item {
+    margin-bottom: 0.25rem;
+
+    @include mq.up("big-phone") {
+      margin-bottom: 0.5rem;
+    }
   }
 
   .tag-list {
-    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 0.25rem;
-    row-garp: 1rem;
     justify-content: flex-start;
+
+    @include mq.up("big-phone") {
+      column-gap: 0.5rem;
+    }
   }
 </style>
