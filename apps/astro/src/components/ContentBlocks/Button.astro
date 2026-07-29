@@ -51,6 +51,8 @@ const {
 </a>
 
 <style lang="scss">
+  @use "../../styles/breakpoints.scss" as mq;
+
   .content-block-button {
     width: 100%;
     box-shadow:
@@ -64,16 +66,20 @@ const {
     -webkit-font-smoothing: antialiased;
     font-weight: 600;
     letter-spacing: 0.03em;
-    font-size: 16px;
+    font-size: var(--font-size-small);
     display: flex;
     max-width: 90%;
     align-items: center;
     justify-content: center;
     background: linear-gradient(90deg, rgb(57, 57, 57), rgb(0, 0, 0));
-    padding: 20px 0px;
+    padding: 15px 0px;
     text-decoration: none;
     border-radius: 12px;
     margin: auto auto 20px;
+
+    @include mq.up("big-phone") {
+      padding: 20px 0;
+    }
 
     &.margin-bottom {
       margin-bottom: 3.125rem;
@@ -85,7 +91,6 @@ const {
         rgba(111, 36, 157, 0.41) 5px 5px 8px,
         rgba(255, 255, 255, 0.25) 3px 3px 3px inset,
         rgba(0, 0, 0, 0.5) 0px 0px 3px inset;
-      padding: 30px 0px;
       background: linear-gradient(90deg, rgb(149, 0, 240), rgb(167, 79, 221));
 
       &:hover {
