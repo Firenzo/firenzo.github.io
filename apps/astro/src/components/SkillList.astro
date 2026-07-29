@@ -33,15 +33,24 @@ const { skillList, title } = Astro.props as SkillListProps;
 
 <style lang="scss">
   .skill-list {
+    --column-gap: 1rem;
+    --max-items-in-row: 7;
+    --item-max-width: 120px;
+
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--column-gap);
+
+    max-width: calc(
+      var(--item-max-width) * var(--max-items-in-row) + var(--column-gap) *
+        (var(--max-items-in-row) - 1)
+    );
 
     .skill-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 120px;
+      width: var(--item-max-width);
 
       img {
         height: 95px;
