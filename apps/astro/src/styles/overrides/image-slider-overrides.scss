@@ -1,0 +1,71 @@
+// Id's for sliders and classNames for slides can be set in the CMS.
+// The variables that are overriden in this file are set in "src/components/ContentBlocks/ImageSlider.astro"
+
+@use "../../styles/breakpoints.scss" as mq;
+
+// Relentless Grace Radio
+
+#relentless-grace-radio-header-design-slider {
+  @include mq.up("desktop") {
+    --image-scale-factor: 1.4;
+  }
+}
+
+#relentless-grace-radio-body-design-slider {
+  @include mq.up("big-phone") {
+    --image-scale-factor: 0.8;
+  }
+
+  @include mq.up("desktop") {
+    --image-scale-factor: 0.75;
+  }
+}
+
+// Multifeed
+
+#multifeed-different-methods-slider {
+  @include mq.up("desktop") {
+    --image-scale-factor: 1.15;
+  }
+}
+
+#multifeed-concepts-slider {
+  @include mq.up("big-phone") {
+    --image-scale-factor: 0.8;
+  }
+
+  @include mq.up("desktop") {
+    --image-scale-factor: 0.75;
+  }
+}
+
+#multifeed-lo-fi-wireframes-slider,
+#multifeed-hi-fi-wireframes-slider,
+#multifeed-design-iterations-slider,
+#multifeed-final-designs-slider {
+  @include mq.up("desktop") {
+    --image-scale-factor: 1.15;
+  }
+}
+
+// Home monitoring dashboard
+
+#home-monitoring-dashboard-wireframes-slider {
+  @include mq.up("desktop") {
+    --image-scale-factor: 1.15;
+  }
+}
+
+#home-monitoring-dashboard-final-design-slider {
+  @include mq.up("desktop") {
+    --image-scale-factor: 1.15;
+  }
+}
+
+// Barber Iwan v2
+
+#barber-iwan-v2-design-slider {
+  @include mq.up("desktop") {
+    --image-scale-factor: 1.4;
+  }
+}

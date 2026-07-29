@@ -25,16 +25,17 @@ export const dualMediaItemsComponentSchema = z.object({
 
 export const imageSliderComponentSchema = z.object({
   __component: z.literal("content-blocks.image-slider"),
+  headingLevel: headingSchema,
+  identifier: z.string().nullish().optional(),
   imageSliderItems: z.array(
     z.object({
-      id: z.string().nullish().optional(),
+      className: z.string().nullish().optional(),
       title: nullishOptionalStringSchema,
       description: nullishOptionalStringSchema,
       image: pictureSchema,
       additionalInfo: richTextSchema,
     }),
   ),
-  headingLevel: headingSchema
 });
 
 export const mediaPresenterComponentSchema = z.object({

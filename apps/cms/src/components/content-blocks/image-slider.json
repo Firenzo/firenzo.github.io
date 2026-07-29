@@ -21,6 +21,10 @@
         "h5",
         "h6"
       ]
+    },
+    "identifier": {
+      "type": "string",
+      "unique": true
     }
   },
   "config": {}

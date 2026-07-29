@@ -34,3 +34,15 @@ $breakpoints: (
         + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }
+
+@mixin upSpecific($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin downSpecific($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

@@ -24,9 +24,9 @@
     "additionalInfo": {
       "type": "blocks"
     },
-    "identifier": {
+    "className": {
       "type": "string",
-      "unique": true
+      "unique": false
     }
   },
   "config": {}

@@ -4,15 +4,18 @@ import type { ImageSliderComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 import RichText from "../RichText.astro";
 import { applyShadow } from "../../helpers/applyShadow";
-import { headingSchema, type Headings } from "../../schemas/commonSchemas";
 
-const { imageSliderItems, headingLevel } = Astro.props as ImageSliderComponent;
+const { imageSliderItems, headingLevel, identifier } =
+  Astro.props as ImageSliderComponent;
 const HeadingElement = headingLevel;
 const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 ---
 
 <FullWidthBox>
-  <image-slider class="image-slider-wrapper full-width text-on-primary">
+  <image-slider
+    id={`${identifier}-slider`}
+    class="image-slider-wrapper full-width text-on-primary"
+  >
     <div class="splide splide-container" id={randomId}>
       <div class="splide__track">
         <ul class="splide__list">
@@ -22,7 +25,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
                 (item) => item.description,
               );
               return (
-                <li class="splide__slide" data-slide-id={imageSlide.id}>
+                <li class:list={["splide__slide", imageSlide.className]}>
                   <div
                     class:list={[
                       "slide-header",
@@ -65,7 +68,13 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 </FullWidthBox>
 
 <style lang="scss">
+  @use "../../styles/breakpoints.scss" as mq;
+
   .image-slider-wrapper {
+    // This variable needs to be at the top level of this component, because it's
+    // also used to set the gap in splide options
+    --image-width: calc(100% * var(--image-scale-factor, 1));
+
     > * {
       grid-column: full-width;
     }
@@ -126,8 +135,6 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
   }
 
   .image-container {
-    --image-scale-factor: 1.1;
-    --image-width: calc(100% * var(--image-scale-factor));
     width: var(--image-width);
     align-self: center;
 
@@ -166,57 +173,44 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
   }
 </style>
 
-<style lang="scss">
-  // add specific styling for certain slider images here
-  [data-slide-id="testing-unique-id"] .image-container {
-    --image-scale-factor: 1.1;
-  }
-</style>
-
 <script type="module">
   import Splide from "@splidejs/splide";
-  // import "@splidejs/splide/css";
 
   const splideOptions = {
     focus: "center",
     perPage: 1,
     trimSpace: false,
-    gap: "300px",
-    padding: "calc( (100% - 750px) / 2)",
+    gap: "calc(var(--image-width) / 2)",
+    padding: "calc( (100% - var(--content-max-width)) / 2)",
     arrows: true,
     autoWidth: true,
     pagination: false,
     noDrag: ".selectable *",
 
-    // breakpoints: {
-    //   1899: {
-    //     gap: "100px",
-    //     padding: "calc( (100% - 750px) / 2)",
-    //   },
-    //   1499: {
-    //     gap: "30px",
-    //     padding: "calc( (100% - 750px) / 2)",
-    //   },
-    //   1299: {
-    //     gap: "30px",
-    //     padding: "calc( (100% - 750px) / 2)",
-    //   },
+    breakpoints: {
+      1899: {
+        gap: "calc(var(--image-width) / 2)",
+        padding: "calc( (100% - var(--content-max-width)) / 2)",
+      },
+      1499: {
+        gap: "calc(var(--image-width) / 2)",
+        padding: "calc( (100% - var(--content-max-width)) / 2)",
+      },
+      1299: {
+        gap: "calc(var(--image-width) / 2)",
+        padding: "calc( (100% - var(--content-max-width)) / 2)",
+      },
 
-    //   1250: {
-    //     gap: "20px",
-    //     padding: "5%",
-    //   },
+      1023: {
+        gap: "calc(var(--image-width) / 2)",
+        padding: "calc( (100% - var(--content-max-width)) / 2)",
+      },
 
-    //   1023: {
-    //     gap: "20px",
-    //     padding: "calc( (100% - 750px) / 2)",
-    //   },
-
-    //   833: {
-    //     gap: "20px",
-    //     padding: "5%",
-    //   },
-    // },
+      833: {
+        gap: "20px",
+        padding: "5%",
+      },
+    },
   };
 
   class ImageSlider extends HTMLElement {
