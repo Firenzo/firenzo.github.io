@@ -27,7 +27,11 @@ const { data } = Astro.props as TimelineProps;
     display: flex;
     gap: var(--line-content-gap);
     translate: calc(var(--line-content-gap) / 2);
-    width: calc(100% - var(--line-content-gap));
+    width: calc(100% - var(--line-content-gap) / 2);
+
+    @include mq.up("desktop") {
+      --line-content-gap: 0;
+    }
 
     .timeline {
       background: #f6f6f6;
