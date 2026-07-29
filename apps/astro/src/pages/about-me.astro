@@ -67,6 +67,10 @@ const { pageTitle, introText, name, role, picture } = aboutMePageSchema.parse(
     display: block;
     margin: auto;
     margin-bottom: 35px;
-    max-width: $column-max-width;
+    max-width: 550px;
+
+    @include mq.up("desktop") {
+      max-width: $column-max-width;
+    }
   }
 </style>
