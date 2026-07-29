@@ -32,6 +32,8 @@ const { skillList, title } = Astro.props as SkillListProps;
 </div>
 
 <style lang="scss">
+  @use "../styles/breakpoints.scss" as mq;
+
   .skill-list {
     --column-gap: 1rem;
     --max-items-in-row: 7;
@@ -50,14 +52,18 @@ const { skillList, title } = Astro.props as SkillListProps;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: var(--item-max-width);
+      flex-basis: calc(50% - var(--column-gap));
+
+      @include mq.up("phone") {
+        flex-basis: auto;
+        width: var(--item-max-width);
+      }
 
       img {
         height: 95px;
       }
 
       span {
-        // width: min-content;
         text-align: center;
         text-wrap: balance;
         font-size: var(--font-size-small);

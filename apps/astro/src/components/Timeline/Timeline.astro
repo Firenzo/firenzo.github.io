@@ -21,13 +21,19 @@ const { data } = Astro.props as TimelineProps;
   @use "../../styles/breakpoints.scss" as mq;
 
   .timeline-wrapper {
-    --line-width: 8px;
-    --line-content-gap: 3rem;
+    --line-width: 3px;
+    --line-content-gap: 1.5rem;
 
+    position: relative;
     display: flex;
     gap: var(--line-content-gap);
     translate: calc(var(--line-content-gap) / 2);
     width: calc(100% - var(--line-content-gap) / 2);
+
+    @include mq.up("phone") {
+      --line-width: 8px;
+      --line-content-gap: 3rem;
+    }
 
     @include mq.up("desktop") {
       --line-content-gap: 0;

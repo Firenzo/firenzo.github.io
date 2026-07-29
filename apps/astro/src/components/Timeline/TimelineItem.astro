@@ -52,7 +52,11 @@ const {
     @use "../../styles/breakpoints.scss" as mq;
 
     .timeline-item-wrapper {
-      --marker-size: 60px;
+      --marker-size: 40px;
+
+      @include mq.up("phone") {
+        --marker-size: 60px;
+      }
 
       position: relative;
       color: #fff;
@@ -96,7 +100,7 @@ const {
         width: var(--marker-size);
         border-radius: 100px;
         position: absolute;
-        top: calc(100% / 2 - var(--marker-size) / 2);
+        top: 2rem;
         left: calc(
           -1 * var(--line-content-gap) -
             (var(--marker-size) / 2 + var(--line-width) / 2)
@@ -108,8 +112,18 @@ const {
           inset 3px 3px 6px hsla(0, 0%, 100%, 0.5),
           inset -1px -1px 3px rgba(0, 0, 0, 0.5);
 
+        @include mq.up("big-phone") {
+          top: calc(100% / 2 - var(--marker-size) / 2);
+        }
+
         @include mq.up("desktop") {
           left: calc(100% / 2 - var(--marker-size) / 2);
+        }
+
+        [class^="ic-"],
+        [class*=" ic-"] {
+          width: 16px;
+          height: 16px;
         }
       }
 
@@ -135,6 +149,18 @@ const {
 
       .additional-text {
         font-size: var(--font-size-xs);
+      }
+    }
+  </style>
+
+  <style is:global lang="scss">
+    @use "../../styles/breakpoints.scss" as mq;
+
+    @include mq.down("phone") {
+      .timeline-marker [class^="ic-"],
+      .timeline-marker [class*=" ic-"] {
+        width: 16px;
+        height: 16px;
       }
     }
   </style>
