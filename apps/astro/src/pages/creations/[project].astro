@@ -5,13 +5,15 @@ import RichText from "../../components/RichText.astro";
 import { STRAPI_URL } from "../../helpers/url";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projectPageSchema } from "../../schemas/pageSchemas";
+import { allProjects } from "@repo/cms/modules";
 
-// export function getStaticPaths() {
-//   return [
-//     { params: { project: "kindercentrum-colorful-flyer" } },
-//     { params: { project: "test-project" } },
-//   ];
-// }
+// Tell Astro which projects are available, so it can statically generate the pages.
+export function getStaticPaths() {
+  return allProjects.map((project) => ({
+    params: { project },
+  }));
+}
+
 const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
 ---
 

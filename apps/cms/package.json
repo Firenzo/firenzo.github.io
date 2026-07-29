@@ -4,6 +4,9 @@
   "private": true,
   "description": "A Strapi application",
   "types": "./types",
+  "exports": {
+    "./modules": "./src/modules/allProjects.ts"
+  },
   "scripts": {
     "build": "strapi build",
     "console": "strapi console",
