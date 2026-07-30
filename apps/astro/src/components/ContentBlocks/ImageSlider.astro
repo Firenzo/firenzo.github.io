@@ -31,7 +31,6 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
                       "slide-header",
                       "text-on-primary",
                       "selectable",
-                      { "fixed-height": hasAtLeastOneDescription },
                     ]}
                   >
                     <HeadingElement
@@ -71,9 +70,11 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
   @use "../../styles/breakpoints.scss" as mq;
 
   .image-slider-wrapper {
-    // This variable needs to be at the top level of this component, because it's
-    // also used to set the gap in splide options
+    // These variable needs to be at the top level of this component for easier overriding
+    // or using the variable in splide options.
     --image-width: calc(100% * var(--image-scale-factor, 1));
+    --slide-header-min-height: none;
+    --splide-arrow-height: 2em; /* setting splide's default value in variable so we can do math with it */
 
     > * {
       grid-column: full-width;
@@ -112,10 +113,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    &.fixed-height {
-      height: 7em;
-    }
+    min-height: var(--slide-header-min-height);
 
     .media-title {
       margin-bottom: 1rem;
@@ -153,6 +151,23 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 </style>
 
 <style lang="scss" is:global>
+  .splide__arrow.splide__arrow--prev,
+  .splide__arrow.splide__arrow--next {
+    height: var(--splide-arrow-height);
+
+    // check if --image-height is set and apply styles if true
+    // "initial" is the value if the variable is not set
+    @container style(not (--image-height: initial)) {
+      & {
+        transform: none;
+        top: calc(
+          var(--slide-header-min-height) - (var(--splide-arrow-height) / 2) +
+            (var(--image-height) / 2)
+        );
+      }
+    }
+  }
+
   .slide-footer {
     h1:first-child,
     h2:first-child,
@@ -215,6 +230,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
 
   class ImageSlider extends HTMLElement {
     splideInstance = null;
+    resizeFrame = null;
 
     connectedCallback() {
       const sliderElement = this.querySelector(".splide");
@@ -222,6 +238,45 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
       if (sliderElement instanceof HTMLElement) {
         this.splideInstance = new Splide(sliderElement, splideOptions);
         this.splideInstance.mount();
+
+        this.resizeObserver = new ResizeObserver(() => {
+          if (this.resizeFrame) {
+            return;
+          }
+
+          this.resizeFrame = requestAnimationFrame(() => {
+            this.resizeFrame = undefined;
+            this.setImageHeight();
+            this.normalizeHeaderHeight();
+          });
+        });
+
+        this.resizeObserver.observe(this);
+      }
+    }
+
+    normalizeHeaderHeight() {
+      this.style.setProperty("--slide-header-min-height", "none");
+      const allHeaders = this.querySelectorAll(".slide-header") ?? [];
+
+      if (allHeaders.length) {
+        const largestHeaderHeight = Math.max(
+          ...[...allHeaders].map((header) => header.offsetHeight),
+        );
+
+        this.style.setProperty(
+          "--slide-header-min-height",
+          `${largestHeaderHeight}px`,
+        );
+      }
+    }
+
+    // Assuming the images in the slider will all have the same height,
+    // get the height of the first image and set the css variable.
+    setImageHeight() {
+      const image = this.querySelector(".image-container > img");
+      if (image) {
+        this.style.setProperty("--image-height", `${image.offsetHeight}px`);
       }
     }
 
@@ -229,6 +284,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
       if (this.splide) {
         this.splideInstance.destroy();
       }
+      this.resizeObserver?.disconnect();
     }
   }
 
