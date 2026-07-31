@@ -1,13 +1,8 @@
 ---
-import { STRAPI_URL } from "../../helpers/url";
-import type {
-  DualMediaItemsComponent,
-  SingleMediaItemComponent,
-} from "../../schemas/contentblockSchema";
+import type { DualMediaItemsComponent } from "../../schemas/contentblockSchema";
 import SingleMediaItem from "./SingleMediaItem.astro";
 
 const { mappedItems } = Astro.props as DualMediaItemsComponent;
-//image, showCaption, reduceMarginBottom, reduceMaxWidth
 ---
 
 <div class="dual-media-items">

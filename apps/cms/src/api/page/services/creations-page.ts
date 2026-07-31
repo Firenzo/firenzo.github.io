@@ -1,6 +1,3 @@
-import { Data } from '@strapi/strapi';
-import { getAllContentBlockComponentUIDs, ContentBlockComponentUID, ContentBlock } from '../../../helpers';
-import { ImageData } from '../../../../types';
 import { mapProject, componentsToPopulate, type ProjectRaw, type Project } from './project-page';
 
 export type CreationsPage = { creations: Project[] };

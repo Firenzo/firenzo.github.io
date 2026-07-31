@@ -32,16 +32,19 @@ export const mapButton = (buttonComponent: ButtonComponentRaw): ButtonComponent 
 type SingleMediaItemComponentRaw = Data.Component<'content-blocks.single-media-item'>;
 type SingleMediaItemComponent = Pick<
   SingleMediaItemComponentRaw,
-  'showCaption' | 'reduceMarginBottom' | 'reduceMaxWidth'
+  'showCaption' | 'reduceMarginBottom' | 'reduceMaxWidth' | 'identifier' | 'videoUrl' | 'videoStill'
 > & { media: ImageData };
 
 export const mapSingleMediaItem = (
   singleMediaItemComponent: SingleMediaItemComponentRaw
 ): SingleMediaItemComponent => ({
+  identifier: singleMediaItemComponent.identifier,
   showCaption: singleMediaItemComponent.showCaption,
   reduceMaxWidth: singleMediaItemComponent.reduceMaxWidth,
   reduceMarginBottom: singleMediaItemComponent.reduceMarginBottom,
   media: mapImageData(singleMediaItemComponent.image),
+  videoUrl: singleMediaItemComponent.videoUrl,
+  videoStill: mapImageData(singleMediaItemComponent.videoStill),
 });
 
 type DualMediaItemsComponentRaw = Data.Component<'content-blocks.dual-media-items'>;

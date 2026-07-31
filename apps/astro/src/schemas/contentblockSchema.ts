@@ -10,10 +10,13 @@ import {
 
 export const singleMediaItemComponentSchema = z.object({
   __component: z.literal("content-blocks.single-media-item"),
+  identifier: z.string().nullish().optional(),
   showCaption: z.boolean(),
   reduceMaxWidth: z.boolean().nullable().optional(),
   reduceMarginBottom: z.boolean().nullable().optional(),
   media: pictureSchema,
+  videoUrl: nullishOptionalStringSchema,
+  videoStill: pictureSchema.nullish()
 });
 
 export const dualMediaItemsComponentSchema = z.object({

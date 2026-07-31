@@ -27,6 +27,22 @@
     "reduceMarginBottom": {
       "type": "boolean",
       "default": false
+    },
+    "videoUrl": {
+      "type": "string",
+      "regex": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    },
+    "videoStill": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "identifier": {
+      "type": "string",
+      "unique": true
     }
   },
   "config": {}

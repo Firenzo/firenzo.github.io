@@ -14,6 +14,9 @@ const {
   showCaption,
   reduceMarginBottom,
   reduceMaxWidth,
+  videoUrl,
+  videoStill,
+  identifier,
   captionAlign = "left",
   marginBottom = true,
   bigCaption = false,
@@ -21,6 +24,10 @@ const {
 
 const isVideo = media.mime === "video/mp4";
 const isImage = !isVideo;
+
+const videoUrlPlatform = videoUrl?.includes("www.youtube.com")
+  ? "Youtube"
+  : "this page";
 ---
 
 <div
@@ -31,13 +38,27 @@ const isImage = !isVideo;
     { "margin-bottom": marginBottom },
   ]}
 >
-  <div class="media">
+  <div id={identifier} class="media">
     {
       isVideo && (
-        <video controls="controls">
-          <source src={STRAPI_URL + media.url} type={media.mime} /> Your browser
-          does not support the video tag
-        </video>
+        <>
+          <video
+            controls="controls"
+            poster={videoStill?.url ? STRAPI_URL + videoStill.url : undefined}
+            class="shadow"
+          >
+            <source src={STRAPI_URL + media.url} type={media.mime} /> Your
+            browser does not support the video tag
+          </video>
+          {videoUrl && (
+            <p class="caption">
+              This video is also available on{" "}
+              <a href={videoUrl} target="_blank">
+                {videoUrlPlatform}
+              </a>
+            </p>
+          )}
+        </>
       )
     }
 
@@ -61,6 +82,10 @@ const isImage = !isVideo;
 </div>
 
 <style lang="scss">
+  .media {
+    margin-inline: auto;
+  }
+
   .single-media-item {
     width: 100%;
     margin-inline: auto;

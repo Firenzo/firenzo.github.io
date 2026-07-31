@@ -3,6 +3,10 @@ import { imageFormats } from '../constants/image';
 import type { ImageFormat, ImageData } from '../../types';
 
 export const mapImageData = (image: Data.ContentType<'plugin::upload.file'>): ImageData => {
+  if (!image) {
+    return null;
+  }
+
   const altText = image.alternativeText;
   const caption = image.caption;
 
