@@ -1,6 +1,7 @@
 ---
 import ContentBlock from "../../components/ContentBlocks/ContentBlock.astro";
 import GoToProjectButton from "../../components/GoToProjectButton.astro";
+import LazyImage from "../../components/LazyImage.astro";
 import RichText from "../../components/RichText.astro";
 import { STRAPI_URL } from "../../helpers/url";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -23,11 +24,18 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
     <div class="project-intro content-grid mb-2">
       <div class="image-and-link content-grid">
         <div class="sticky-wrapper content-grid">
-          <img
+          <LazyImage
+            className="mb-1"
+            src={STRAPI_URL + project.image?.url}
+            alt={project.image?.altText}
+            withSkeleton={true}
+            skeletonStyle="grey"
+          />
+          <!-- <img
             class="mb-1"
             src={STRAPI_URL + project.image?.url}
             alt={project.image?.altText}
-          />
+          /> -->
           {
             project.goToProjectButton && (
               <GoToProjectButton
