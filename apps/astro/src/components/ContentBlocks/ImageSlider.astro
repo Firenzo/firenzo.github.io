@@ -4,6 +4,7 @@ import type { ImageSliderComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 import RichText from "../RichText.astro";
 import { applyShadow } from "../../helpers/applyShadow";
+import LazyImage from "../LazyImage.astro";
 
 const { imageSliderItems, headingLevel, identifier } =
   Astro.props as ImageSliderComponent;
@@ -46,13 +47,19 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
                     )}
                   </div>
 
-                  <div class="image-container mb-1">
-                    <img
-                      class:list={[{ shadow: applyShadow(imageSlide.image) }]}
-                      src={STRAPI_URL + imageSlide.image.url}
-                      alt={imageSlide.image.altText}
-                    />
-                  </div>
+                  <LazyImage
+                    src={STRAPI_URL + imageSlide.image.url}
+                    alt={imageSlide.image.altText}
+                    imageWidth={imageSlide.image.width}
+                    imageHeight={imageSlide.image.height}
+                    renderWidth={`calc(min(var(--content-width), var(--content-max-width)) * var(--image-scale-factor ))`}
+                    className={
+                      (applyShadow(imageSlide.image) ? "shadow" : "") +
+                      " " +
+                      "slide-image"
+                    }
+                    withSkeleton={true}
+                  />
                   <div class="slide-footer text-on-primary selectable">
                     <RichText content={imageSlide.additionalInfo} />
                   </div>
@@ -81,12 +88,27 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     }
   }
 
+  /* when using splides paddding option. The padding is only active when splide is done loading, causing CLS.
+     When Splide's padding option is unset, it will give the splide__track a padding-left and padding-right of 0px.
+     Therefore override the padding in CSS */
+
+  .splide__track {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+
+    @include mq.upSpecific(833px) {
+      padding-left: calc((100% - var(--content-max-width)) / 2) !important;
+      padding-right: calc((100% - var(--content-max-width)) / 2) !important;
+    }
+  }
+
   .splide__slide {
     display: flex;
     flex-direction: column;
     line-height: normal;
     width: calc(100%);
     opacity: 0.6;
+    margin-right: calc(var(--image-width) / 2);
 
     transition: opacity 0.4s ease;
 
@@ -132,15 +154,14 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     transition: opacity 0.4s ease;
   }
 
-  .image-container {
-    width: var(--image-width);
+  :global(.slide-image) {
     align-self: center;
+    overflow: visible !important;
+    margin-bottom: 1rem;
+  }
 
-    > img {
-      display: block;
-      width: 100%;
-      border-radius: 10px;
-    }
+  :global(.slide-image img) {
+    border-radius: 10px;
   }
 
   .selectable,
@@ -195,37 +216,10 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     focus: "center",
     perPage: 1,
     trimSpace: false,
-    gap: "calc(var(--image-width) / 2)",
-    padding: "calc( (100% - var(--content-max-width)) / 2)",
     arrows: true,
     autoWidth: true,
     pagination: false,
     noDrag: ".selectable *",
-
-    breakpoints: {
-      1899: {
-        gap: "calc(var(--image-width) / 2)",
-        padding: "calc( (100% - var(--content-max-width)) / 2)",
-      },
-      1499: {
-        gap: "calc(var(--image-width) / 2)",
-        padding: "calc( (100% - var(--content-max-width)) / 2)",
-      },
-      1299: {
-        gap: "calc(var(--image-width) / 2)",
-        padding: "calc( (100% - var(--content-max-width)) / 2)",
-      },
-
-      1023: {
-        gap: "calc(var(--image-width) / 2)",
-        padding: "calc( (100% - var(--content-max-width)) / 2)",
-      },
-
-      833: {
-        gap: "20px",
-        padding: "5%",
-      },
-    },
   };
 
   class ImageSlider extends HTMLElement {
@@ -274,7 +268,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     // Assuming the images in the slider will all have the same height,
     // get the height of the first image and set the css variable.
     setImageHeight() {
-      const image = this.querySelector(".image-container > img");
+      const image = this.querySelector(".slide-image img");
       if (image) {
         this.style.setProperty("--image-height", `${image.offsetHeight}px`);
       }
