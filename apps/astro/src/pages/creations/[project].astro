@@ -28,14 +28,11 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
             className="mb-1"
             src={STRAPI_URL + project.image?.url}
             alt={project.image?.altText}
+            width={project.image?.width}
+            height={project.image?.height}
             withSkeleton={true}
             skeletonStyle="grey"
           />
-          <!-- <img
-            class="mb-1"
-            src={STRAPI_URL + project.image?.url}
-            alt={project.image?.altText}
-          /> -->
           {
             project.goToProjectButton && (
               <GoToProjectButton
