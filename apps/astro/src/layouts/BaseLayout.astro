@@ -2,6 +2,7 @@
 import "../styles/main.scss";
 import "@splidejs/splide/css";
 import ClientRouter from "astro/components/ClientRouter.astro";
+import { Font } from "astro:assets";
 
 const requestUrl = new URL(Astro.request.url);
 const increaseBreakoutWidth = requestUrl.pathname === "/creations";
@@ -31,11 +32,8 @@ const pageTransition = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link href="https://use.typekit.net/xnt8pgt.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap"
-      rel="stylesheet"
-    />
+    <Font cssVariable="--font-inter" />
+    <Font cssVariable="--font-proxima-nova" />
     <ClientRouter />
     <title>{requestUrl.pathname}</title>
   </head>

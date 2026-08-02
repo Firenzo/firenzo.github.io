@@ -3,7 +3,7 @@
 main {
   --padding-inline: 5%;
   --content-width: 100% - (var(--padding-inline) * 2);
-  --content-max-width: 77ch;
+  --content-max-width: 750px;
   --breakout-max-width: 1500px;
   --breakout-size: calc(
     (var(--breakout-max-width) - var(--content-max-width)) / 2

@@ -1,7 +1,7 @@
 @use "../styles/breakpoints.scss" as mq;
 
 body {
-  font-family: "proxima-nova", sans-serif;
+  font-family: var(--font-proxima-nova);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #1f1f1f;
@@ -10,7 +10,7 @@ body {
 
 // override user agent styling for button
 button {
-  font-family: "proxima-nova", sans-serif;
+  font-family: var(--font-proxima-nova);
 }
 
 :root {
@@ -38,7 +38,7 @@ button {
 // prettier-ignore
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: Inter, sans-serif;
+  font-family: var(--font-inter);
 }
 
 h1,
