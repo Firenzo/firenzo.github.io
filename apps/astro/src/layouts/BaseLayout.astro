@@ -3,6 +3,7 @@ import "../styles/main.scss";
 import "@splidejs/splide/css";
 import ClientRouter from "astro/components/ClientRouter.astro";
 import { Font } from "astro:assets";
+import Navigation from "../components/Navigation.astro";
 
 const requestUrl = new URL(Astro.request.url);
 const increaseBreakoutWidth = requestUrl.pathname === "/creations";
@@ -39,15 +40,9 @@ const pageTransition = {
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><a href="/about-me">About me</a></li>
-        <li><a href="/resume">Resume</a></li>
-        <li><a href="/creations">Creations</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/">Home</a></li>
-      </ul>
-    </nav>
+    <header class="navigation-wrapper app-header content-grid">
+      <Navigation />
+    </header>
 
     <main
       transition:animate={pageTransition}
@@ -62,6 +57,10 @@ const pageTransition = {
 </html>
 
 <style is:global>
+  main {
+    margin-top: 110px;
+  }
+
   @keyframes slideOut {
     0% {
       opacity: 0;
@@ -94,6 +93,36 @@ const pageTransition = {
       from === to
     );
   }
+
+  let lastScrollPosition = 0;
+  const navBar = document.querySelector(".navigation-wrapper .menu-button");
+  const popover = document.getElementById("mobile-nav-menu");
+
+  const onScroll = () => {
+    console.log("scroll-triggered");
+    const currentScrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScrollPosition < 0) {
+      return;
+    }
+
+    if (Math.abs(currentScrollPosition - lastScrollPosition) < 60) {
+      return;
+    }
+
+    if (currentScrollPosition < lastScrollPosition) {
+      navBar?.classList.add("show");
+      navBar?.classList.remove("hide");
+    } else {
+      navBar?.classList.add("hide");
+      navBar?.classList.remove("show");
+      popover?.hidePopover();
+    }
+
+    lastScrollPosition = currentScrollPosition;
+  };
+
+  window.addEventListener("scroll", onScroll);
 
   document.addEventListener(
     "click",

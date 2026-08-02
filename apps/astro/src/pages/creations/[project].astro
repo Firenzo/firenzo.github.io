@@ -19,11 +19,11 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
 ---
 
 <BaseLayout>
-  <article class="full-width content-grid">
+  <article class="full-width content-grid project-content">
     <h1 class="breakout">{pageTitle}</h1>
     <div class="project-intro content-grid mb-2">
-      <div class="image-and-link content-grid">
-        <div class="sticky-wrapper content-grid">
+      <div class="image-and-link">
+        <div class="sticky-wrapper">
           <LazyImage
             className="mb-1"
             src={STRAPI_URL + project.image?.url}
@@ -86,14 +86,14 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
             top: 100px;
           }
 
-          > img {
-            display: block;
-            grid-column: full-width;
-            width: 100%;
+          :global(.lazy-image) {
+            border-radius: 0 !important;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+          }
 
-            @include mq.up("desktop") {
-              border-radius: 10px;
+          @include mq.up("desktop") {
+            :global(.lazy-image) {
+              border-radius: 10px !important;
             }
           }
         }

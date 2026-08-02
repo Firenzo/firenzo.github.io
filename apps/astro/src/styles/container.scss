@@ -1,6 +1,7 @@
 @use "./breakpoints.scss" as mq;
 
-main {
+main,
+.app-header {
   --padding-inline: 5%;
   --content-width: 100% - (var(--padding-inline) * 2);
   --content-max-width: 750px;
