@@ -1,6 +1,7 @@
 ---
 import { STRAPI_URL } from "../helpers/url";
 import type { ResumePage } from "../schemas/pageSchemas";
+import LazyImage from "./LazyImage.astro";
 
 type SkillListProps = {
   skillList: ResumePage["designSkills"] | ResumePage["frontEndSkills"];
@@ -18,11 +19,13 @@ const { skillList, title } = Astro.props as SkillListProps;
     {
       skillList.map((skill) => (
         <li class="skill-item">
-          <img
-            class="skill-image"
+          <LazyImage
             src={STRAPI_URL + skill.logo.url}
-            loading="lazy"
             alt={skill.logo.altText}
+            imageWidth={95}
+            imageHeight={95}
+            renderHeight={95}
+            renderHeight={95}
           />
           <span class="mt-1 lh-1">{skill.name}</span>
         </li>
@@ -57,10 +60,6 @@ const { skillList, title } = Astro.props as SkillListProps;
       @include mq.up("phone") {
         flex-basis: auto;
         width: var(--item-max-width);
-      }
-
-      img {
-        height: 95px;
       }
 
       span {

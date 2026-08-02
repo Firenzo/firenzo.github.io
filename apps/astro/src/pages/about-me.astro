@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import RichText from "../components/RichText.astro";
 import { STRAPI_URL } from "../helpers/url";
 import { aboutMePageSchema } from "../schemas/pageSchemas";
+import LazyImage from "../components/LazyImage.astro";
 
 const { pageTitle, introText, name, role, picture } = aboutMePageSchema.parse(
   Astro.locals.pageData,
@@ -17,12 +18,14 @@ const { pageTitle, introText, name, role, picture } = aboutMePageSchema.parse(
   </div>
 
   <article class="breakout two-column-layout">
-    <div class="image-wrapper">
-      <img
-        class="profile-pic"
+    <div class="image-container">
+      <LazyImage
         src={STRAPI_URL + picture.url}
-        loading="lazy"
+        imageWidth={picture.width}
+        imageHeight={picture.height}
         alt={picture.altText}
+        withSkeleton={false}
+        className="profile-pic"
       />
     </div>
 
@@ -55,7 +58,19 @@ const { pageTitle, introText, name, role, picture } = aboutMePageSchema.parse(
     }
   }
 
-  .profile-pic {
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  :global(.profile-pic) {
+    border-radius: 2000px;
+    max-width: 550px;
+    overflow: visible !important;
+    margin-bottom: 35px;
+  }
+
+  :global(.profile-pic img) {
     position: sticky;
     top: 1.25rem;
     width: 100%;
@@ -66,8 +81,6 @@ const { pageTitle, introText, name, role, picture } = aboutMePageSchema.parse(
       3px 3px 6px rgba(0, 0, 0, 0.86);
     display: block;
     margin: auto;
-    margin-bottom: 35px;
-    max-width: 550px;
 
     @include mq.up("desktop") {
       max-width: $column-max-width;

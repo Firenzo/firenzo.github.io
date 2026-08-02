@@ -1,0 +1,102 @@
+---
+type LazyImageProps = {
+  src: string;
+  alt: string;
+  imageWidth: number;
+  imageHeight: number;
+  renderWidth?: number | string;
+  renderHeight?: number | string;
+  withSkeleton: boolean;
+  className?: string;
+};
+
+const {
+  src,
+  alt,
+  imageWidth,
+  imageHeight,
+  renderWidth,
+  renderHeight,
+  withSkeleton = false,
+  className = "",
+} = Astro.props as LazyImageProps;
+
+console.log(renderWidth, renderHeight);
+
+const getDimensions = () => {
+  const widthIsString = typeof renderWidth === "string";
+  const widthIsNumber = typeof renderWidth == "number";
+  const widthIsUndefined = typeof renderWidth === "undefined";
+
+  const heightIsString = typeof renderHeight === "string";
+  const heightIsNumber = typeof renderHeight == "number";
+  const heighthIsUndefined = typeof renderHeight === "undefined";
+
+  let imageRenderWidth;
+  if (widthIsNumber) imageRenderWidth = `${renderWidth}px`;
+  if (widthIsString) imageRenderWidth = renderWidth;
+  if (widthIsUndefined) imageRenderWidth = "auto";
+  if (widthIsUndefined && heighthIsUndefined) imageRenderWidth = "100%";
+
+  let imageRenderHeight;
+  if (heightIsNumber) imageRenderHeight = `${renderHeight}px`;
+  if (heightIsString) imageRenderHeight = renderHeight;
+  if (heighthIsUndefined) imageRenderHeight = "auto";
+
+  return { imageRenderWidth, imageRenderHeight };
+};
+
+const { imageRenderWidth, imageRenderHeight } = getDimensions();
+---
+
+<div
+  class:list={["lazy-image", { "with-skeleton": withSkeleton }, className]}
+  style={`aspect-ratio: ${imageWidth} / ${imageHeight};`}
+>
+  <img
+    src={src}
+    alt={alt}
+    style={`aspect-ratio: ${imageWidth} / ${imageHeight};`}
+    loading="lazy"
+    decoding="async"
+    onload="this.parentElement.classList.add('loaded')"
+  />
+</div>
+
+<style lang="scss" define:vars={{ imageRenderWidth, imageRenderHeight }}>
+  .lazy-image {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 12px;
+    width: var(--imageRenderWidth);
+    height: var(--imageRenderHeight);
+
+    &.with-skeleton:not(.loaded) {
+      --skeleton-animation-color-1: rgba(255, 255, 255, 0.4);
+      --skeleton-animation-color-2: rgba(255, 255, 255, 0.2);
+      animation: loading-image 1s ease-in-out infinite alternate-reverse;
+    }
+  }
+
+  @keyframes loading-image {
+    0% {
+      background-color: var(--skeleton-animation-color-1);
+    }
+
+    100% {
+      background-color: var(--skeleton-animation-color-2);
+    }
+  }
+
+  .lazy-image img {
+    display: block;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .lazy-image.loaded img {
+    opacity: 1;
+  }
+</style>
