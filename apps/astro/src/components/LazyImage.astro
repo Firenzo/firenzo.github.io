@@ -7,6 +7,7 @@ type LazyImageProps = {
   renderWidth?: number | string;
   renderHeight?: number | string;
   withSkeleton: boolean;
+  skeletonStyle: "grey" | "onPrimary";
   className?: string;
 };
 
@@ -18,10 +19,9 @@ const {
   renderWidth,
   renderHeight,
   withSkeleton = false,
+  skeletonStyle = "grey",
   className = "",
 } = Astro.props as LazyImageProps;
-
-console.log(renderWidth, renderHeight);
 
 const getDimensions = () => {
   const widthIsString = typeof renderWidth === "string";
@@ -50,7 +50,15 @@ const { imageRenderWidth, imageRenderHeight } = getDimensions();
 ---
 
 <div
-  class:list={["lazy-image", { "with-skeleton": withSkeleton }, className]}
+  class:list={[
+    "lazy-image",
+    {
+      "with-skeleton": withSkeleton,
+      "skeleton-style-grey": skeletonStyle === "grey",
+      "skeleton-style-on-primary": skeletonStyle === "onPrimary",
+    },
+    className,
+  ]}
   style={`aspect-ratio: ${imageWidth} / ${imageHeight};`}
 >
   <img
@@ -73,8 +81,16 @@ const { imageRenderWidth, imageRenderHeight } = getDimensions();
     height: var(--imageRenderHeight);
 
     &.with-skeleton:not(.loaded) {
-      --skeleton-animation-color-1: rgba(255, 255, 255, 0.4);
-      --skeleton-animation-color-2: rgba(255, 255, 255, 0.2);
+      &.skeleton-style-on-primary {
+        --skeleton-animation-color-1: rgba(255, 255, 255, 0.4);
+        --skeleton-animation-color-2: rgba(255, 255, 255, 0.2);
+      }
+
+      &.skeleton-style-grey {
+        --skeleton-animation-color-1: rgba(165, 56, 56, 0.4);
+        --skeleton-animation-color-2: rgba(116, 7, 7, 0.2);
+      }
+
       animation: loading-image 1s ease-in-out infinite alternate-reverse;
     }
   }

@@ -2,6 +2,7 @@
 import { applyShadow } from "../../helpers/applyShadow";
 import { STRAPI_URL } from "../../helpers/url";
 import type { SingleMediaItemComponent } from "../../schemas/contentblockSchema";
+import LazyImage from "../LazyImage.astro";
 
 type SingleMediaItemProps = SingleMediaItemComponent & {
   captionAlign?: "center" | "left" | "right";
@@ -64,11 +65,19 @@ const videoUrlPlatform = videoUrl?.includes("www.youtube.com")
 
     {
       isImage && (
-        <img
+        <LazyImage
           src={STRAPI_URL + media.url}
           alt={media.altText}
-          class:list={[{ shadow: applyShadow(media) }]}
+          className={applyShadow(media) ? "shadow" : ""}
+          imageWidth={media.width}
+          imageHeight={media.height}
+          withSkeleton={true}
         />
+        // <img
+        //   src={STRAPI_URL + media.url}
+        //   alt={media.altText}
+        //   class:list={[{ shadow: applyShadow(media) }]}
+        // />
       )
     }
   </div>

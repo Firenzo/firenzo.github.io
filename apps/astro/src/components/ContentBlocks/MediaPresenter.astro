@@ -2,6 +2,7 @@
 import { STRAPI_URL } from "../../helpers/url";
 import type { MediaPresenterComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
+import LazyImage from "../LazyImage.astro";
 
 const { title, description, image, scrollable, headingLevel } =
   Astro.props as MediaPresenterComponent;
@@ -25,7 +26,13 @@ const HeadingElement = headingLevel;
             class="image-container"
             style={{ width: `${imageWidth}px`, height: `${imageHeight}px` }}
           >
-            <img src={STRAPI_URL + image.url} alt={image.altText} />
+            <LazyImage
+              src={STRAPI_URL + image.url}
+              alt={image.altText}
+              imageWidth={image.width}
+              imageHeight={image.height}
+              withSkeleton={true}
+            />
           </div>
         </div>
       ) : (

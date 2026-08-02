@@ -59,6 +59,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
                       "slide-image"
                     }
                     withSkeleton={true}
+                    skeletonStyle={"onPrimary"}
                   />
                   <div class="slide-footer text-on-primary selectable">
                     <RichText content={imageSlide.additionalInfo} />
@@ -88,6 +89,49 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     }
   }
 
+  .splide-container {
+    visibility: visible !important;
+
+    &:not(.is-initialized) {
+      .splide__slide {
+        opacity: 1;
+      }
+
+      .slide-footer,
+      .slide-header {
+        opacity: 1;
+      }
+    }
+
+    &.is-initialized {
+      .splide__slide:not(.is-active) {
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+
+      .splide__slide:not(.is-active) .slide-header,
+      .splide__slide:not(.is-active) .slide-footer {
+        opacity: 0;
+      }
+    }
+  }
+
+  .splide__slide {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: calc(100%);
+    margin-right: calc(var(--image-width) / 2);
+    transition: opacity 0.4s ease;
+
+    &:before {
+      display: none;
+    }
+  }
+
   /* when using splides paddding option. The padding is only active when splide is done loading, causing CLS.
      When Splide's padding option is unset, it will give the splide__track a padding-left and padding-right of 0px.
      Therefore override the padding in CSS */
@@ -99,34 +143,6 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
     @include mq.upSpecific(833px) {
       padding-left: calc((100% - var(--content-max-width)) / 2) !important;
       padding-right: calc((100% - var(--content-max-width)) / 2) !important;
-    }
-  }
-
-  .splide__slide {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: calc(100%);
-    opacity: 0.6;
-    margin-right: calc(var(--image-width) / 2);
-
-    transition: opacity 0.4s ease;
-
-    &:hover {
-      opacity: 0.85;
-    }
-
-    &.is-active.is-visible {
-      opacity: 1;
-    }
-
-    &:before {
-      display: none;
-    }
-
-    &:not(.is-active) .slide-header,
-    &:not(.is-active) .slide-footer {
-      opacity: 0;
     }
   }
 
