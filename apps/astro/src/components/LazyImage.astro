@@ -81,14 +81,16 @@ const { imageRenderWidth, imageRenderHeight } = getDimensions();
     height: var(--imageRenderHeight);
 
     &.with-skeleton:not(.loaded) {
+      box-shadow: none;
+
       &.skeleton-style-on-primary {
         --skeleton-animation-color-1: rgba(255, 255, 255, 0.4);
         --skeleton-animation-color-2: rgba(255, 255, 255, 0.2);
       }
 
       &.skeleton-style-grey {
-        --skeleton-animation-color-1: rgba(165, 56, 56, 0.4);
-        --skeleton-animation-color-2: rgba(116, 7, 7, 0.2);
+        --skeleton-animation-color-1: rgba(162, 162, 162, 0.33);
+        --skeleton-animation-color-2: rgba(162, 162, 162, 0.2);
       }
 
       animation: loading-image 1s ease-in-out infinite alternate-reverse;
