@@ -1,4 +1,4 @@
-import { mapProject, componentsToPopulate, type ProjectRaw, type Project } from './project-page';
+import { mapProject, getComponentsToPopulate, type ProjectRaw, type Project } from './project-page';
 
 export type CreationsPage = { creations: Project[] };
 
@@ -11,7 +11,7 @@ export default () => ({
           goToProjectButton: true,
           content: {
             on: {
-              ...componentsToPopulate,
+              ...getComponentsToPopulate(),
 
               // override entries in componentsToPopulate for components with nested populations
               'content-blocks.dual-media-items': {

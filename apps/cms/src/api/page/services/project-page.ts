@@ -17,11 +17,11 @@ export type Project = Pick<ProjectRaw, 'name' | 'nameInUrl' | 'introText' | 'tag
   content: ContentBlock[];
 };
 
-export const componentsToPopulate: Record<ContentBlockComponentUID, { populate: '*' }> | {} =
+export const getComponentsToPopulate = (): Record<ContentBlockComponentUID, { populate: '*' }> =>
   getAllContentBlockComponentUIDs().reduce((acc, componentUid: ContentBlockComponentUID) => {
     acc[componentUid] = { populate: '*' };
     return acc;
-  }, {});
+  }, {} as Record<ContentBlockComponentUID, { populate: '*' }>);
 
 export const mapProject = (project: ProjectRaw): Project => ({
   name: project.name,
@@ -45,7 +45,7 @@ export default () => ({
           goToProjectButton: true,
           content: {
             on: {
-              ...componentsToPopulate,
+              ...getComponentsToPopulate(),
 
               // override entries in componentsToPopulate for components with nested populations
               'content-blocks.dual-media-items': {
