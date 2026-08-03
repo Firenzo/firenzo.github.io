@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+autoInstallPeers: true
 allowBuilds:
   "@parcel/watcher": true
   "@swc/core": true

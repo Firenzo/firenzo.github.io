@@ -119,10 +119,10 @@ importers:
   packages/array-field:
     dependencies:
       '@strapi/design-system':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/search@6.7.1)(@codemirror/theme-one-dark@6.1.3)(@strapi/icons@2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(codemirror@5.65.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@strapi/icons':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       react-intl:
         specifier: ^7.1.11
@@ -130,7 +130,7 @@ importers:
     devDependencies:
       '@strapi/sdk-plugin':
         specifier: ^5.3.2
-        version: 5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(supports-color@5.5.0)(terser@5.49.0)
+        version: 5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0)
       '@strapi/strapi':
         specifier: 5.51.1
         version: 5.51.1(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/search@6.7.1)(@codemirror/theme-one-dark@6.1.3)(@emotion/is-prop-valid@1.4.0)(@swc/helpers@0.5.23)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.18))(@types/node@22.20.1)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(codemirror@5.65.21)(esbuild@0.28.1)(koa@2.16.4)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(redux@4.2.1)(sass-embedded@1.100.0)(sass@1.100.0)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.49.0)(ts-toolbelt@9.6.0)(type-fest@4.41.0)
@@ -192,10 +192,10 @@ importers:
         specifier: workspace:*
         version: link:../iconset
       '@strapi/design-system':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/search@6.7.1)(@codemirror/theme-one-dark@6.1.3)(@strapi/icons@2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react-dom@19.2.4(@types/react@18.3.31))(@types/react@18.3.31)(codemirror@5.65.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@strapi/icons':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       react-intl:
         specifier: ^7.1.11
@@ -203,7 +203,7 @@ importers:
     devDependencies:
       '@strapi/sdk-plugin':
         specifier: ^5.3.2
-        version: 5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(supports-color@5.5.0)(terser@5.49.0)
+        version: 5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0)
       '@strapi/strapi':
         specifier: 5.51.1
         version: 5.51.1(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/search@6.7.1)(@codemirror/theme-one-dark@6.1.3)(@emotion/is-prop-valid@1.4.0)(@swc/helpers@0.5.23)(@types/hoist-non-react-statics@3.3.7(@types/react@18.3.31))(@types/node@22.20.1)(@types/react-dom@19.2.4(@types/react@18.3.31))(@types/react@18.3.31)(codemirror@5.65.21)(esbuild@0.28.1)(koa@2.16.4)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(redux@4.2.1)(sass-embedded@1.100.0)(sass@1.100.0)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.49.0)(ts-toolbelt@9.6.0)(type-fest@4.41.0)
@@ -247,10 +247,10 @@ importers:
   packages/json-file-field:
     dependencies:
       '@strapi/design-system':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/search@6.7.1)(@codemirror/theme-one-dark@6.1.3)(@strapi/icons@2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(@types/react-dom@19.2.4(@types/react@18.3.31))(@types/react@18.3.31)(codemirror@5.65.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@strapi/icons':
-        specifier: ^2.2.3
+        specifier: 2.2.3
         version: 2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       react-intl:
         specifier: ^7.1.11
@@ -258,7 +258,7 @@ importers:
     devDependencies:
       '@strapi/sdk-plugin':
         specifier: ^5.3.2
-        version: 5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(supports-color@5.5.0)(terser@5.49.0)
+        version: 5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0)
       '@strapi/strapi':
         specifier: 5.51.1
         version: 5.51.1(@babel/runtime@7.29.7)(@codemirror/autocomplete@6.20.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.9.7)(@codemirror/search@6.7.1)(@codemirror/theme-one-dark@6.1.3)(@emotion/is-prop-valid@1.4.0)(@swc/helpers@0.5.23)(@types/hoist-non-react-statics@3.3.7(@types/react@18.3.31))(@types/node@22.20.1)(@types/react-dom@19.2.4(@types/react@18.3.31))(@types/react@18.3.31)(codemirror@5.65.21)(esbuild@0.28.1)(koa@2.16.4)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(redux@4.2.1)(sass-embedded@1.100.0)(sass@1.100.0)(styled-components@6.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.49.0)(ts-toolbelt@9.6.0)(type-fest@4.41.0)
@@ -9249,32 +9249,12 @@ snapshots:
 
   '@babel/compat-data@7.29.7': {}
 
-  '@babel/core@7.29.7':
-    dependencies:
-      '@babel/code-frame': 7.29.7
-      '@babel/generator': 7.29.8
-      '@babel/helper-compilation-targets': 7.29.7
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.7)
-      '@babel/helpers': 7.29.7
-      '@babel/parser': 7.29.8
-      '@babel/template': 7.29.7
-      '@babel/traverse': 7.29.8(supports-color@5.5.0)
-      '@babel/types': 7.29.8
-      '@jridgewell/remapping': 2.3.5
-      convert-source-map: 2.0.0
-      debug: 4.4.3(supports-color@5.5.0)
-      gensync: 1.0.0-beta.2
-      json5: 2.2.3
-      semver: 6.3.1
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/core@7.29.7(supports-color@5.5.0)':
     dependencies:
       '@babel/code-frame': 7.29.7
       '@babel/generator': 7.29.8
       '@babel/helper-compilation-targets': 7.29.7
-      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.7(supports-color@5.5.0))
+      '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.7)
       '@babel/helpers': 7.29.7
       '@babel/parser': 7.29.8
       '@babel/template': 7.29.7
@@ -9311,7 +9291,7 @@ snapshots:
 
   '@babel/helper-create-class-features-plugin@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-annotate-as-pure': 7.29.7
       '@babel/helper-member-expression-to-functions': 7.29.7
       '@babel/helper-optimise-call-expression': 7.29.7
@@ -9338,18 +9318,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-module-transforms@7.29.7(@babel/core@7.29.7(supports-color@5.5.0))':
-    dependencies:
-      '@babel/core': 7.29.7(supports-color@5.5.0)
-      '@babel/helper-module-imports': 7.29.7
-      '@babel/helper-validator-identifier': 7.29.7
-      '@babel/traverse': 7.29.8(supports-color@5.5.0)
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/helper-module-transforms@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-module-imports': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
       '@babel/traverse': 7.29.8(supports-color@5.5.0)
@@ -9364,7 +9335,7 @@ snapshots:
 
   '@babel/helper-replace-supers@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-member-expression-to-functions': 7.29.7
       '@babel/helper-optimise-call-expression': 7.29.7
       '@babel/traverse': 7.29.8(supports-color@5.5.0)
@@ -9395,22 +9366,22 @@ snapshots:
 
   '@babel/plugin-syntax-flow@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
 
   '@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
 
   '@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
 
   '@babel/plugin-transform-class-properties@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-create-class-features-plugin': 7.29.7(@babel/core@7.29.7)
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
@@ -9418,13 +9389,13 @@ snapshots:
 
   '@babel/plugin-transform-flow-strip-types@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
       '@babel/plugin-syntax-flow': 7.29.7(@babel/core@7.29.7)
 
   '@babel/plugin-transform-modules-commonjs@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.7)
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
@@ -9432,12 +9403,12 @@ snapshots:
 
   '@babel/plugin-transform-nullish-coalescing-operator@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
 
   '@babel/plugin-transform-optional-chaining@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
       '@babel/helper-skip-transparent-expression-wrappers': 7.29.7
     transitivePeerDependencies:
@@ -9445,7 +9416,7 @@ snapshots:
 
   '@babel/plugin-transform-private-methods@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-create-class-features-plugin': 7.29.7(@babel/core@7.29.7)
       '@babel/helper-plugin-utils': 7.29.7
     transitivePeerDependencies:
@@ -9463,7 +9434,7 @@ snapshots:
 
   '@babel/plugin-transform-typescript@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-annotate-as-pure': 7.29.7
       '@babel/helper-create-class-features-plugin': 7.29.7(@babel/core@7.29.7)
       '@babel/helper-plugin-utils': 7.29.7
@@ -9474,14 +9445,14 @@ snapshots:
 
   '@babel/preset-flow@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
       '@babel/helper-validator-option': 7.29.7
       '@babel/plugin-transform-flow-strip-types': 7.29.7(@babel/core@7.29.7)
 
   '@babel/preset-typescript@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/helper-plugin-utils': 7.29.7
       '@babel/helper-validator-option': 7.29.7
       '@babel/plugin-syntax-jsx': 7.29.7(@babel/core@7.29.7)
@@ -9492,7 +9463,7 @@ snapshots:
 
   '@babel/register@7.29.7(@babel/core@7.29.7)':
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       clone-deep: 4.0.1
       find-cache-dir: 2.1.0
       make-dir: 2.1.0
@@ -14497,7 +14468,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@strapi/pack-up@5.1.1(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(supports-color@5.5.0)(terser@5.49.0)':
+  '@strapi/pack-up@5.1.1(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0)':
     dependencies:
       '@vitejs/plugin-react-swc': 3.7.0(@swc/helpers@0.5.23)(vite@5.4.21(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0))
       boxen: 5.1.2
@@ -14506,7 +14477,7 @@ snapshots:
       chokidar: 4.0.1
       commander: 8.3.0
       esbuild: 0.20.2
-      esbuild-register: 3.5.0(esbuild@0.20.2)(supports-color@5.5.0)
+      esbuild-register: 3.5.0(esbuild@0.20.2)
       get-latest-version: 5.1.0
       git-url-parse: 13.1.1
       ini: 4.1.2
@@ -14745,9 +14716,9 @@ snapshots:
       - ts-toolbelt
       - typescript
 
-  '@strapi/sdk-plugin@5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(supports-color@5.5.0)(terser@5.49.0)':
+  '@strapi/sdk-plugin@5.4.0(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0)':
     dependencies:
-      '@strapi/pack-up': 5.1.1(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(supports-color@5.5.0)(terser@5.49.0)
+      '@strapi/pack-up': 5.1.1(@swc/helpers@0.5.23)(@types/node@22.20.1)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.49.0)
       '@types/prompts': 2.4.9
       boxen: 5.1.2
       chalk: 4.1.2
@@ -17397,7 +17368,7 @@ snapshots:
       webpack: 5.106.2(esbuild@0.28.1)(lightningcss@1.33.0)
       webpack-sources: 3.5.1
 
-  esbuild-register@3.5.0(esbuild@0.20.2)(supports-color@5.5.0):
+  esbuild-register@3.5.0(esbuild@0.20.2):
     dependencies:
       debug: 4.4.3(supports-color@5.5.0)
       esbuild: 0.20.2
@@ -18787,7 +18758,7 @@ snapshots:
 
   jscodeshift@17.3.0:
     dependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 7.29.7(supports-color@5.5.0)
       '@babel/parser': 7.29.8
       '@babel/plugin-transform-class-properties': 7.29.7(@babel/core@7.29.7)
       '@babel/plugin-transform-modules-commonjs': 7.29.7(@babel/core@7.29.7)
