@@ -12,7 +12,7 @@
     "generate-site": "pnpm wait-for-strapi && pnpm build-astro && pnpm copy-assets",
     "preview": "turbo run preview --filter='astro'",
     "dev": "turbo run dev",
-    "dev-cms": "turbo run dev --filter='!astro'",
+    "dev-cms": "turbo run dev --filter='@repo/cms'",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"

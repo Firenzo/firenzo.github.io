@@ -22,7 +22,8 @@ const pageTransition = {
 };
 
 const requestUrl = new URL(Astro.request.url);
-const isCreationsPage = requestUrl.pathname.match(/^\/creations(?:\/.*)?$/);
+const isCreationsOrProjectPage = requestUrl.pathname.match(/^\/creations(?:\/.*)?$/);
+const isCreationsPage = requestUrl.pathname.match(/^\/creations\/.+$/);
 const isResumePage = ["/resume", "/resume/"].includes(requestUrl.pathname);
 const isAboutMePage = ["/about-me", "/about-me/"].includes(requestUrl.pathname);
 const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
@@ -51,7 +52,7 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
   </svg>
   <nav class="navigation">
     {
-      requestUrl.pathname.substring(0, 12).startsWith("/creations/") && (
+     isCreationsPage && (
         <a
           transition:animate={pageTransition}
           href="/creations"
@@ -91,7 +92,7 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
               />Resume</a
             >
           </li>
-          <li class:list={[{ active: isCreationsPage }]}>
+          <li class:list={[{ active: isCreationsOrProjectPage }]}>
             <a href="/creations"
               ><Icon
                 icon="ic-pen-ruler"
@@ -120,7 +121,7 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
           ><Icon icon="ic-file-lines" color="white" className="mr-1" />Resume</a
         >
       </li>
-      <li class:list={[{ active: isCreationsPage }]}>
+      <li class:list={[{ active: isCreationsOrProjectPage }]}>
         <a href="/creations"
           ><Icon
             icon="ic-pen-ruler"
