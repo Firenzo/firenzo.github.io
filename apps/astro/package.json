@@ -9,20 +9,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.1",
+    "@astrojs/react": "^6.0.2",
     "@repo/iconset": "workspace:*",
     "@splidejs/splide": "^4.1.4",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.6",
-    "astro": "^7.0.6",
+    "astro": "^7.1.6",
     "lottie-web": "^5.13.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "@repo/cms": "workspace:*",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "0.14.1",
-    "sass-embedded": "^1.89.1"
+    "sass-embedded": "^1.100.0"
   }
 }
