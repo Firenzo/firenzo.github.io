@@ -3,6 +3,7 @@ import ContentBlock from "../../components/ContentBlocks/ContentBlock.astro";
 import GoToProjectButton from "../../components/GoToProjectButton.astro";
 import LazyImage from "../../components/LazyImage.astro";
 import RichText from "../../components/RichText.astro";
+import { getPageData } from "../../helpers/getPageData";
 import { STRAPI_URL } from "../../helpers/url";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projectPageSchema } from "../../schemas/pageSchemas";
@@ -15,7 +16,10 @@ export function getStaticPaths() {
   }));
 }
 
-const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
+const requestUrl = new URL(Astro.request.url);
+const pageData = await getPageData(requestUrl);
+
+const { pageTitle, project } = projectPageSchema.parse(pageData);
 ---
 
 <BaseLayout>
@@ -63,7 +67,7 @@ const { pageTitle, project } = projectPageSchema.parse(Astro.locals.pageData);
       grid-column: full-width;
 
       @include mq.up("desktop") {
-        grid-column: breakout;
+        grid-column: breakout !important; // using important, because in ssg build, it gets overriden for some weird reason
         display: flex;
         gap: 2rem;
         border-bottom: 2px solid #fafafa;

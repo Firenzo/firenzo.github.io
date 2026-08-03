@@ -2,10 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LinkCard from "../components/LinkCard.astro";
 import { contactPageSchema } from "../schemas/pageSchemas";
+import { getPageData } from "../helpers/getPageData";
 
-const { pageTitle, contactItems } = contactPageSchema.parse(
-  Astro.locals.pageData,
-);
+const requestUrl = new URL(Astro.request.url);
+const pageData = await getPageData(requestUrl);
+
+const { pageTitle, contactItems } = contactPageSchema.parse(pageData);
 ---
 
 <BaseLayout>

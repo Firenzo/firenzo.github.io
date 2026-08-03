@@ -3,16 +3,26 @@
   "private": true,
   "scripts": {
     "build": "turbo run build --filter='!astro'",
-    "build:astro": "turbo run build --filter='astro'",
+    "build-packages": "turbo run build --filter='!astro' --filter='!@repo/cms'",
+    "start-cms": "pnpm --filter='@repo/cms' start",
+    "build-astro": "turbo run build --filter='astro'",
+    "wait-for-strapi": "node -e \"setTimeout(() => {}, 15000)\"",
+    "copy-assets": "node scripts/copy-assets.mjs",
+    "build-static": "pnpm build-packages && node scripts/build-static.mjs",
+    "generate-site": "pnpm wait-for-strapi && pnpm build-astro && pnpm copy-assets",
+    "preview": "turbo run preview --filter='astro'",
     "dev": "turbo run dev",
+    "dev-cms": "turbo run dev --filter='!astro'",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@types/node": "^20",
     "prettier": "^3.5.3",
     "turbo": "^2.5.4",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "wait-on": "^9.1.0"
   },
   "packageManager": "pnpm@11.10.0+sha512.0b7f8b98060031904c017e3a41eb187a16d40eeb829b95c4f8cb03681761fc4ab53dd219115b9b447f4dce1a05a214764461e7d3703392a9f32f9511ce8c86c8",
   "engines": {

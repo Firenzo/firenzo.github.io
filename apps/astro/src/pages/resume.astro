@@ -4,9 +4,12 @@ import { resumePageSchema } from "../schemas/pageSchemas";
 import { getTranslation } from "../helpers/translations";
 import SkillList from "../components/SkillList.astro";
 import Timeline from "../components/Timeline/Timeline.astro";
+import { getPageData } from "../helpers/getPageData";
 
+const requestUrl = new URL(Astro.request.url);
+const pageData = await getPageData(requestUrl);
 const { pageTitle, designSkills, frontEndSkills, experiences } =
-  resumePageSchema.parse(Astro.locals.pageData);
+  resumePageSchema.parse(pageData);
 ---
 
 <BaseLayout>

@@ -6,7 +6,7 @@ import { Font } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
 
 const requestUrl = new URL(Astro.request.url);
-const increaseBreakoutWidth = requestUrl.pathname === "/creations";
+const increaseBreakoutWidth = requestUrl.pathname === "/creations" || requestUrl.pathname === "/creations/" ;
 
 const slideOutIn = {
   old: {
@@ -99,7 +99,6 @@ const pageTransition = {
   const popover = document.getElementById("mobile-nav-menu");
 
   const onScroll = () => {
-    console.log("scroll-triggered");
     const currentScrollPosition =
       window.pageYOffset || document.documentElement.scrollTop;
     if (currentScrollPosition < 0) {

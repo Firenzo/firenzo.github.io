@@ -7,11 +7,12 @@ export type IconProps = {
   icon: IconClassName;
   size?: IconSize;
   color?: IconColor;
+  className?: string;
 };
 
 const Icon = (props: IconProps) => {
-  const { icon, size = 24, color = "primary" } = props;
-  const classes = `${icon} icon-size-${size} icon-color-${color}`;
+  const { icon, size = 24, color = "primary", className = "" } = props;
+  const classes = `${icon} icon-size-${size} icon-color-${color} ${className}`;
 
   return <i className={classes} aria-hidden="true" />;
 };

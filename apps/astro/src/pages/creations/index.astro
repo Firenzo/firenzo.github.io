@@ -3,9 +3,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { creationsPageSchema } from "../../schemas/pageSchemas";
 import ProjectLinkCard from "../../components/ProjectLinkCard.astro";
 import Pill from "../../components/Pill.astro";
-const { pageTitle, creations } = creationsPageSchema.parse(
-  Astro.locals.pageData,
-);
+import { getPageData } from "../../helpers/getPageData";
+
+const requestUrl = new URL(Astro.request.url);
+const pageData = await getPageData(requestUrl);
+const { pageTitle, creations } = creationsPageSchema.parse(pageData);
 ---
 
 <BaseLayout>
