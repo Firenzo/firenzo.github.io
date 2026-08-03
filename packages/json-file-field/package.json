@@ -38,18 +38,18 @@
     "@strapi/strapi": "5.51.1",
     "@strapi/sdk-plugin": "6.1.1",
     "prettier": "^3.5.3",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-router-dom": "7.18.2",
-    "styled-components": "6.4.4"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1",
+    "styled-components": "^6.1.18"
   },
   "peerDependencies": {
     "@strapi/strapi": "^5.51.1",
     "@strapi/sdk-plugin": "^6.1.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.2",
-    "styled-components": "^6.4.4"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1",
+    "styled-components": "^6.1.18"
   },
   "strapi": {
     "kind": "plugin",
