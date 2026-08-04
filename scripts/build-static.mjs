@@ -10,6 +10,7 @@ function run(command, args = []) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       stdio: "inherit",
+      detached: true,
     });
 
     child.on("close", (code) => {
@@ -26,15 +27,16 @@ function run(command, args = []) {
 
 function stopStrapi() {
   return new Promise((resolve) => {
-    if (!strapi) {
+    if (!strapi?.pid) {
       resolve();
       return;
     }
 
     console.log("Stopping Strapi...");
 
+    process.kill(-strapi.pid, "SIGINT");
+
     strapi.once("close", resolve);
-    strapi.kill("SIGINT");
   });
 }
 
