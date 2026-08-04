@@ -34,7 +34,18 @@ function stopStrapi() {
 
     console.log("Stopping Strapi...");
 
-    strapi.once("close", resolve);
+    const timeout = setTimeout(() => {
+      console.warn("Force killing Strapi");
+
+      strapi.kill("SIGKILL");
+      resolve();
+    }, 5000);
+
+    strapi.once("close", () => {
+      clearTimeout(timeout);
+      resolve();
+    });
+
     strapi.kill("SIGINT");
   });
 }
