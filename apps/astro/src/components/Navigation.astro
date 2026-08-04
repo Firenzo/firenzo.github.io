@@ -217,7 +217,6 @@ const isContactPage = [getPageUrl("/contact"), getPageUrl("/contact/")].includes
       @starting-style {
         opacity: 0;
       }
-
       &.hide {
         opacity: 0;
         display: none;
@@ -228,6 +227,7 @@ const isContactPage = [getPageUrl("/contact"), getPageUrl("/contact/")].includes
       }
 
       @include mq.upSpecific(833px) {
+        transition-duration: 0s;
         display: none;
       }
     }

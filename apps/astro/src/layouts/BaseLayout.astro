@@ -4,9 +4,12 @@ import "@splidejs/splide/css";
 import ClientRouter from "astro/components/ClientRouter.astro";
 import { Font } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
+import { getPageUrl } from "../helpers/url";
 
 const requestUrl = new URL(Astro.request.url);
-const increaseBreakoutWidth = requestUrl.pathname === "/creations" || requestUrl.pathname === "/creations/" ;
+const increaseBreakoutWidth =
+  requestUrl.pathname === getPageUrl("/creations") ||
+  requestUrl.pathname === getPageUrl("/creations/");
 
 const slideOutIn = {
   old: {
@@ -94,35 +97,6 @@ const pageTransition = {
     );
   }
 
-  let lastScrollPosition = 0;
-  const navBar = document.querySelector(".navigation-wrapper .menu-button");
-  const popover = document.getElementById("mobile-nav-menu");
-
-  const onScroll = () => {
-    const currentScrollPosition =
-      window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScrollPosition < 0) {
-      return;
-    }
-
-    if (Math.abs(currentScrollPosition - lastScrollPosition) < 60) {
-      return;
-    }
-
-    if (currentScrollPosition < lastScrollPosition) {
-      navBar?.classList.add("show");
-      navBar?.classList.remove("hide");
-    } else {
-      navBar?.classList.add("hide");
-      navBar?.classList.remove("show");
-      popover?.hidePopover();
-    }
-
-    lastScrollPosition = currentScrollPosition;
-  };
-
-  window.addEventListener("scroll", onScroll);
-
   document.addEventListener(
     "click",
     (e) => {
@@ -174,6 +148,44 @@ const pageTransition = {
   window.__lastPathname = window.location.pathname;
 
   document.addEventListener("astro:page-load", () => {
-    console.log("page load");
+    let lastScrollPosition = 0;
+    const menuButton = document.querySelector(
+      ".navigation-wrapper .menu-button",
+    );
+    const popover = document.getElementById("mobile-nav-menu");
+    let hasScrolled = 0;
+
+    const onScroll = () => {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      // Prevent this function from firing on page load by ignoring the first 5 scroll triggers.
+      if (hasScrolled < 5) {
+        lastScrollPosition = currentScrollPosition;
+        hasScrolled += 1;
+        return;
+      }
+
+      if (currentScrollPosition < 0) {
+        return;
+      }
+
+      if (Math.abs(currentScrollPosition - lastScrollPosition) < 60) {
+        return;
+      }
+
+      if (currentScrollPosition < lastScrollPosition) {
+        menuButton?.classList.add("show");
+        menuButton?.classList.remove("hide");
+      } else {
+        menuButton?.classList.add("hide");
+        menuButton?.classList.remove("show");
+        popover?.hidePopover();
+      }
+
+      lastScrollPosition = currentScrollPosition;
+    };
+
+    window.addEventListener("scroll", onScroll);
   });
 </script>
