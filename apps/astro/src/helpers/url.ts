@@ -8,7 +8,7 @@ export const BASE_PATH =
     ? (import.meta.env.BASE_PATH ?? "")
     : "";
 
-export const CMS_URL = import.meta.env.CMS_URL ?? "";
+export const CMS_URL = process.env.CMS_URL ?? "";
 
 export const getAssetURL = (imageUrl: string | null | undefined) => {
   if (!imageUrl) return imageUrl;
