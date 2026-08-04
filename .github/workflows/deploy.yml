@@ -33,7 +33,7 @@ jobs:
       # ASTRO
       # no need to set ASSET_URL now since assets are copied over to Astro
       CMS_URL: http://localhost:1337
-      BASE_PATH: /portfolio-remake
+      # BASE_PATH: /portfolio-remake # only necessary when deploying with a path as base
 
     steps:
       - name: Checkout repository

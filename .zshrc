@@ -52,3 +52,7 @@ useIp() {
   update_env_variable CMS_URL "http://$(ipconfig getifaddr en0):1337"
 }
 
+
+pipeline() {
+  open "https://github.com/Firenzo/firenzo.github.io/actions"
+}
