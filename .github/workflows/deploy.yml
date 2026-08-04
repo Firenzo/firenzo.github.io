@@ -49,4 +49,4 @@ jobs:
         run: pnpm --filter @repo/cms import-content
 
       - name: Build cms
-        run: pnpm build-packages
+        run: pnpm build
