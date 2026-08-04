@@ -1,4 +1,4 @@
-import { STRAPI_URL } from "../src/helpers/url";
+import { CMS_URL } from "../src/helpers/url";
 interface Props {
   endpoint: string;
   query?: Record<string, string>;
@@ -24,7 +24,7 @@ export default async function fetchApi<T>({
     endpoint = endpoint.slice(1);
   }
 
-  const url = new URL(`${STRAPI_URL}/api/${endpoint}`);
+  const url = new URL(`${CMS_URL}/api/${endpoint}`);
 
   if (query) {
     Object.entries(query).forEach(([key, value]) => {

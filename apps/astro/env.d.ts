@@ -1,6 +1,7 @@
 interface ImportMetaEnv {
-  readonly STRAPI_URL: string;
+  readonly ASSET_URL: string;
   readonly BASE_PATH: string;
+  readonly CMS_URL: string;
 }
 
 declare module "@splidejs/splide";

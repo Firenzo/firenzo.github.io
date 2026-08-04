@@ -17,6 +17,7 @@ jobs:
     env:
       NODE_ENV: production
 
+      # STRAPI
       DATABASE_CLIENT: sqlite
       DATABASE_SSL: false
       DATABASE_FILENAME: .tmp/data.db
@@ -28,6 +29,11 @@ jobs:
       TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
       CONTENT_ENCRYPTION_KEY: ${{ secrets.CONTENT_ENCRYPTION_KEY }}
+
+      # ASTRO
+      # no need to set ASSET_URL now since assets are copied over to Astro
+      CMS_URL: http://localhost:1337
+      BASE_PATH: /portfolio-remake
 
     steps:
       - name: Checkout repository

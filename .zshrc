@@ -43,10 +43,12 @@ cdAstro() {
 }
 
 useLocal() {
-  update_env_variable STRAPI_URL http://127.0.0.1:1337
+  update_env_variable ASSET_URL http://127.0.0.1:1337
+  update_env_variable CMS_URL http://127.0.0.1:1337
 }
 
 useIp() {
-  update_env_variable STRAPI_URL "http://$(ipconfig getifaddr en0):1337"
+  update_env_variable ASSET_URL "http://$(ipconfig getifaddr en0):1337"
+  update_env_variable CMS_URL "http://$(ipconfig getifaddr en0):1337"
 }
 

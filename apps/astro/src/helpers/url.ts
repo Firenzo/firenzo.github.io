@@ -1,12 +1,18 @@
-export const STRAPI_URL =
-  process.env.NODE_ENV === "development" ? import.meta.env.STRAPI_URL : "";
+export const ASSET_URL =
+  process.env.NODE_ENV === "development"
+    ? (import.meta.env.ASSET_URL ?? "")
+    : "";
 
 export const BASE_PATH =
-  process.env.NODE_ENV === "development" ? "" : import.meta.env.BASE_PATH;
+  process.env.NODE_ENV === "production"
+    ? (import.meta.env.BASE_PATH ?? "")
+    : "";
+
+export const CMS_URL = import.meta.env.CMS_URL ?? "";
 
 export const getAssetURL = (imageUrl: string | null | undefined) => {
   if (!imageUrl) return imageUrl;
-  return STRAPI_URL + BASE_PATH + imageUrl;
+  return ASSET_URL + BASE_PATH + imageUrl;
 };
 
 export const getPageUrl = (pageUrl: string) => {
