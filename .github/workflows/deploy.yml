@@ -51,7 +51,7 @@ jobs:
         run: pnpm build --ui=stream
 
       - name: Import Strapi content
-        run: pnpm import-content
+        run: pnpm --filter @repo/cms import-content
 
       - name: Build static site
         run: pnpm build-static
