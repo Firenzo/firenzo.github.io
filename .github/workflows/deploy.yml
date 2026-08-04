@@ -44,3 +44,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Import Strapi content
+        run: pnpm --filter @repo/cms import-content
+
+      - name: Build cms
+        run: pnpm build-packages
