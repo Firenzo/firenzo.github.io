@@ -17,7 +17,7 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "export": "dotenv -e .env -- strapi export --file my-export --encrypt --key \"$EXPORT_ENCRYPTION_KEY\""
+    "export": "dotenv -e .env -- sh -c 'strapi export --file site-content --key $EXPORT_ENCRYPTION_KEY'"
   },
   "dependencies": {
     "@repo/array-field": "workspace:*",
