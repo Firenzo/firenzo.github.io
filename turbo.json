@@ -6,7 +6,7 @@
       "cache": false
     },
     "astro#build": {
-      "env": ["CMS_URL"],
+      "env": ["CMS_URL", "BASE_PATH"],
       "cache": false
     },
     "lint": {
