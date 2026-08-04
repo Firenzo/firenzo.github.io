@@ -10,7 +10,6 @@ function run(command, args = []) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       stdio: "inherit",
-      shell: true,
     });
 
     child.on("close", (code) => {
@@ -42,14 +41,10 @@ function stopStrapi() {
 async function main() {
   console.log("Starting Strapi...");
 
-  strapi = spawn(
-    "pnpm",
-    ["--filter", "@repo/cms", "start"],
-    {
-      stdio: "inherit",
-      shell: true,
-    }
-  );
+  strapi = spawn("pnpm", ["--filter", "@repo/cms", "start"], {
+    stdio: "inherit",
+    shell: true,
+  });
 
   await run("pnpm", ["wait-for-strapi"]);
 
