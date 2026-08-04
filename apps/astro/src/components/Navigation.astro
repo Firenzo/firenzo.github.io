@@ -1,5 +1,6 @@
 ---
 import { Icon } from "@repo/iconset/components";
+import { BASE_PATH, getPageUrl } from "../helpers/url";
 
 const slideOutIn = {
   old: {
@@ -21,12 +22,27 @@ const pageTransition = {
   backwards: slideOutIn,
 };
 
+const escapeRegExp = (text: string): string => {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+};
+
+const safeBasePath = escapeRegExp(BASE_PATH);
+const creationsPageRegex = new RegExp(`^${safeBasePath}/creations/.+$`);
+const creationsOrProjectPageRegex = new RegExp(
+  `^${safeBasePath}/creations(?:/.*)?$`,
+);
+
 const requestUrl = new URL(Astro.request.url);
-const isCreationsOrProjectPage = requestUrl.pathname.match(/^\/creations(?:\/.*)?$/);
-const isCreationsPage = requestUrl.pathname.match(/^\/creations\/.+$/);
-const isResumePage = ["/resume", "/resume/"].includes(requestUrl.pathname);
-const isAboutMePage = ["/about-me", "/about-me/"].includes(requestUrl.pathname);
-const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
+//prettier-ignore
+const isCreationsOrProjectPage = requestUrl.pathname.match(creationsOrProjectPageRegex);
+//prettier-ignore
+const isCreationsPage = requestUrl.pathname.match(creationsPageRegex);
+//prettier-ignore
+const isResumePage = [getPageUrl("/resume"), getPageUrl("/resume/")].includes(requestUrl.pathname);
+//prettier-ignore
+const isAboutMePage = [getPageUrl("/about-me"), getPageUrl("/about-me/")].includes(requestUrl.pathname);
+//prettier-ignore
+const isContactPage = [getPageUrl("/contact"), getPageUrl("/contact/")].includes(requestUrl.pathname);
 ---
 
 <div class="navigation-wrapper breakout">
@@ -52,10 +68,10 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
   </svg>
   <nav class="navigation">
     {
-     isCreationsPage && (
+      isCreationsPage && (
         <a
           transition:animate={pageTransition}
-          href="/creations"
+          href={getPageUrl("/creations")}
           class="navigation-button back-button"
           aria-label="Go back to creations"
         >
@@ -80,11 +96,11 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
     <div id="mobile-nav-menu" role="menu" popover="auto" class="nav-menu">
       <ul>
         <li class:list={[{ active: isAboutMePage }]}>
-          <a href="/about-me">
+          <a href={getPageUrl("/about-me")}>
             <Icon icon="ic-user" color="white" className="mr-1" /> About me
           </a>
           <li class:list={[{ active: isResumePage }]}>
-            <a href="/resume"
+            <a href={getPageUrl("/resume")}
               ><Icon
                 icon="ic-file-lines"
                 color="white"
@@ -93,17 +109,21 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
             >
           </li>
           <li class:list={[{ active: isCreationsOrProjectPage }]}>
-            <a href="/creations"
+            <a href={getPageUrl("/creations")}
               ><Icon
                 icon="ic-pen-ruler"
                 color="white"
-                class="mr-1"
+                className="mr-1"
               />Creations</a
             >
           </li>
           <li class:list={[{ active: isContactPage }]}>
-            <a href="/contact"
-              ><Icon icon="ic-envelope" color="white" class="mr-1" />Contact</a
+            <a href={getPageUrl("/contact")}
+              ><Icon
+                icon="ic-envelope"
+                color="white"
+                className="mr-1"
+              />Contact</a
             >
           </li>
         </li>
@@ -112,17 +132,17 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
 
     <ul class="link-list">
       <li class:list={[{ active: isAboutMePage }]}>
-        <a href="/about-me"
+        <a href={getPageUrl("/about-me")}
           ><Icon icon="ic-user" color="white" className="mr-1" />About me</a
         >
       </li>
       <li class:list={[{ active: isResumePage }]}>
-        <a href="/resume"
+        <a href={getPageUrl("/resume")}
           ><Icon icon="ic-file-lines" color="white" className="mr-1" />Resume</a
         >
       </li>
       <li class:list={[{ active: isCreationsOrProjectPage }]}>
-        <a href="/creations"
+        <a href={getPageUrl("/creations")}
           ><Icon
             icon="ic-pen-ruler"
             color="white"
@@ -131,7 +151,7 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
         >
       </li>
       <li class:list={[{ active: isContactPage }]}>
-        <a href="/contact"
+        <a href={getPageUrl("/contact")}
           ><Icon icon="ic-envelope" color="white" className="mr-1" />Contact</a
         >
       </li>
@@ -279,7 +299,9 @@ const isContactPage = ["/contact", "/contact/"].includes(requestUrl.pathname);
       filter: drop-shadow(-8px -10px 46px #0000005f);
       // backdrop-filter: brightness(1.1) blur(2px) url(#displacementFilter);
       backdrop-filter: brightness(1.1) blur(2px);
-      box-shadow: 0px -2px 3px #FFF,1px 1px 4px #000;
+      box-shadow:
+        0px -2px 3px #fff,
+        1px 1px 4px #000;
 
       @include mq.upSpecific(833px) {
         display: flex;

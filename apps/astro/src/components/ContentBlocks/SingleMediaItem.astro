@@ -1,6 +1,6 @@
 ---
 import { applyShadow } from "../../helpers/applyShadow";
-import { STRAPI_URL } from "../../helpers/url";
+import { getAssetURL } from "../../helpers/url";
 import type { SingleMediaItemComponent } from "../../schemas/contentblockSchema";
 import LazyImage from "../LazyImage.astro";
 
@@ -45,10 +45,10 @@ const videoUrlPlatform = videoUrl?.includes("www.youtube.com")
         <>
           <video
             controls="controls"
-            poster={videoStill?.url ? STRAPI_URL + videoStill.url : undefined}
+            poster={videoStill?.url ? getAssetURL(videoStill.url) : undefined}
             class="shadow"
           >
-            <source src={STRAPI_URL + media.url} type={media.mime} /> Your
+            <source src={getAssetURL(media.url)} type={media.mime} /> Your
             browser does not support the video tag
           </video>
           {videoUrl && (
@@ -66,7 +66,7 @@ const videoUrlPlatform = videoUrl?.includes("www.youtube.com")
     {
       isImage && (
         <LazyImage
-          src={STRAPI_URL + media.url}
+          src={getAssetURL(media.url)}
           alt={media.altText}
           className={applyShadow(media) ? "shadow" : ""}
           imageWidth={media.width}

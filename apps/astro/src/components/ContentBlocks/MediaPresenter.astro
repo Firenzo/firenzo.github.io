@@ -1,5 +1,5 @@
 ---
-import { STRAPI_URL } from "../../helpers/url";
+import { getAssetURL } from "../../helpers/url";
 import type { MediaPresenterComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 import LazyImage from "../LazyImage.astro";
@@ -27,17 +27,18 @@ const HeadingElement = headingLevel;
             style={{ width: `${imageWidth}px`, height: `${imageHeight}px` }}
           >
             <LazyImage
-              src={STRAPI_URL + image.url}
+              src={getAssetURL(image.url)}
               alt={image.altText}
               imageWidth={image.width}
               imageHeight={image.height}
               withSkeleton={true}
+              className="shadow"
             />
           </div>
         </div>
       ) : (
         <div class="image-container">
-          <img src={STRAPI_URL + image.url} alt={image.altText} />
+          <img src={getAssetURL(image.url)} alt={image.altText} />
         </div>
       )
     }
@@ -45,14 +46,6 @@ const HeadingElement = headingLevel;
 </FullWidthBox>
 
 <style lang="scss">
-  .image-container {
-    > img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
-    }
-  }
-
   .scrollable-image {
     width: 100%;
     overflow-y: hidden;
@@ -85,26 +78,6 @@ const HeadingElement = headingLevel;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .image-container > img {
-      //TODO simplify grid so this can be calculated
-
-      margin-right: calc(50vw - (min(100%, var(--content-max-width)) / 2));
-
-      // margin-right: min(
-      //   max(0px, calc(var(--breakout-size) + var(--padding-inline))),
-      //   max(0px, calc(50vw - (min(100%, var(--content-max-width)) / 2)))
-      // );
-      // margin-right: calc(
-      //   (
-      //       100vw - min(
-      //           100% - (var(--padding-inline) * 2),
-      //           var(--content-max-width)
-      //         )
-      //     ) /
-      //     2
-      // );
     }
   }
 </style>

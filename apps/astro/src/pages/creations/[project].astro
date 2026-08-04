@@ -4,7 +4,7 @@ import GoToProjectButton from "../../components/GoToProjectButton.astro";
 import LazyImage from "../../components/LazyImage.astro";
 import RichText from "../../components/RichText.astro";
 import { getPageData } from "../../helpers/getPageData";
-import { STRAPI_URL } from "../../helpers/url";
+import { getAssetURL } from "../../helpers/url";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { projectPageSchema } from "../../schemas/pageSchemas";
 import { allProjects } from "@repo/cms/modules";
@@ -30,7 +30,7 @@ const { pageTitle, project } = projectPageSchema.parse(pageData);
         <div class="sticky-wrapper">
           <LazyImage
             className="mb-1"
-            src={STRAPI_URL + project.image?.url}
+            src={getAssetURL(project.image?.url)}
             alt={project.image?.altText}
             imageWidth={project.image?.width}
             imageHeight={project.image?.height}

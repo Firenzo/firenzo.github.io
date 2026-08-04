@@ -1,5 +1,5 @@
 ---
-import { STRAPI_URL } from "../helpers/url";
+import { getAssetURL, getPageUrl } from "../helpers/url";
 import type { ProjectPage } from "../schemas/pageSchemas";
 import LazyImage from "./LazyImage.astro";
 
@@ -10,10 +10,13 @@ type ProjectLinkCardProps = {
 const { creation } = Astro.props as ProjectLinkCardProps;
 ---
 
-<a class="project-link-card" href={`/creations/${creation.nameInUrl}`}>
+<a
+  class="project-link-card"
+  href={getPageUrl(`/creations/${creation.nameInUrl}`)}
+>
   <div class="image-container">
     <LazyImage
-      src={STRAPI_URL + creation.image?.url}
+      src={getAssetURL(creation.image?.url)}
       alt={creation.image?.altText}
       imageWidth={creation.image?.width}
       imageHeight={creation.image?.height}

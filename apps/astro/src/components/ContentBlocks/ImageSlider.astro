@@ -1,5 +1,5 @@
 ---
-import { STRAPI_URL } from "../../helpers/url";
+import { getAssetURL } from "../../helpers/url";
 import type { ImageSliderComponent } from "../../schemas/contentblockSchema";
 import FullWidthBox from "../FullWidthBox.astro";
 import RichText from "../RichText.astro";
@@ -48,7 +48,7 @@ const randomId = "id-" + Math.random().toString(36).slice(2, 11);
                   </div>
 
                   <LazyImage
-                    src={STRAPI_URL + imageSlide.image.url}
+                    src={getAssetURL(imageSlide.image.url)}
                     alt={imageSlide.image.altText}
                     imageWidth={imageSlide.image.width}
                     imageHeight={imageSlide.image.height}

@@ -2,6 +2,7 @@
 // @ts-nocheck
 import type { HTMLElementType } from "react";
 import { RichTextComponent } from "../schemas/contentblockSchema";
+import { getPageUrl, isRelativePath } from "../helpers/url";
 
 type RichTextProps = { content: RichTextComponent };
 
@@ -36,7 +37,10 @@ const getElement = (element) => {
 
 const getAttributes = (element) => {
   const attrs = {};
-  element.url && (attrs.href = element.url);
+  element.url &&
+    (attrs.href = isRelativePath(element.url)
+      ? getPageUrl(element.url)
+      : element.url);
   return attrs;
 };
 

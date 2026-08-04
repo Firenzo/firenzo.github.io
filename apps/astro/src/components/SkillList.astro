@@ -1,5 +1,5 @@
 ---
-import { STRAPI_URL } from "../helpers/url";
+import { getAssetURL } from "../helpers/url";
 import type { ResumePage } from "../schemas/pageSchemas";
 import LazyImage from "./LazyImage.astro";
 
@@ -20,7 +20,7 @@ const { skillList, title } = Astro.props as SkillListProps;
       skillList.map((skill) => (
         <li class="skill-item">
           <LazyImage
-            src={STRAPI_URL + skill.logo.url}
+            src={getAssetURL(skill.logo.url)}
             alt={skill.logo.altText}
             imageWidth={95}
             imageHeight={95}
