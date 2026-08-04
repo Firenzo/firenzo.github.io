@@ -46,7 +46,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Strapi
-        run: pnpm build
+        run: pnpm build --ui=stream
 
       - name: Import Strapi content
         run: pnpm --filter @repo/cms import-content
