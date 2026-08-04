@@ -5,10 +5,10 @@
     "build": "turbo run build --filter='!astro'",
     "build-packages": "turbo run build --filter='!astro' --filter='!@repo/cms'",
     "start-cms": "pnpm --filter='@repo/cms' start",
-    "build-astro": "turbo run build --filter='astro'",
+    "build-astro": "turbo run build --filter='astro' --ui=stream",
     "wait-for-strapi": "wait-on http://localhost:1337/api/page/creations/multifeed",
     "copy-assets": "node scripts/copy-assets.mjs",
-    "build-static": "pnpm build && node scripts/build-static.mjs",
+    "build-static": "pnpm build --ui=stream && node scripts/build-static.mjs",
     "generate-site": "pnpm wait-for-strapi && pnpm build-astro && pnpm copy-assets",
     "preview": "turbo run preview --filter='astro'",
     "dev": "turbo run dev",
@@ -16,7 +16,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "export": "turbo run export"
+    "export-content": "turbo run export-content --ui=stream",
+    "import-content": "turbo run import-content --ui=stream"
   },
   "devDependencies": {
     "@types/node": "^20",

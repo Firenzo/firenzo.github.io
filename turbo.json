@@ -3,7 +3,7 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "cache":false
+      "cache": false
     },
     "astro#build": {
       "cache": false
@@ -22,8 +22,11 @@
       "cache": false,
       "persistent": true
     },
-    "export": {
-      "cache":false
+    "export-content": {
+      "cache": false
+    },
+    "import-content": {
+      "cache": false
     }
   }
 }
