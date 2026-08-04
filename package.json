@@ -8,7 +8,7 @@
     "build-astro": "turbo run build --filter='astro' --ui=stream",
     "wait-for-strapi": "wait-on http://localhost:1337/api/page/creations/multifeed",
     "copy-assets": "node scripts/copy-assets.mjs",
-    "build-static": "pnpm build --ui=stream && node scripts/build-static.mjs",
+    "build-static": "node scripts/build-static.mjs",
     "generate-site": "pnpm wait-for-strapi && pnpm build-astro && pnpm copy-assets",
     "preview": "turbo run preview --filter='astro'",
     "dev": "turbo run dev",
