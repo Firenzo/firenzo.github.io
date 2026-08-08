@@ -14,6 +14,13 @@ try {
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport",
+  },
+  experimental: {
+    clientPrerender: true,
+  },
   site:
     process.env.NODE_ENV === "production"
       ? "https://firenzo.github.io"
