@@ -56,3 +56,21 @@ useIp() {
 pipeline() {
   open "https://github.com/Firenzo/firenzo.github.io/actions"
 }
+
+createSandbox() {
+  sbx run pi --kit ./.sbx/pi
+}
+
+deleteSandbox() {
+  sbx rm pi-firenzo.github.io
+}
+
+addSkillsToSandbox() {
+  sbx kit add pi-firenzo.github.io ./.sbx/skills  
+}
+
+openSandbox() {
+  sbx run pi-firenzo.github.io --kit ./.sbx/pi
+}
+
+alias runSandbox="openSandbox"
